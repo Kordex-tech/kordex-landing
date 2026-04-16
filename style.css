@@ -66,6 +66,38 @@ body {
   object-fit: contain;
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lang-switch {
+  display: flex;
+  gap: 2px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 6px;
+  padding: 2px;
+}
+
+.lang-btn {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  letter-spacing: 0.5px;
+}
+
+.lang-btn:hover { color: var(--text); }
+
+.lang-btn.active {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .nav-cta {
   font-size: 14px;
   font-weight: 600;
