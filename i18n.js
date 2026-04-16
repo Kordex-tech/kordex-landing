@@ -35,7 +35,7 @@ const TRANSLATIONS = {
     formNote: "We respond within 24 hours. Your data stays confidential.",
     footerDesc: "Industrial Safety Intelligence",
     footerContact: "Get in touch",
-    footerCopy: "\u00A9 2026 KORDEX d.o.o. All rights reserved.",
+    footerCopy: "\u00A9 2026 KORDEX All rights reserved.",
     navCta: "Request a Sprint",
   },
   de: {
@@ -74,7 +74,7 @@ const TRANSLATIONS = {
     formNote: "Wir antworten innerhalb von 24 Stunden. Ihre Daten bleiben vertraulich.",
     footerDesc: "Industrielle Sicherheitsintelligenz",
     footerContact: "Kontakt",
-    footerCopy: "\u00A9 2026 KORDEX d.o.o. Alle Rechte vorbehalten.",
+    footerCopy: "\u00A9 2026 KORDEX Alle Rechte vorbehalten.",
     navCta: "Sprint anfragen",
   },
   sl: {
@@ -113,7 +113,7 @@ const TRANSLATIONS = {
     formNote: "Odgovorimo v 24 urah. Va\u0161i podatki ostanejo zaupni.",
     footerDesc: "Industrijska varnostna inteligenca",
     footerContact: "Kontakt",
-    footerCopy: "\u00A9 2026 KORDEX d.o.o. Vse pravice pridr\u017Eane.",
+    footerCopy: "\u00A9 2026 KORDEX Vse pravice pridr\u017Eane.",
     navCta: "Zahtevaj Sprint",
   },
   it: {
@@ -152,7 +152,7 @@ const TRANSLATIONS = {
     formNote: "Rispondiamo entro 24 ore. I vostri dati restano riservati.",
     footerDesc: "Intelligence per la Sicurezza Industriale",
     footerContact: "Contatti",
-    footerCopy: "\u00A9 2026 KORDEX d.o.o. Tutti i diritti riservati.",
+    footerCopy: "\u00A9 2026 KORDEX Tutti i diritti riservati.",
     navCta: "Richiedi Sprint",
   },
   fr: {
@@ -191,7 +191,7 @@ const TRANSLATIONS = {
     formNote: "Nous r\u00E9pondons sous 24 heures. Vos donn\u00E9es restent confidentielles.",
     footerDesc: "Intelligence en S\u00E9curit\u00E9 Industrielle",
     footerContact: "Contact",
-    footerCopy: "\u00A9 2026 KORDEX d.o.o. Tous droits r\u00E9serv\u00E9s.",
+    footerCopy: "\u00A9 2026 KORDEX Tous droits r\u00E9serv\u00E9s.",
     navCta: "Demander Sprint",
   },
   es: {
@@ -230,7 +230,7 @@ const TRANSLATIONS = {
     formNote: "Respondemos en 24 horas. Sus datos permanecen confidenciales.",
     footerDesc: "Inteligencia en Seguridad Industrial",
     footerContact: "Contacto",
-    footerCopy: "\u00A9 2026 KORDEX d.o.o. Todos los derechos reservados.",
+    footerCopy: "\u00A9 2026 KORDEX Todos los derechos reservados.",
     navCta: "Solicitar Sprint",
   },
   hu: {
@@ -269,10 +269,55 @@ const TRANSLATIONS = {
     formNote: "24 \u00F3r\u00E1n bel\u00FCl v\u00E1laszolunk. Adatai bizalmasan kezelj\u00FCk.",
     footerDesc: "Ipari Biztons\u00E1gi Intelligencia",
     footerContact: "Kapcsolat",
-    footerCopy: "\u00A9 2026 KORDEX d.o.o. Minden jog fenntartva.",
+    footerCopy: "\u00A9 2026 KORDEX Minden jog fenntartva.",
     navCta: "Sprint k\u00E9r\u00E9se",
   },
 };
+
+const CONTACT_FORM_TRANSLATIONS = {
+  en: {
+    formRole: "Your role",
+    formPain: "What is the safety or downtime problem you want to solve?",
+    formBudget: "Is a budget owner already involved?",
+    formPilot: "How soon could you evaluate a pilot?",
+    formRolePlaceholder: "EHS, Operations, Plant Manager...",
+    formPainPlaceholder: "Example: lifting strain, repetitive motion, absenteeism, near-miss clusters...",
+    formBudgetSelect: "Select one",
+    formBudgetYes: "Yes",
+    formBudgetNo: "No",
+    formBudgetUnknown: "Not sure yet",
+    formPilotSelect: "Select one",
+    formPilotNow: "Now",
+    formPilotQuarter: "This quarter",
+    formPilotExploring: "Just exploring",
+  },
+  de: {
+    formRole: "Ihre Rolle",
+    formPain: "Welches Sicherheits- oder Ausfallproblem wollen Sie lösen?",
+    formBudget: "Ist bereits ein Budget Owner eingebunden?",
+    formPilot: "Wie bald könnten Sie einen Piloten bewerten?",
+    formRolePlaceholder: "EHS, Operations, Werkleitung...",
+    formPainPlaceholder: "Zum Beispiel: Hebebelastung, repetitive Bewegung, Fehlzeiten, Near-Miss-Muster...",
+    formBudgetSelect: "Bitte auswählen",
+    formBudgetYes: "Ja",
+    formBudgetNo: "Nein",
+    formBudgetUnknown: "Noch unklar",
+    formPilotSelect: "Bitte auswählen",
+    formPilotNow: "Jetzt",
+    formPilotQuarter: "Dieses Quartal",
+    formPilotExploring: "Wir sondieren noch",
+  },
+};
+
+Object.values(TRANSLATIONS).forEach((bundle) => {
+  Object.assign(bundle, CONTACT_FORM_TRANSLATIONS.en);
+});
+
+Object.entries(CONTACT_FORM_TRANSLATIONS).forEach(([lang, bundle]) => {
+  if (TRANSLATIONS[lang]) {
+    Object.assign(TRANSLATIONS[lang], bundle);
+  }
+});
 
 function detectLang() {
   const saved = localStorage.getItem("kordex_lang");
@@ -294,6 +339,8 @@ function detectLang() {
 
 function applyLang(lang) {
   const t = TRANSLATIONS[lang] || TRANSLATIONS.en;
+  const fallback = TRANSLATIONS.en;
+  const text = (key) => t[key] || fallback[key] || "";
   document.documentElement.lang = lang;
 
   const $ = (sel) => document.querySelector(sel);
@@ -354,10 +401,37 @@ function applyLang(lang) {
 
   const form = $("#contactForm");
   if (form) {
-    form.querySelector("[name=name]").placeholder = t.formName;
-    form.querySelector("[name=email]").placeholder = t.formEmail;
-    form.querySelector("[name=company]").placeholder = t.formCompany;
-    form.querySelector("button").textContent = t.formBtn;
+    form.querySelector("[for=contactName]").textContent = text("formName");
+    form.querySelector("[for=contactEmail]").textContent = text("formEmail");
+    form.querySelector("[for=contactCompany]").textContent = text("formCompany");
+    form.querySelector("[for=contactRole]").textContent = text("formRole");
+    form.querySelector("[for=contactPain]").textContent = text("formPain");
+    form.querySelector("[for=contactBudget]").textContent = text("formBudget");
+    form.querySelector("[for=contactPilot]").textContent = text("formPilot");
+
+    form.querySelector("[name=name]").placeholder = text("formName");
+    form.querySelector("[name=email]").placeholder = text("formEmail");
+    form.querySelector("[name=company]").placeholder = text("formCompany");
+    form.querySelector("[name=role]").placeholder = text("formRolePlaceholder");
+    form.querySelector("[name=pain]").placeholder = text("formPainPlaceholder");
+
+    const budget = form.querySelector("[name=budget_owner_present]");
+    if (budget) {
+      budget.options[0].textContent = text("formBudgetSelect");
+      budget.options[1].textContent = text("formBudgetYes");
+      budget.options[2].textContent = text("formBudgetNo");
+      budget.options[3].textContent = text("formBudgetUnknown");
+    }
+
+    const pilot = form.querySelector("[name=pilot_readiness]");
+    if (pilot) {
+      pilot.options[0].textContent = text("formPilotSelect");
+      pilot.options[1].textContent = text("formPilotNow");
+      pilot.options[2].textContent = text("formPilotQuarter");
+      pilot.options[3].textContent = text("formPilotExploring");
+    }
+
+    form.querySelector("button").textContent = text("formBtn");
   }
   if ($(".form-note")) $(".form-note").textContent = t.formNote;
 

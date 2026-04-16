@@ -173,12 +173,64 @@
     <div class="container">
       <h2>Ready to see what your safety data is hiding?</h2>
       <p>No commitment. No hardware. Just validated patterns and clear next steps.</p>
-      <form class="contact-form" id="contactForm" name="sprint-request" method="POST" data-netlify="true">
-        <div class="form-row">
-          <input type="text" name="name" placeholder="Your name" required>
-          <input type="email" name="email" placeholder="Work email" required>
+      <form class="contact-form" id="contactForm" novalidate>
+        <input type="hidden" name="source" value="landing_contact_form">
+        <input type="hidden" name="page_url" id="pageUrl">
+        <input type="hidden" name="referrer" id="referrerField">
+        <input type="hidden" name="utm_source" id="utmSource">
+        <input type="hidden" name="utm_medium" id="utmMedium">
+        <input type="hidden" name="utm_campaign" id="utmCampaign">
+        <input type="hidden" name="utm_term" id="utmTerm">
+        <input type="hidden" name="utm_content" id="utmContent">
+        <div class="form-honeypot" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
         </div>
-        <input type="text" name="company" placeholder="Company" style="margin-bottom:12px">
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label" for="contactName">Your name</label>
+            <input type="text" id="contactName" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="contactEmail">Work email</label>
+            <input type="email" id="contactEmail" name="email" placeholder="Work email" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label" for="contactCompany">Company</label>
+            <input type="text" id="contactCompany" name="company" placeholder="Company" required>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="contactRole">Your role</label>
+            <input type="text" id="contactRole" name="role" placeholder="EHS, Operations, Plant Manager...">
+          </div>
+        </div>
+        <div class="form-field form-field-wide">
+          <label class="form-label" for="contactPain">What is the safety or downtime problem you want to solve?</label>
+          <textarea id="contactPain" name="pain" rows="4" placeholder="Example: lifting strain, repetitive motion, absenteeism, near-miss clusters..." required></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label" for="contactBudget">Is a budget owner already involved?</label>
+            <select id="contactBudget" name="budget_owner_present" required>
+              <option value="">Select one</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+              <option value="unknown">Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="contactPilot">How soon could you evaluate a pilot?</label>
+            <select id="contactPilot" name="pilot_readiness" required>
+              <option value="">Select one</option>
+              <option value="ready_now">Now</option>
+              <option value="this_quarter">This quarter</option>
+              <option value="exploring">Just exploring</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-status" id="contactStatus" aria-live="polite"></div>
         <button type="submit" class="btn btn-primary btn-large">Request a Safety Sprint</button>
       </form>
       <p class="form-note">We respond within 24 hours. Your data stays confidential.</p>
@@ -191,7 +243,7 @@
         <div class="footer-left">
           <img src="logo.jpg" alt="KORDEX" class="footer-logo">
           <p class="footer-tagline">Stronger for Longer</p>
-          <p class="footer-legal">KORDEX d.o.o. &middot; Koper, Slovenia</p>
+          <p class="footer-legal">KORDEX &middot; Koper, Slovenia</p>
         </div>
         <div class="footer-right">
           <p class="footer-right-title">Get in touch</p>
@@ -200,7 +252,7 @@
       </div>
       <div class="footer-divider"></div>
       <div class="footer-bottom">
-        <span>&copy; 2026 KORDEX d.o.o. All rights reserved.</span>
+        <span>&copy; 2026 KORDEX All rights reserved.</span>
       </div>
     </div>
   </footer>
