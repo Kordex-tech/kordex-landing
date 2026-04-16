@@ -22,13 +22,13 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
       btn.style.boxShadow = 'none';
       form.reset();
     } else {
-      btn.textContent = 'Error — please email contact@kordex.org';
+      btn.textContent = 'Error — please email rafael.costa@kordex.org';
       btn.style.background = '#331111';
       btn.style.color = '#ff6666';
       btn.style.boxShadow = 'none';
     }
   } catch {
-    btn.textContent = 'Error — please email contact@kordex.org';
+    btn.textContent = 'Error — please email rafael.costa@kordex.org';
     btn.style.background = '#331111';
     btn.style.color = '#ff6666';
     btn.style.boxShadow = 'none';
