@@ -31,11 +31,15 @@ const TRANSLATIONS = {
     ctaH2: "Ready to see what your safety data is hiding?",
     ctaSub: "No commitment. No hardware. Just validated patterns and clear next steps.",
     formName: "Your name", formEmail: "Work email", formCompany: "Company",
+    formRole: "Your role", formRolePlaceholder: "EHS, Operations, Plant Manager...",
+    formPain: "What is the safety or downtime problem you want to solve?",
+    formPainPlaceholder: "Example: lifting strain, repetitive motion, absenteeism, near-miss clusters...",
+    formBudget: "Is a budget owner already involved?", formBudgetSelect: "Select one", formBudgetYes: "Yes", formBudgetNo: "No", formBudgetUnknown: "Not sure yet",
+    formPilot: "How soon could you evaluate a pilot?", formPilotSelect: "Select one", formPilotNow: "Now", formPilotQuarter: "This quarter", formPilotExploring: "Just exploring",
     formBtn: "Request a Safety Sprint",
     formNote: "We respond within 24 hours. Your data stays confidential.",
-    footerDesc: "Industrial Safety Intelligence",
     footerContact: "Get in touch",
-    footerCopy: "\u00A9 2026 KORDEX All rights reserved.",
+    footerCopy: "\u00A9 2026 KORDEX",
     navCta: "Request a Sprint",
   },
   de: {
@@ -70,20 +74,23 @@ const TRANSLATIONS = {
     ctaH2: "Bereit zu sehen, was in Ihren Sicherheitsdaten steckt?",
     ctaSub: "Keine Verpflichtung. Keine Hardware. Nur validierte Muster und klare n\u00E4chste Schritte.",
     formName: "Ihr Name", formEmail: "Gesch\u00E4ftliche E-Mail", formCompany: "Unternehmen",
+    formRole: "Ihre Rolle", formRolePlaceholder: "EHS, Operations, Werkleitung...",
+    formPain: "Welches Sicherheits- oder Ausfallproblem wollen Sie l\u00F6sen?",
+    formPainPlaceholder: "Zum Beispiel: Hebebelastung, repetitive Bewegung, Fehlzeiten, Near-Miss-Muster...",
+    formBudget: "Ist bereits ein Budget Owner eingebunden?", formBudgetSelect: "Bitte ausw\u00E4hlen", formBudgetYes: "Ja", formBudgetNo: "Nein", formBudgetUnknown: "Noch unklar",
+    formPilot: "Wie bald k\u00F6nnten Sie einen Piloten bewerten?", formPilotSelect: "Bitte ausw\u00E4hlen", formPilotNow: "Jetzt", formPilotQuarter: "Dieses Quartal", formPilotExploring: "Wir sondieren noch",
     formBtn: "Safety Sprint anfragen",
     formNote: "Wir antworten innerhalb von 24 Stunden. Ihre Daten bleiben vertraulich.",
-    footerDesc: "Industrielle Sicherheitsintelligenz",
     footerContact: "Kontakt",
-    footerCopy: "\u00A9 2026 KORDEX Alle Rechte vorbehalten.",
+    footerCopy: "\u00A9 2026 KORDEX",
     navCta: "Sprint anfragen",
   },
   sl: {
     badge: "Industrijska varnostna inteligenca",
     h1: "Manj po\u0161kodb.<br>Ni\u017Eji stro\u0161ki.<br><span class='accent'>Validirano.</span>",
     heroSub: "KORDEX zagotavlja z dokazi podprto varnostno analizo za industrijske operacije. Identificiramo vzorce za delovnimi nezgodami \u2014 in jih ovrednotimo v evrih, preden se zgodijo.",
-    ctaBtn: "Zahtevajte Safety Sprint",
-    tagline: "Stronger for Longer",
-    problemH2: "Vzorci so v va\u0161ih podatkih.<br>Nihče jih ne bere.",
+    ctaBtn: "Zahtevajte Safety Sprint", tagline: "Stronger for Longer",
+    problemH2: "Vzorci so v va\u0161ih podatkih.<br>Nih\u010De jih ne bere.",
     problemP1: "Industrija vsako leto izgubi milijarde zaradi po\u0161kodb pri delu, bolni\u0161kih dni in zastojev. Ve\u010Dina podjetij varnost upravlja reaktivno \u2014 incident se zgodi, poro\u010Dilo se zapi\u0161e, usposabljanje se na\u010Drtuje.",
     problemP2: "Signali, ki napovedujejo po\u0161kodbe, \u017Ee obstajajo v va\u0161ih evidencah. Treba jih je le najti, validirati in prevesti v ukrepe.",
     stat1num: "70%", stat1label: "Nezgod pri delu sledi ponavljajo\u010Dim se vzorcem",
@@ -109,19 +116,20 @@ const TRANSLATIONS = {
     ctaH2: "Pripravljeni videti, kaj skrivajo va\u0161i varnostni podatki?",
     ctaSub: "Brez obveznosti. Brez strojne opreme. Samo validirani vzorci in jasni naslednji koraki.",
     formName: "Va\u0161e ime", formEmail: "Slu\u017Ebeni e-naslov", formCompany: "Podjetje",
+    formRole: "Va\u0161a vloga", formRolePlaceholder: "EHS, operacije, vodja obrata...",
+    formPain: "Kateri varnostni problem ali problem z zastoji \u017Eelite re\u0161iti?",
+    formPainPlaceholder: "Primer: obremenitve pri dviganju, ponavljajo\u010Di gibi, odsotnost, gru\u010De skoraj\u0161njih nezgod...",
+    formBudget: "Je lastnik prora\u010Duna \u017Ee vklju\u010Den?", formBudgetSelect: "Izberite", formBudgetYes: "Da", formBudgetNo: "Ne", formBudgetUnknown: "\u0160e ne vem",
+    formPilot: "Kako kmalu bi lahko ocenili pilotni projekt?", formPilotSelect: "Izberite", formPilotNow: "Zdaj", formPilotQuarter: "To \u010Detrtletje", formPilotExploring: "Samo raziskujemo",
     formBtn: "Zahtevajte Safety Sprint",
     formNote: "Odgovorimo v 24 urah. Va\u0161i podatki ostanejo zaupni.",
-    footerDesc: "Industrijska varnostna inteligenca",
-    footerContact: "Kontakt",
-    footerCopy: "\u00A9 2026 KORDEX Vse pravice pridr\u017Eane.",
-    navCta: "Zahtevaj Sprint",
+    footerContact: "Kontakt", footerCopy: "\u00A9 2026 KORDEX", navCta: "Zahtevaj Sprint",
   },
   it: {
     badge: "Intelligence per la Sicurezza Industriale",
     h1: "Meno infortuni.<br>Costi inferiori.<br><span class='accent'>Validato.</span>",
     heroSub: "KORDEX fornisce analisi di sicurezza basate su evidenze per le operazioni industriali. Identifichiamo i pattern dietro gli infortuni sul lavoro \u2014 e li quantifichiamo in euro prima che accadano.",
-    ctaBtn: "Richiedi un Safety Sprint",
-    tagline: "Stronger for Longer",
+    ctaBtn: "Richiedi un Safety Sprint", tagline: "Stronger for Longer",
     problemH2: "I pattern sono nei vostri dati.<br>Nessuno li sta leggendo.",
     problemP1: "L'industria perde miliardi ogni anno per infortuni sul lavoro, giorni di malattia e fermi operativi. La maggior parte delle aziende gestisce la sicurezza in modo reattivo \u2014 l'incidente accade, il report viene compilato, la formazione viene programmata.",
     problemP2: "I segnali che predicono gli infortuni esistono gi\u00E0 nei vostri archivi. Devono solo essere trovati, validati e tradotti in azioni.",
@@ -148,19 +156,20 @@ const TRANSLATIONS = {
     ctaH2: "Pronti a scoprire cosa nascondono i vostri dati di sicurezza?",
     ctaSub: "Nessun impegno. Nessun hardware. Solo pattern validati e prossimi passi chiari.",
     formName: "Il vostro nome", formEmail: "Email aziendale", formCompany: "Azienda",
+    formRole: "Il vostro ruolo", formRolePlaceholder: "EHS, Operations, Direttore di stabilimento...",
+    formPain: "Qual \u00E8 il problema di sicurezza o fermo che volete risolvere?",
+    formPainPlaceholder: "Esempio: sforzo nel sollevamento, movimenti ripetitivi, assenteismo, cluster di quasi-incidenti...",
+    formBudget: "Un responsabile del budget \u00E8 gi\u00E0 coinvolto?", formBudgetSelect: "Seleziona", formBudgetYes: "S\u00EC", formBudgetNo: "No", formBudgetUnknown: "Non ancora sicuro",
+    formPilot: "Quanto presto potreste valutare un pilota?", formPilotSelect: "Seleziona", formPilotNow: "Ora", formPilotQuarter: "Questo trimestre", formPilotExploring: "Stiamo esplorando",
     formBtn: "Richiedi un Safety Sprint",
     formNote: "Rispondiamo entro 24 ore. I vostri dati restano riservati.",
-    footerDesc: "Intelligence per la Sicurezza Industriale",
-    footerContact: "Contatti",
-    footerCopy: "\u00A9 2026 KORDEX Tutti i diritti riservati.",
-    navCta: "Richiedi Sprint",
+    footerContact: "Contatti", footerCopy: "\u00A9 2026 KORDEX", navCta: "Richiedi Sprint",
   },
   fr: {
     badge: "Intelligence en S\u00E9curit\u00E9 Industrielle",
     h1: "Moins de blessures.<br>Co\u00FBts r\u00E9duits.<br><span class='accent'>Valid\u00E9.</span>",
     heroSub: "KORDEX fournit des analyses de s\u00E9curit\u00E9 bas\u00E9es sur des preuves pour les op\u00E9rations industrielles. Nous identifions les sch\u00E9mas derri\u00E8re les accidents du travail \u2014 et les quantifions en euros avant qu'ils ne surviennent.",
-    ctaBtn: "Demander un Safety Sprint",
-    tagline: "Stronger for Longer",
+    ctaBtn: "Demander un Safety Sprint", tagline: "Stronger for Longer",
     problemH2: "Les sch\u00E9mas sont dans vos donn\u00E9es.<br>Personne ne les lit.",
     problemP1: "L'industrie perd des milliards chaque ann\u00E9e \u00E0 cause des accidents du travail, des arr\u00EAts maladie et des temps d'arr\u00EAt. La plupart des entreprises g\u00E8rent la s\u00E9curit\u00E9 de mani\u00E8re r\u00E9active \u2014 l'incident survient, le rapport est r\u00E9dig\u00E9, la formation est planifi\u00E9e.",
     problemP2: "Les signaux qui pr\u00E9disent les blessures existent d\u00E9j\u00E0 dans vos archives. Il suffit de les trouver, les valider et les traduire en actions.",
@@ -187,19 +196,20 @@ const TRANSLATIONS = {
     ctaH2: "Pr\u00EAt \u00E0 d\u00E9couvrir ce que cachent vos donn\u00E9es de s\u00E9curit\u00E9 ?",
     ctaSub: "Sans engagement. Sans mat\u00E9riel. Juste des sch\u00E9mas valid\u00E9s et des prochaines \u00E9tapes claires.",
     formName: "Votre nom", formEmail: "Email professionnel", formCompany: "Entreprise",
+    formRole: "Votre r\u00F4le", formRolePlaceholder: "EHS, Op\u00E9rations, Directeur d'usine...",
+    formPain: "Quel probl\u00E8me de s\u00E9curit\u00E9 ou de temps d'arr\u00EAt souhaitez-vous r\u00E9soudre ?",
+    formPainPlaceholder: "Exemple : contraintes de levage, mouvements r\u00E9p\u00E9titifs, absent\u00E9isme, clusters de presque-accidents...",
+    formBudget: "Un responsable budg\u00E9taire est-il d\u00E9j\u00E0 impliqu\u00E9 ?", formBudgetSelect: "S\u00E9lectionnez", formBudgetYes: "Oui", formBudgetNo: "Non", formBudgetUnknown: "Pas encore s\u00FBr",
+    formPilot: "Quand pourriez-vous \u00E9valuer un pilote ?", formPilotSelect: "S\u00E9lectionnez", formPilotNow: "Maintenant", formPilotQuarter: "Ce trimestre", formPilotExploring: "Nous explorons",
     formBtn: "Demander un Safety Sprint",
     formNote: "Nous r\u00E9pondons sous 24 heures. Vos donn\u00E9es restent confidentielles.",
-    footerDesc: "Intelligence en S\u00E9curit\u00E9 Industrielle",
-    footerContact: "Contact",
-    footerCopy: "\u00A9 2026 KORDEX Tous droits r\u00E9serv\u00E9s.",
-    navCta: "Demander Sprint",
+    footerContact: "Contact", footerCopy: "\u00A9 2026 KORDEX", navCta: "Demander Sprint",
   },
   es: {
     badge: "Inteligencia en Seguridad Industrial",
     h1: "Menos lesiones.<br>Menores costes.<br><span class='accent'>Validado.</span>",
     heroSub: "KORDEX ofrece an\u00E1lisis de seguridad basados en evidencias para operaciones industriales. Identificamos los patrones detr\u00E1s de los accidentes laborales \u2014 y los cuantificamos en euros antes de que ocurran.",
-    ctaBtn: "Solicitar un Safety Sprint",
-    tagline: "Stronger for Longer",
+    ctaBtn: "Solicitar un Safety Sprint", tagline: "Stronger for Longer",
     problemH2: "Los patrones est\u00E1n en sus datos.<br>Nadie los est\u00E1 leyendo.",
     problemP1: "La industria pierde miles de millones cada a\u00F1o por accidentes laborales, bajas por enfermedad y paradas operativas. La mayor\u00EDa de las empresas gestionan la seguridad de forma reactiva \u2014 ocurre el incidente, se redacta el informe, se programa la formaci\u00F3n.",
     problemP2: "Las se\u00F1ales que predicen las lesiones ya existen en sus registros. Solo hay que encontrarlas, validarlas y traducirlas en acciones.",
@@ -226,19 +236,20 @@ const TRANSLATIONS = {
     ctaH2: "\u00BFListo para descubrir qu\u00E9 esconden sus datos de seguridad?",
     ctaSub: "Sin compromiso. Sin hardware. Solo patrones validados y pr\u00F3ximos pasos claros.",
     formName: "Su nombre", formEmail: "Email profesional", formCompany: "Empresa",
+    formRole: "Su cargo", formRolePlaceholder: "EHS, Operaciones, Director de planta...",
+    formPain: "\u00BFCu\u00E1l es el problema de seguridad o paradas que quiere resolver?",
+    formPainPlaceholder: "Ejemplo: esfuerzo al levantar, movimientos repetitivos, absentismo, clusters de casi-accidentes...",
+    formBudget: "\u00BFHay un responsable de presupuesto ya involucrado?", formBudgetSelect: "Seleccione", formBudgetYes: "S\u00ED", formBudgetNo: "No", formBudgetUnknown: "A\u00FAn no seguro",
+    formPilot: "\u00BFCu\u00E1ndo podr\u00EDa evaluar un piloto?", formPilotSelect: "Seleccione", formPilotNow: "Ahora", formPilotQuarter: "Este trimestre", formPilotExploring: "Solo explorando",
     formBtn: "Solicitar un Safety Sprint",
     formNote: "Respondemos en 24 horas. Sus datos permanecen confidenciales.",
-    footerDesc: "Inteligencia en Seguridad Industrial",
-    footerContact: "Contacto",
-    footerCopy: "\u00A9 2026 KORDEX Todos los derechos reservados.",
-    navCta: "Solicitar Sprint",
+    footerContact: "Contacto", footerCopy: "\u00A9 2026 KORDEX", navCta: "Solicitar Sprint",
   },
   hu: {
     badge: "Ipari Biztons\u00E1gi Intelligencia",
     h1: "Kevesebb s\u00E9r\u00FCl\u00E9s.<br>Alacsonyabb k\u00F6lts\u00E9gek.<br><span class='accent'>Valid\u00E1lva.</span>",
     heroSub: "A KORDEX bizony\u00EDt\u00E9kokon alapul\u00F3 biztons\u00E1gi elemz\u00E9st ny\u00FAjt ipari m\u0171veletek sz\u00E1m\u00E1ra. Azonos\u00EDtjuk a munkahelyi balesetek m\u00F6g\u00F6tti mint\u00E1zatokat \u2014 \u00E9s eur\u00F3ban sz\u00E1mszer\u0171s\u00EDtj\u00FCk \u0151ket, miel\u0151tt bek\u00F6vetkezn\u00E9nek.",
-    ctaBtn: "Safety Sprint k\u00E9r\u00E9se",
-    tagline: "Stronger for Longer",
+    ctaBtn: "Safety Sprint k\u00E9r\u00E9se", tagline: "Stronger for Longer",
     problemH2: "A mint\u00E1zatok az \u00D6n adataiban vannak.<br>Senki nem olvassa \u0151ket.",
     problemP1: "Az ipar \u00E9vente milli\u00E1rdokat vesz\u00EDt munkahelyi balesetek, t\u00E1pp\u00E9nzes napok \u00E9s \u00FCzemi le\u00E1ll\u00E1sok miatt. A legt\u00F6bb v\u00E1llalat reakt\u00EDvan kezeli a biztons\u00E1got \u2014 megt\u00F6rt\u00E9nik az incidens, elk\u00E9sz\u00FCl a jelent\u00E9s, k\u00E9pz\u00E9st \u00FCtemeznek.",
     problemP2: "A s\u00E9r\u00FCl\u00E9seket el\u0151rejelz\u0151 jelek m\u00E1r l\u00E9teznek az \u00D6n nyilv\u00E1ntart\u00E1saiban. Csak meg kell tal\u00E1lni, valid\u00E1lni \u00E9s cselekv\u00E9sre ford\u00EDtani \u0151ket.",
@@ -265,64 +276,20 @@ const TRANSLATIONS = {
     ctaH2: "K\u00E9sz megtudni, mit rejtenek biztons\u00E1gi adatai?",
     ctaSub: "Elk\u00F6telez\u0151d\u00E9s n\u00E9lk\u00FCl. Hardver n\u00E9lk\u00FCl. Csak valid\u00E1lt mint\u00E1zatok \u00E9s vil\u00E1gos k\u00F6vetkez\u0151 l\u00E9p\u00E9sek.",
     formName: "Az \u00D6n neve", formEmail: "\u00DCzleti email", formCompany: "V\u00E1llalat",
+    formRole: "Poz\u00EDci\u00F3ja", formRolePlaceholder: "EHS, \u00DCzemeltet\u00E9s, \u00DCzemvezet\u0151...",
+    formPain: "Milyen biztons\u00E1gi vagy le\u00E1ll\u00E1si probl\u00E9m\u00E1t szeretn\u00E9nek megoldani?",
+    formPainPlaceholder: "P\u00E9lda: emel\u00E9si terhel\u00E9s, ism\u00E9tl\u0151d\u0151 mozg\u00E1s, hi\u00E1nyz\u00E1s, majdnem-baleset klaszterek...",
+    formBudget: "Van m\u00E1r k\u00F6lts\u00E9gvet\u00E9si felel\u0151s bevonva?", formBudgetSelect: "V\u00E1lasszon", formBudgetYes: "Igen", formBudgetNo: "Nem", formBudgetUnknown: "M\u00E9g nem biztos",
+    formPilot: "Mikor tudn\u00E1nak pilotot \u00E9rt\u00E9kelni?", formPilotSelect: "V\u00E1lasszon", formPilotNow: "Most", formPilotQuarter: "Ebben a negyed\u00E9vben", formPilotExploring: "Csak t\u00E1j\u00E9koz\u00F3dunk",
     formBtn: "Safety Sprint k\u00E9r\u00E9se",
     formNote: "24 \u00F3r\u00E1n bel\u00FCl v\u00E1laszolunk. Adatai bizalmasan kezelj\u00FCk.",
-    footerDesc: "Ipari Biztons\u00E1gi Intelligencia",
-    footerContact: "Kapcsolat",
-    footerCopy: "\u00A9 2026 KORDEX Minden jog fenntartva.",
-    navCta: "Sprint k\u00E9r\u00E9se",
+    footerContact: "Kapcsolat", footerCopy: "\u00A9 2026 KORDEX", navCta: "Sprint k\u00E9r\u00E9se",
   },
 };
-
-const CONTACT_FORM_TRANSLATIONS = {
-  en: {
-    formRole: "Your role",
-    formPain: "What is the safety or downtime problem you want to solve?",
-    formBudget: "Is a budget owner already involved?",
-    formPilot: "How soon could you evaluate a pilot?",
-    formRolePlaceholder: "EHS, Operations, Plant Manager...",
-    formPainPlaceholder: "Example: lifting strain, repetitive motion, absenteeism, near-miss clusters...",
-    formBudgetSelect: "Select one",
-    formBudgetYes: "Yes",
-    formBudgetNo: "No",
-    formBudgetUnknown: "Not sure yet",
-    formPilotSelect: "Select one",
-    formPilotNow: "Now",
-    formPilotQuarter: "This quarter",
-    formPilotExploring: "Just exploring",
-  },
-  de: {
-    formRole: "Ihre Rolle",
-    formPain: "Welches Sicherheits- oder Ausfallproblem wollen Sie lösen?",
-    formBudget: "Ist bereits ein Budget Owner eingebunden?",
-    formPilot: "Wie bald könnten Sie einen Piloten bewerten?",
-    formRolePlaceholder: "EHS, Operations, Werkleitung...",
-    formPainPlaceholder: "Zum Beispiel: Hebebelastung, repetitive Bewegung, Fehlzeiten, Near-Miss-Muster...",
-    formBudgetSelect: "Bitte auswählen",
-    formBudgetYes: "Ja",
-    formBudgetNo: "Nein",
-    formBudgetUnknown: "Noch unklar",
-    formPilotSelect: "Bitte auswählen",
-    formPilotNow: "Jetzt",
-    formPilotQuarter: "Dieses Quartal",
-    formPilotExploring: "Wir sondieren noch",
-  },
-};
-
-Object.values(TRANSLATIONS).forEach((bundle) => {
-  Object.assign(bundle, CONTACT_FORM_TRANSLATIONS.en);
-});
-
-Object.entries(CONTACT_FORM_TRANSLATIONS).forEach(([lang, bundle]) => {
-  if (TRANSLATIONS[lang]) {
-    Object.assign(TRANSLATIONS[lang], bundle);
-  }
-});
 
 function detectLang() {
   const saved = localStorage.getItem("kordex_lang");
   if (saved && TRANSLATIONS[saved]) return saved;
-
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
   if (/Berlin|Vienna|Zurich|Vaduz/i.test(tz)) return "de";
   if (/Ljubljana/i.test(tz)) return "sl";
@@ -330,129 +297,103 @@ function detectLang() {
   if (/Paris/i.test(tz)) return "fr";
   if (/Madrid|Canary/i.test(tz)) return "es";
   if (/Budapest/i.test(tz)) return "hu";
-
   const navLang = (navigator.language || "").slice(0, 2).toLowerCase();
   if (TRANSLATIONS[navLang]) return navLang;
-
   return "en";
 }
 
 function applyLang(lang) {
   const t = TRANSLATIONS[lang] || TRANSLATIONS.en;
-  const fallback = TRANSLATIONS.en;
-  const text = (key) => t[key] || fallback[key] || "";
+  const fb = TRANSLATIONS.en;
+  const tx = (k) => t[k] || fb[k] || "";
   document.documentElement.lang = lang;
 
-  const $ = (sel) => document.querySelector(sel);
-  const $$ = (sel) => document.querySelectorAll(sel);
+  const $ = (s) => document.querySelector(s);
+  const $$ = (s) => document.querySelectorAll(s);
 
-  if ($(".nav-cta")) $(".nav-cta").textContent = t.navCta;
-  if ($(".hero-badge")) $(".hero-badge").textContent = t.badge;
-  if ($(".hero h1")) $(".hero h1").innerHTML = t.h1;
-  if ($(".hero-sub")) $(".hero-sub").textContent = t.heroSub;
-  if ($(".hero .btn-primary")) $(".hero .btn-primary").textContent = t.ctaBtn;
-  if ($(".hero-tagline")) $(".hero-tagline").textContent = t.tagline;
+  if ($(".nav-cta")) $(".nav-cta").textContent = tx("navCta");
+  if ($(".hero-badge")) $(".hero-badge").textContent = tx("badge");
+  if ($(".hero h1")) $(".hero h1").innerHTML = tx("h1");
+  if ($(".hero-sub")) $(".hero-sub").textContent = tx("heroSub");
+  if ($(".hero .btn-primary")) $(".hero .btn-primary").textContent = tx("ctaBtn");
+  if ($(".hero-tagline")) $(".hero-tagline").textContent = tx("tagline");
 
-  if ($(".problem-text h2")) $(".problem-text h2").innerHTML = t.problemH2;
+  if ($(".problem-text h2")) $(".problem-text h2").innerHTML = tx("problemH2");
   const pp = $$(".problem-text p");
-  if (pp[0]) pp[0].innerHTML = t.problemP1;
-  if (pp[1]) pp[1].textContent = t.problemP2;
+  if (pp[0]) pp[0].innerHTML = tx("problemP1");
+  if (pp[1]) pp[1].textContent = tx("problemP2");
 
   const stats = $$(".stat");
-  if (stats[0]) { stats[0].querySelector(".stat-number").textContent = t.stat1num; stats[0].querySelector(".stat-label").textContent = t.stat1label; }
-  if (stats[1]) { stats[1].querySelector(".stat-number").textContent = t.stat2num; stats[1].querySelector(".stat-label").textContent = t.stat2label; }
-  if (stats[2]) { stats[2].querySelector(".stat-number").textContent = t.stat3num; stats[2].querySelector(".stat-label").textContent = t.stat3label; }
+  if (stats[0]) { stats[0].querySelector(".stat-number").textContent = tx("stat1num"); stats[0].querySelector(".stat-label").textContent = tx("stat1label"); }
+  if (stats[1]) { stats[1].querySelector(".stat-number").textContent = tx("stat2num"); stats[1].querySelector(".stat-label").textContent = tx("stat2label"); }
+  if (stats[2]) { stats[2].querySelector(".stat-number").textContent = tx("stat3num"); stats[2].querySelector(".stat-label").textContent = tx("stat3label"); }
 
-  if ($(".product h2")) $(".product h2").textContent = t.productH2;
-  if ($(".section-sub")) $(".section-sub").textContent = t.productSub;
+  if ($(".product h2")) $(".product h2").textContent = tx("productH2");
+  if ($(".section-sub")) $(".section-sub").textContent = tx("productSub");
 
-  const cards = $$(".card");
-  const ck = ["card1","card2","card3","card4","card5"];
-  cards.forEach((c, i) => {
-    if (ck[i]) {
-      c.querySelector("h3").textContent = t[ck[i]+"h"];
-      c.querySelector("p").textContent = t[ck[i]+"p"];
-    }
+  $$(".card").forEach((c, i) => {
+    const k = "card" + (i + 1);
+    c.querySelector("h3").textContent = tx(k + "h");
+    c.querySelector("p").textContent = tx(k + "p");
   });
 
-  if ($(".how h2")) $(".how h2").textContent = t.howH2;
-  const steps = $$(".step");
-  const sk = ["step1","step2","step3","step4"];
-  steps.forEach((s, i) => {
-    if (sk[i]) {
-      s.querySelector("h3").textContent = t[sk[i]+"h"];
-      s.querySelector("p").textContent = t[sk[i]+"p"];
-    }
+  if ($(".how h2")) $(".how h2").textContent = tx("howH2");
+  $$(".step").forEach((s, i) => {
+    const k = "step" + (i + 1);
+    s.querySelector("h3").textContent = tx(k + "h");
+    s.querySelector("p").textContent = tx(k + "p");
   });
 
-  if ($(".why h2")) $(".why h2").textContent = t.whyH2;
-  const whys = $$(".why-item");
-  const wk = ["why1","why2","why3","why4"];
-  whys.forEach((w, i) => {
-    if (wk[i]) {
-      const h3 = w.querySelector("h3");
-      h3.childNodes[h3.childNodes.length - 1].textContent = t[wk[i]+"h"];
-      w.querySelector("p").textContent = t[wk[i]+"p"];
-    }
+  if ($(".why h2")) $(".why h2").textContent = tx("whyH2");
+  $$(".why-item").forEach((w, i) => {
+    const k = "why" + (i + 1);
+    const h3 = w.querySelector("h3");
+    h3.childNodes[h3.childNodes.length - 1].textContent = tx(k + "h");
+    w.querySelector("p").textContent = tx(k + "p");
   });
 
-  if ($(".cta-section h2")) $(".cta-section h2").textContent = t.ctaH2;
-  if ($(".cta-section > .container > p")) $(".cta-section > .container > p").textContent = t.ctaSub;
+  if ($(".cta-section h2")) $(".cta-section h2").textContent = tx("ctaH2");
+  if ($(".cta-section > .container > p")) $(".cta-section > .container > p").textContent = tx("ctaSub");
 
   const form = $("#contactForm");
   if (form) {
-    form.querySelector("[for=contactName]").textContent = text("formName");
-    form.querySelector("[for=contactEmail]").textContent = text("formEmail");
-    form.querySelector("[for=contactCompany]").textContent = text("formCompany");
-    form.querySelector("[for=contactRole]").textContent = text("formRole");
-    form.querySelector("[for=contactPain]").textContent = text("formPain");
-    form.querySelector("[for=contactBudget]").textContent = text("formBudget");
-    form.querySelector("[for=contactPilot]").textContent = text("formPilot");
-
-    form.querySelector("[name=name]").placeholder = text("formName");
-    form.querySelector("[name=email]").placeholder = text("formEmail");
-    form.querySelector("[name=company]").placeholder = text("formCompany");
-    form.querySelector("[name=role]").placeholder = text("formRolePlaceholder");
-    form.querySelector("[name=pain]").placeholder = text("formPainPlaceholder");
-
+    const setLabel = (id, key) => { const el = form.querySelector("[for=" + id + "]"); if (el) el.textContent = tx(key); };
+    const setPlaceholder = (name, key) => { const el = form.querySelector("[name=" + name + "]"); if (el) el.placeholder = tx(key); };
+    setLabel("contactName", "formName"); setPlaceholder("name", "formName");
+    setLabel("contactEmail", "formEmail"); setPlaceholder("email", "formEmail");
+    setLabel("contactCompany", "formCompany"); setPlaceholder("company", "formCompany");
+    setLabel("contactRole", "formRole"); setPlaceholder("role", "formRolePlaceholder");
+    setLabel("contactPain", "formPain"); setPlaceholder("pain", "formPainPlaceholder");
+    setLabel("contactBudget", "formBudget");
+    setLabel("contactPilot", "formPilot");
     const budget = form.querySelector("[name=budget_owner_present]");
-    if (budget) {
-      budget.options[0].textContent = text("formBudgetSelect");
-      budget.options[1].textContent = text("formBudgetYes");
-      budget.options[2].textContent = text("formBudgetNo");
-      budget.options[3].textContent = text("formBudgetUnknown");
+    if (budget && budget.options.length >= 4) {
+      budget.options[0].textContent = tx("formBudgetSelect");
+      budget.options[1].textContent = tx("formBudgetYes");
+      budget.options[2].textContent = tx("formBudgetNo");
+      budget.options[3].textContent = tx("formBudgetUnknown");
     }
-
     const pilot = form.querySelector("[name=pilot_readiness]");
-    if (pilot) {
-      pilot.options[0].textContent = text("formPilotSelect");
-      pilot.options[1].textContent = text("formPilotNow");
-      pilot.options[2].textContent = text("formPilotQuarter");
-      pilot.options[3].textContent = text("formPilotExploring");
+    if (pilot && pilot.options.length >= 4) {
+      pilot.options[0].textContent = tx("formPilotSelect");
+      pilot.options[1].textContent = tx("formPilotNow");
+      pilot.options[2].textContent = tx("formPilotQuarter");
+      pilot.options[3].textContent = tx("formPilotExploring");
     }
-
-    form.querySelector("button").textContent = text("formBtn");
+    form.querySelector("button").textContent = tx("formBtn");
   }
-  if ($(".form-note")) $(".form-note").textContent = t.formNote;
+  if ($(".form-note")) $(".form-note").textContent = tx("formNote");
 
-  if ($(".footer-left p:not(.footer-tagline):not(.footer-legal)")) $(".footer-left p:not(.footer-tagline):not(.footer-legal)").textContent = t.footerDesc;
-  if ($(".footer-right-title")) $(".footer-right-title").textContent = t.footerContact;
-  if ($(".footer-bottom span")) $(".footer-bottom span").textContent = t.footerCopy;
+  if ($(".footer-contact")) $(".footer-contact").innerHTML = tx("footerContact") + ' <a href="mailto:rafael.costa@kordex.org">rafael.costa@kordex.org</a>';
+  if ($(".footer-copy")) $(".footer-copy").textContent = tx("footerCopy");
 
-  $$(".lang-btn").forEach((b) => {
-    b.classList.toggle("active", b.dataset.lang === lang);
-  });
-
+  $$(".lang-btn").forEach((b) => b.classList.toggle("active", b.dataset.lang === lang));
   localStorage.setItem("kordex_lang", lang);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   applyLang(detectLang());
-
   document.querySelectorAll(".lang-btn").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      applyLang(btn.dataset.lang);
-    });
+    btn.addEventListener("click", (e) => { e.preventDefault(); applyLang(btn.dataset.lang); });
   });
 });
