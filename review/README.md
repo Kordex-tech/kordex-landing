@@ -14,8 +14,6 @@ Each image is converted locally to WebP at 480, 960 and 1600 px widths. Source c
 | Original in `landing_media/frt_site/` | New basename in `landing-sl/media/` | Use |
 |---|---|---|
 | `b1b868_0d0261b5521a41f2832bb1e196276917~mv2.jpg` | `packing` | Packaging |
-| `b1b868_23164d26a80246ae8673148b1ab69ca0~mv2.jpg` | `lever` | Wearing step |
-| `b1b868_2c7b03cb75f247e38eedaa9b1fdc34d6~mv2.jpg` | `fastening` | Wearing step |
 | `b1b868_3a29a543a49f4b07bcb23325a6ffa7db~mv2.jpg` | `hero-lift` | Hero |
 | `b1b868_54f2c58784604e598b6d4b423855e443~mv2.jpg` | `floor-lift` | Floor lift |
 | `b1b868_6a47cc88834643b1b72c9eb69ce7fc8a~mv2.jpg` | `warehouse-carry` | Loading |
@@ -23,7 +21,7 @@ Each image is converted locally to WebP at 480, 960 and 1600 px widths. Source c
 | `b1b868_b7c6cb651b7f408992eb33b958697bc8~mv2.jpg` | `pallet-carry` | Pallets |
 | `b1b868_dc1ca87cada64d18bd9217d781618ada~mv2.png` | `production` | Production |
 
-The logo comes from `landing_media/KORDEX_logo_horizontal_A_ime.png`. `how-to-wear.mp4` is a 720p H.264, silent, 5.9 MiB conversion of `landing_media/video/StepUp_NEO_How_to_Wear_FRT_EN.mp4`; `how-to-poster.webp` is a frame from this video. The older FRT YouTube video was removed after review because it only partially matches the wearing instructions.
+The logo comes from `landing_media/KORDEX_logo_horizontal_A_ime.png`. `how-to-wear.mp4` is a 720p H.264, silent, 5.9 MiB conversion of `landing_media/video/StepUp_NEO_How_to_Wear_FRT_EN.mp4`; `how-to-poster.webp` is a frame from this video. The two wearing photos and the older FRT YouTube video were removed after review.
 
 ## Copy for language review
 
@@ -31,7 +29,7 @@ All new Slovenian phrasing is marked `data-draft="sl"`; the complete [phrase lis
 
 ## Checks
 
-- Chromium at 360 and 1440 px: no horizontal scroll, no broken images, no external requests, no JavaScript exceptions. Wearing steps and prices span the intended content width.
+- Chromium at 360, 768, 1024 and 1440 px: no horizontal scroll, no broken images, no JavaScript exceptions. The How to Wear video spans the content width; process and testimonial headings stay on one line on wide screens; the contact details sit in the footer.
 - Lighthouse mobile on this repository's local Node server: Performance **96**, Accessibility **100**, initial transfer **299 KiB** without video.
 - Form uses this repository's `/api/contact` endpoint with `/.netlify/functions/contact` as fallback. The older budget and pilot questions are sent as `not_asked`; optional phone, product and consent fields are retained by both handlers.
 - Local test: one fake lead was accepted into a temporary `leads.jsonl` outside the repository; the Netlify function returned 200 with a mocked webhook and retained the same optional fields. The browser showed `Poslano`.

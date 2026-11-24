@@ -95,18 +95,10 @@
           <li data-draft="sl"><strong>Delajte s pravilno držo.</strong> Eksoskelet dopolnjuje varno tehniko dvigovanja.</li>
         </ol>
         <p class="note">Po prvi prilagoditvi si ga delavec nadene sam v manj kot 30 sekundah.</p>
-        <div class="wear-media">
-          <!-- source: FRT Robotics How to Wear video supplied as landing_media/video/StepUp_NEO_How_to_Wear_FRT_EN.mp4; FAQ v0.3, question 4. -->
-          <div class="video-shell">
-            <video controls preload="none" playsinline poster="media/how-to-poster.webp" aria-label="FRT Robotics: kako nadeti StepUp NEO"><source src="media/how-to-wear.mp4" type="video/mp4">Vaš brskalnik ne podpira videa.</video>
-            <div class="video-caption">Video: FRT Robotics · How to Wear · predvajanje samo po kliku</div>
-          </div>
-          <div class="wear-photos">
-            <!-- source: landing_media/frt_site/b1b868_2c7b03cb75f247e38eedaa9b1fdc34d6~mv2.jpg (FRT Robotics). -->
-            <picture><source type="image/webp" srcset="media/fastening-480.webp 480w, media/fastening-960.webp 960w, media/fastening-1600.webp 1600w" sizes="(max-width: 900px) 45vw, 30vw"><img src="media/fastening-480.webp" width="480" height="320" loading="lazy" alt="Zapenjanje pasu eksoskeleta"></picture>
-            <!-- source: landing_media/frt_site/b1b868_23164d26a80246ae8673148b1ab69ca0~mv2.jpg (FRT Robotics). -->
-            <picture><source type="image/webp" srcset="media/lever-480.webp 480w, media/lever-960.webp 960w, media/lever-1600.webp 1600w" sizes="(max-width: 900px) 45vw, 30vw"><img src="media/lever-480.webp" width="480" height="320" loading="lazy" alt="Nastavitev ročice eksoskeleta"></picture>
-          </div>
+        <!-- source: FRT Robotics How to Wear video supplied as landing_media/video/StepUp_NEO_How_to_Wear_FRT_EN.mp4; FAQ v0.3, question 4. -->
+        <div class="video-shell">
+          <video controls preload="none" playsinline poster="media/how-to-poster.webp" aria-label="FRT Robotics: kako nadeti StepUp NEO"><source src="media/how-to-wear.mp4" type="video/mp4">Vaš brskalnik ne podpira videa.</video>
+          <div class="video-caption">Video: FRT Robotics · How to Wear · predvajanje samo po kliku</div>
         </div>
       </div>
     </section>
@@ -140,7 +132,7 @@
       </div>
     </section>
 
-    <section aria-labelledby="process-title">
+    <section class="process" aria-labelledby="process-title">
       <div class="wrap"><div class="section-head"><p class="kicker">Kako delamo</p><h2 id="process-title" data-draft="sl">Od ogleda do kontrolne meritve.</h2></div>
         <!-- source: landing_media/KORDEX_Ponudba_1stran_SL_v0.1_osnutek.pdf, p. 1; FAQ v0.3, question 14; assignment section 4.7. -->
         <div class="process-grid"><article class="process-card"><h3>Brezplačna predstavitev</h3><p data-draft="sl">Na vaši operaciji pokažemo StepUp NEO in hitro ocenimo obremenitev.</p></article><article class="process-card"><h3>Po želji polna ocena MKK</h3><p data-draft="sl">Približno 690 € brez DDV. Ob nakupu ali testu v treh mesecih znesek v celoti upoštevamo.</p></article><article class="process-card"><h3>Predlog in uvedba</h3><p data-draft="sl">Prilagoditev naprave delavcem, usposabljanje in dogovor o uporabi.</p></article><article class="process-card"><h3>Kontrolna meritev</h3><p data-draft="sl">Po šestih tednih ponovno izmerimo obremenitev na vašem delovnem mestu.</p></article></div>
@@ -149,7 +141,7 @@
     </section>
 
     <section class="prices" aria-labelledby="price-title">
-      <div class="wrap"><div class="section-head"><p class="kicker">Cene</p><h2 id="price-title" data-draft="sl">Začnite s prikazom. Nato izberite nakup ali najem.</h2></div>
+      <div class="wrap"><div class="section-head"><p class="kicker">Cene</p><h2 id="price-title" data-draft="sl">Začnite s prikazom.<br>Nato izberite nakup ali najem.</h2></div>
         <!-- source: landing_media/KORDEX_Ponudba_1stran_SL_v0.1_osnutek.pdf, p. 1; FAQ v0.3, questions 9 and 16. -->
         <div class="price-grid"><article class="price-card"><h3>Nakup · cena na kos</h3><dl><div><dt>1–19 kosov</dt><dd>1 799 €</dd></div><div><dt>Od 20 kosov</dt><dd>1 749 €</dd></div><div><dt>Od 50 kosov</dt><dd>1 699 €</dd></div></dl></article><article class="price-card"><h3>Najem · na eksoskelet</h3><dl><div><dt>Na teden</dt><dd>98 €</dd></div><div><dt>Najmanj 6 tednov</dt><dd>588 €</dd></div><div><dt>Dolgoročni najem in lizing</dt><dd>Po dogovoru</dd></div></dl></article></div>
         <p class="small" style="margin-top:16px">Cene so brez DDV. Garancija 1 leto — daje KORDEX d.o.o.</p>
@@ -191,11 +183,10 @@
             <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
           </form>
         </div>
-        <aside class="contact-aside"><h3>Kontakt</h3><p>[GLAS: ime, telefon]</p><p style="margin-top:14px"><a href="mailto:enquiries@kordex.org">enquiries@kordex.org</a></p><p class="small" style="margin-top:24px" data-draft="sl">Osebni stik za predstavitve bo dopolnjen po imenovanju sodelavca.</p></aside>
       </div>
     </section>
   </main>
   <!-- source: ZADANIE_CODEX_LANDING_SL_v1.md, section 4.12 (company details and producer). -->
-  <footer class="landing-footer" id="pravno"><div class="wrap footer-grid"><div><strong>KORDEX d.o.o.</strong><br>Trg komandanta Staneta 8, 1000 Ljubljana<br>Matična št. 7614624000 · ID za DDV SI60274409<br>Proizvajalec StepUp NEO: FRT Robotics Co., Ltd., Koreja</div><nav class="footer-links" aria-label="Pravne informacije"><a href="https://kordex.org/privacy/">Zasebnost</a><a href="#pravno">Pravno obvestilo</a></nav></div></footer>
+  <footer class="landing-footer" id="pravno"><div class="wrap footer-grid"><div><strong>KORDEX d.o.o.</strong><br>Trg komandanta Staneta 8, 1000 Ljubljana<br>Matična št. 7614624000 · ID za DDV SI60274409<br>Proizvajalec StepUp NEO: FRT Robotics Co., Ltd., Koreja</div><div class="footer-contact"><h3>Kontakt</h3><p>[GLAS: ime, telefon]</p><p><a href="mailto:enquiries@kordex.org">enquiries@kordex.org</a></p><p data-draft="sl">Osebni stik za predstavitve bo dopolnjen po imenovanju sodelavca.</p></div><nav class="footer-links" aria-label="Pravne informacije"><a href="https://kordex.org/privacy/">Zasebnost</a><a href="#pravno">Pravno obvestilo</a></nav></div></footer>
 </body>
 </html>
