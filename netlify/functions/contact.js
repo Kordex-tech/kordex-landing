@@ -29,6 +29,9 @@ function buildLeadPayload(body, headers) {
   const company = cleanString(body.company, 180);
   const role = cleanString(body.role, 180);
   const pain = cleanString(body.pain, 4000);
+  const phone = cleanString(body.phone, 50);
+  const product = cleanString(body.product, 100);
+  const consent = cleanString(body.consent, 10);
   const budgetOwnerValue = cleanString(body.budget_owner_present, 32);
   const pilotReadiness = cleanString(body.pilot_readiness, 32);
 
@@ -53,6 +56,9 @@ function buildLeadPayload(body, headers) {
     company,
     role,
     pain,
+    phone,
+    product,
+    consent,
     budget_owner_present: parseBudgetOwner(budgetOwnerValue),
     budget_owner_raw: budgetOwnerValue,
     pilot_readiness: pilotReadiness,

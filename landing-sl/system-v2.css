@@ -1,0 +1,1354 @@
+
+/* begin design/css/kordex.css */
+/* KORDEX design system v2 (design/system-v2/PLAN.md). One file for the whole site.
+   The server allows styles only inside <style>, so scripts/embed_css.py copies this file into each page.
+   ../../site/assets/ is replaced with the path to the folder that holds fonts/. */
+
+@font-face{font-family:"Manrope";font-style:normal;font-weight:400;font-display:swap;src:url(f/manrope-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:400;font-display:swap;src:url(f/manrope-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:500;font-display:swap;src:url(f/manrope-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:500;font-display:swap;src:url(f/manrope-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:700;font-display:swap;src:url(f/manrope-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:700;font-display:swap;src:url(f/manrope-latin-ext-700-normal.woff2) format("woff2");unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:800;font-display:swap;src:url(f/manrope-latin-800-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:800;font-display:swap;src:url(f/manrope-latin-ext-800-normal.woff2) format("woff2");unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+/* ---------- tokens ---------- */
+:root{
+  /* colour: shop floor, panels, workwear ink, KORDEX cyan */
+  --bg:#F2F4F6; --panel:#FFFFFF; --panel-2:#E9EEF2;
+  --ink:#12222E; --ink-2:#3A4A56; --muted:#56636E; --line:#C5CED6;
+  --acc:#0077A8; --acc-ink:#FFFFFF; --link:#006F99; --exo:#0077A8;
+  --glow:10,143,196; --glow-a:.42;
+  --focus:#006F99;
+  /* form field outline (3.9:1 and more on every surface), error colour (5.6:1 and more) */
+  --line-field:#6B7884; --err:#B3261E;
+  /* partner zone status (one status, "Partner wanted", KORDEX 07.11.2026): PROPOSAL for KORDEX (bento colour); white text 5.0:1 */
+  --st-open:#0077A8; --st-ink:#FFFFFF;
+  /* type */
+  --font:Manrope,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --t-h1:clamp(2.75rem,1.55rem + 4.4vw,5.5rem);
+  --t-h2:clamp(1.875rem,1.4rem + 1.9vw,3rem);
+  --t-h3:clamp(1.25rem,1.15rem + .4vw,1.5rem);
+  --t-lead:clamp(1.25rem,1.18rem + .3vw,1.375rem);
+  --t-body:1.125rem; --t-small:.9375rem;
+  /* space: 4 px steps */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px; --s8:64px; --s9:96px; --s10:128px;
+  --gap:24px; --pad:32px; --page:48px; --max:1280px;
+  /* shape */
+  --r-s:8px; --r-m:16px; --r-l:24px; --r-pill:999px;
+  --shadow-hover:0 18px 36px -18px rgba(18,34,46,.28);
+  --shadow-header:0 10px 24px -20px rgba(18,34,46,.45);
+  /* motion */
+  --ease:cubic-bezier(.22,1,.36,1); --t-fast:200ms; --t-base:280ms; --t-slow:600ms;
+  color-scheme:light;
+}
+html[data-theme=dark]{
+  --bg:#0C161D; --panel:#14212A; --panel-2:#1B2A34;
+  --ink:#E8EDF1; --ink-2:#C3CDD5; --muted:#93A1AC; --line:#2A3843;
+  --acc:#0A8FC4; --acc-ink:#06121A; --link:#4CC3F0; --exo:#4CC3F0;
+  --glow:76,195,240; --glow-a:.5;
+  --focus:#4CC3F0;
+  --line-field:#6E8090; --err:#FF8A80;
+  /* dark theme status colour: light fill with dark text (8.8:1 and more), 6.8:1 and more on the panels */
+  --st-open:#4CC3F0; --st-ink:#06121A;
+  --shadow-hover:0 18px 36px -18px rgba(0,0,0,.7);
+  --shadow-header:0 10px 24px -20px rgba(0,0,0,.9);
+  color-scheme:dark;
+}
+@media (max-width:640px){:root{--gap:16px; --pad:20px; --page:16px}}
+
+/* ---------- base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+/* scroll-padding: the sticky header (top 88 px) and the floating "Get in touch" button (bottom 16 + 48 + 16 px gap) never cover
+   the element that gets keyboard focus or an anchor (final check, finding N3, 04.11.2026) */
+html{-webkit-text-size-adjust:100%;scroll-padding-top:88px;scroll-padding-bottom:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:var(--t-body);line-height:1.6;
+  font-feature-settings:"kern";text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+img,svg,video{display:block;max-width:100%}
+a{color:var(--link);text-underline-offset:.18em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+h1,h2,h3{margin:0;font-weight:800;color:var(--ink);text-wrap:balance}
+h1{font-size:var(--t-h1);line-height:.98;letter-spacing:-.035em}
+h2{font-size:var(--t-h2);line-height:1.08;letter-spacing:-.03em}
+h3{font-size:var(--t-h3);line-height:1.25;letter-spacing:-.015em;font-weight:700}
+/* large browser font (final check, F6): a word longer than its box breaks instead of widening the page;
+   at the default size every word fits, so nothing moves; form fields keep normal wrapping */
+:where(h1,h2,h3,h4,p,li,dt,dd,summary,label,th,td,figcaption,small,b,strong,em,span,a,button,output){overflow-wrap:anywhere}
+:where(select,option,input,textarea){overflow-wrap:normal}
+p{margin:0;max-width:68ch}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:4px}
+.wrap{width:100%;max-width:calc(var(--max) + 2*var(--page));margin-inline:auto;padding-inline:var(--page)}
+/* hidden by its own height, so it stays out of sight with any browser font size (final check, F11) */
+.skip{position:absolute;left:var(--page);top:0;transform:translateY(-110%);z-index:20;background:var(--panel);color:var(--ink);padding:var(--s2) var(--s4);border-radius:var(--r-s)}
+.skip:focus{top:var(--s2);transform:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ico{width:20px;height:20px;flex:none;stroke-width:1.75}
+
+/* theme change: colours blend for 300 ms (class set by theme.js only while switching) */
+html.theme-anim,html.theme-anim *{transition:background-color 300ms var(--ease),color 300ms var(--ease),border-color 300ms var(--ease),fill 300ms var(--ease),stroke 300ms var(--ease)!important}
+
+/* page transitions where the browser supports them */
+@view-transition{navigation:auto}
+::view-transition-old(root),::view-transition-new(root){animation-duration:250ms;animation-timing-function:var(--ease)}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:var(--s3);min-height:52px;padding:6px 6px 6px 24px;border-radius:var(--r-pill);
+  background:var(--acc);color:var(--acc-ink);font-weight:700;font-size:1.0625rem;line-height:1.2;text-decoration:none;border:0;cursor:pointer}
+.btn .arr{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--acc-ink);color:var(--acc)}
+.btn .arr svg{width:20px;height:20px;stroke-width:2;transition:transform var(--t-fast) var(--ease)}
+.btn:hover .arr svg,.btn:focus-visible .arr svg{transform:translateX(3px)}
+.btn:focus-visible{outline-offset:4px;border-radius:var(--r-pill)}
+.btn-s{min-height:44px;padding:4px 4px 4px 18px;font-size:1rem}
+.btn-s .arr{width:36px;height:36px}
+.link{display:inline-flex;align-items:center;gap:var(--s2);color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:.3em}
+.link:hover{text-decoration-color:currentColor}
+.link .ico{color:var(--muted)}
+/* dark button (header): ink on the page colour; in the dark theme it turns light */
+.btn-dark{background:var(--ink);color:var(--bg)}
+.btn-dark .arr{background:var(--bg);color:var(--ink)}
+/* light button: for dark photos, the same in both themes */
+.btn-light{background:#FFFFFF;color:#12222E}
+.btn-light .arr{background:#12222E;color:#FFFFFF}
+
+/* ---------- header: brand left, menu in the middle, actions right ---------- */
+.hdr{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid transparent;transition:border-color var(--t-base) var(--ease),box-shadow var(--t-base) var(--ease)}
+.hdr.is-stuck{border-bottom-color:var(--line);box-shadow:var(--shadow-header)}
+.hdr .wrap{display:grid;grid-template-columns:minmax(max-content,1fr) auto minmax(max-content,1fr);align-items:center;gap:var(--s5);min-height:76px}
+.hdr-end{display:flex;align-items:center;justify-content:flex-end;gap:var(--s4)}
+.brand{display:flex;align-items:center;gap:10px;justify-self:start;color:var(--ink);text-decoration:none;font-weight:800;font-size:1.25rem;letter-spacing:.02em}
+.brand img{width:30px;height:30px;object-fit:contain}
+.nav{display:flex;gap:var(--s5)}
+/* large browser font in Firefox (the menu does not fold there, F6): items move to the next row whole, words are not split */
+.nav{flex-wrap:wrap;row-gap:0}
+:where(.nav,.lang) a{overflow-wrap:normal}
+.nav a,.lang a{color:var(--ink-2);text-decoration:none;font-weight:500;font-size:1rem}
+.nav a:hover,.lang a:hover{color:var(--ink)}
+.lang{display:flex;gap:var(--s3)}
+.lang a[aria-current]{color:var(--ink);font-weight:700}
+.icon-btn{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.icon-btn:hover{border-color:var(--ink-2)}
+.icon-btn .ico{width:20px;height:20px}
+.theme .moon,html[data-theme=dark] .theme .sun{display:none}
+html[data-theme=dark] .theme .moon{display:block}
+.menu{display:none;position:relative}
+.menu summary{list-style:none}
+.menu summary::-webkit-details-marker{display:none}
+.menu .x,.menu[open] .bars{display:none}
+.menu[open] .x{display:block}
+.menu-panel{position:absolute;right:0;top:calc(100% + 12px);width:min(320px,calc(100vw - 2*var(--page)));background:var(--panel);border:1px solid var(--line);border-radius:var(--r-m);padding:var(--s5);box-shadow:var(--shadow-hover);display:grid;gap:var(--s4)}
+.menu-panel nav{display:grid;gap:var(--s3)}
+.menu-panel nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:1.125rem}
+/* below 1180 px the centred menu, languages and button no longer fit in one row; in em, so that with a larger
+   browser font the menu folds earlier (Chrome, Edge; Firefox keeps 16 px for media queries, final check F6) */
+@media (max-width:73.6875em){
+  .hdr .wrap{grid-template-columns:1fr auto}
+  .hdr .wrap>.nav,.hdr-end>.lang,.hdr-end>.hdr-cta{display:none}
+  .menu{display:block}
+}
+
+/* ---------- hero: full-screen photo slot under a dark gradient ---------- */
+/* The photo is always dark under the gradient, so the copy keeps light colours in both themes.
+   Wide screens: copy on the right, where the gradient is densest. Narrow or tall screens: copy at the bottom,
+   on its own dark band that fades upwards into the photo, so it stays readable however long the copy is. */
+.hero{position:relative;isolation:isolate;overflow:hidden;display:grid;align-items:end;min-height:calc(100svh - 77px);
+  background:#0B141B;color:#FFFFFF;--on:#FFFFFF;--on-2:#D5DEE5;--on-acc:#6CCFF3;--focus:#6CCFF3;--shade-c:7,14,20}
+.hero-media{position:absolute;inset:0;z-index:-1;margin:0;
+  --shade:linear-gradient(to top,rgba(var(--shade-c),.6),rgba(var(--shade-c),0) 40%)}
+.hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 50%}
+.hero-media::after{content:"";position:absolute;inset:0;background:var(--shade)}
+/* the badge sits above the photo and both gradients */
+.hero-badge{position:absolute;z-index:1;margin:0;top:var(--s4);left:var(--page);padding:6px 12px;border-radius:var(--r-pill);
+  background:rgba(var(--shade-c),.78);color:#FFFFFF;font-size:.8125rem;font-weight:700;line-height:1.2;letter-spacing:.01em}
+.hero.no-photo .hero-media img,.hero.no-photo .hero-badge{display:none}
+
+/* fallback: KORDEX figures drawn in light lines; they sit under the photo and show when it is missing */
+.hero-fallback{position:absolute;inset:0;display:flex;align-items:flex-start;justify-content:center;padding:var(--s7) var(--page) 0;
+  background:radial-gradient(120% 80% at 30% 20%,#17303D,#0B141B 70%);
+  --ink:#C9D4DC;--bg:#0B141B;--exo:#4CC3F0;--glow:76,195,240;--glow-a:.5}
+.hero-fallback .figs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s4);width:min(88%,420px);
+  padding-bottom:var(--s2);border-bottom:1.5px solid var(--ink)}
+
+/* bottom padding leaves room for the floating contact button */
+.hero-in{position:relative;padding-block:var(--s6) calc(var(--s8) + 24px);background:rgba(var(--shade-c),.9)}
+.hero-in::before{content:"";position:absolute;z-index:-1;left:0;right:0;bottom:100%;height:min(40vh,320px);
+  background:linear-gradient(to top,rgba(var(--shade-c),.9),rgba(var(--shade-c),0))}
+.hero-copy{display:grid;gap:var(--s5);max-width:42rem}
+.hero h1{color:var(--on);font-size:clamp(2.125rem,1rem + 3.4vw,4.25rem);line-height:1.02}
+.hero h1 .ln{display:block}
+.hero h1 em{font-style:normal;color:var(--on-acc)}
+.hero .lead{font-size:var(--t-lead);line-height:1.45;color:var(--on-2);max-width:34ch}
+.hero-act{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s4) var(--s6);margin-top:var(--s2)}
+.hero .link{color:var(--on);text-decoration-color:rgba(255,255,255,.55)}
+.hero .link:hover{text-decoration-color:currentColor}
+.hero .link .ico{color:var(--on-2)}
+
+@media (max-width:640px){.hero-media img{object-position:47% 50%}}
+/* landscape screens below 1180 px show the whole width of the photo: the right edge is darkened as well */
+@media (min-aspect-ratio:1/1){
+  .hero-media{--shade:linear-gradient(to left,rgba(var(--shade-c),.9),rgba(var(--shade-c),.86) 32%,rgba(var(--shade-c),0) 52%)}
+}
+/* wide screens (final check, F4): the copy sits bottom right on its own dark band that fades to the left and upwards,
+   so the head and back of the worker in the middle stay clear; the right quarter (box print with a brand name) stays dark */
+@media (min-width:1180px) and (min-aspect-ratio:1/1){
+  .hero-media{--shade:linear-gradient(to left,rgba(var(--shade-c),.9),rgba(var(--shade-c),.86) 30%,rgba(var(--shade-c),0) 41%)}
+  .hero-media img{object-position:50% 40%}
+  .hero-fallback{align-items:center;justify-content:flex-start;padding:0 0 0 max(var(--page),6vw)}
+  .hero-fallback .figs{width:min(40%,520px)}
+  .hero-in{align-self:end;padding-block:var(--s7) calc(var(--s8) + var(--s5));
+    background:linear-gradient(to left,rgba(var(--shade-c),.93),rgba(var(--shade-c),.88) 48%,rgba(var(--shade-c),.55) 58%,rgba(var(--shade-c),0) 78%)}
+  .hero-in::before{height:min(24vh,220px);background:inherit;
+    -webkit-mask:linear-gradient(to top,#000,transparent);mask:linear-gradient(to top,#000,transparent)}
+  .hero-in .wrap{display:flex;justify-content:flex-end}
+  .hero-copy{width:min(42rem,50%)}
+}
+/* low landscape screens below 1180 px: phones turned sideways, 200 % zoom (final check, F5): badge on the right,
+   copy in two columns, so the first screen holds the whole copy above the floating buttons */
+@media (min-aspect-ratio:1/1) and (max-height:500px) and (max-width:1179px){
+  .hero-badge{left:auto;right:var(--page)}
+  .hero-in{padding-block:var(--s4) calc(var(--s8) + var(--s2))}
+  .hero-copy{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s3) var(--s6);max-width:none;align-items:end}
+  .hero h1{grid-column:1;grid-row:1/3}
+  .hero .lead{grid-column:2;grid-row:1}
+  .hero-act{grid-column:2;grid-row:2;margin-top:0}
+}
+
+/* ---------- sections and cards (bento: cards of different size, thin outline for b/w print) ---------- */
+/* text budget per block: a heading up to 6 words, one line up to 12, one action; approved full texts sit in "More" */
+.sec{padding-block:clamp(64px,8vw,128px)}
+.sec+.sec{padding-top:0}
+.sec-head{display:grid;gap:var(--s4);margin-bottom:clamp(32px,4vw,56px);max-width:52rem}
+.sec-head .lead{font-size:var(--t-lead);line-height:1.45;color:var(--ink-2)}
+.sec-act{margin-top:var(--gap)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-l);padding:var(--pad)}
+.src{font-size:var(--t-small);color:var(--muted)}
+.src a{color:var(--link)}
+/* "More" (<details>): long approved texts */
+.more{border-top:1px solid var(--line);padding-top:var(--s4)}
+.more summary{position:relative;cursor:pointer;font-weight:700;color:var(--ink);list-style:none;display:inline-flex;align-items:center;gap:var(--s2);min-height:44px;padding-left:34px}
+/* one +/- sign for every disclosure: a ring with a horizontal bar (::before) and a vertical bar (::after) that folds away when open */
+.more summary::-webkit-details-marker,.qa summary::-webkit-details-marker{display:none}
+.more summary::before,.qa summary::before{content:"";position:absolute;top:50%;width:24px;height:24px;margin-top:-12px;box-sizing:border-box;border:1.5px solid var(--line);border-radius:50%;
+  background:linear-gradient(currentColor,currentColor) center/10px 1.5px no-repeat;transition:border-color var(--t-fast) var(--ease)}
+.more summary::after,.qa summary::after{content:"";position:absolute;top:50%;width:1.5px;height:10px;margin-top:-5px;background:currentColor;transition:transform var(--t-fast) var(--ease)}
+.more summary::before{left:0}
+.more summary::after{left:11.25px}
+.more[open]>summary::after,.qa[open]>summary::after{transform:scaleY(0)}
+.more summary:hover::before,.qa summary:hover::before{border-color:currentColor}
+/* the same focus ring on every summary */
+.more summary:focus-visible,.qa summary:focus-visible{outline:2px solid var(--focus);outline-offset:4px;border-radius:var(--r-s)}
+/* opened content fades in (no animation with reduced motion: the global rule switches animations off) */
+.more[open]>:not(summary),.qa[open]>:not(summary){animation:more-in 240ms var(--ease)}
+@keyframes more-in{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.more dl{display:grid;gap:2px;margin:var(--s3) 0 0}
+.more dt:not(:first-child){margin-top:var(--s3)}
+.more dt{font-weight:700;font-size:var(--t-small);color:var(--ink)}
+.more dd{margin:0;font-size:var(--t-small);color:var(--ink-2)}
+.more>p{font-size:var(--t-small);color:var(--ink-2);margin-top:var(--s2)}
+/* a table placed straight in "More" (home "Where it fits", final check N2); tables inside .tbl-scroll keep the frame tight */
+.more>.tbl{margin-top:var(--s3)}
+.points{display:grid;gap:var(--s2);margin:var(--s3) 0 0;padding-left:1.25em;color:var(--ink-2);font-size:var(--t-small)}
+/* icon in a circle, same look as the step numbers */
+.badge{display:grid;place-items:center;width:40px;height:40px;flex:none;border-radius:50%;border:1.5px solid var(--ink);background:var(--bg);
+  font-weight:800;font-size:1rem;line-height:1;color:var(--ink)}
+.badge .ico{width:20px;height:20px}
+/* a strip under a row of cards: the row keeps one height, longer texts open here */
+.more-strip{margin-top:var(--gap)}
+.more-strip dl,.strip dl{max-width:72ch}
+.strip{display:grid;gap:var(--s3);margin:0 0 var(--gap);padding:var(--s5) var(--pad);border:1px solid var(--line);border-radius:var(--r-l);background:var(--panel)}
+.strip .first{font-weight:700;color:var(--ink)}
+
+/* placeholder for a video or a logo whose rights are not confirmed: hatched panel with a label */
+.ph{position:relative;display:grid;place-items:center;aspect-ratio:4/3;border:1px dashed var(--muted);border-radius:var(--r-m);overflow:hidden;
+  background:repeating-linear-gradient(135deg,var(--panel-2) 0 12px,var(--panel) 12px 24px)}
+.ph-label{display:grid;gap:2px;justify-items:center;text-align:center;padding:8px 14px;border-radius:var(--r-s);background:var(--panel);border:1px solid var(--line);
+  font-size:.8125rem;font-weight:700;color:var(--ink-2);line-height:1.3}
+.ph-label small{font-weight:500;font-size:.75rem;color:var(--muted)}
+/* scene: a KORDEX figure instead of a photo (own drawing, no rights question); the zone glows on hover */
+.scene{position:relative;display:block;aspect-ratio:3/2;border-radius:var(--r-m);border:1px solid var(--line);background:var(--bg);overflow:hidden}
+/* the figure stands on the bottom edge; absolute, so its height follows the box and not its own drawing */
+.scene .fig{position:absolute;left:50%;bottom:6%;width:auto;height:86%;transform:translateX(-50%)}
+.card:hover .zone,a.card:focus-visible .zone{opacity:calc(var(--glow-a) + .3)}
+
+/* ---------- block 2: the problem, one big figure and two about KORDEX ---------- */
+/* cards in a grid never stretch after a neighbour that opens its "More" (align-items:start) */
+.figures{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);grid-template-rows:auto auto;gap:var(--gap);align-items:start}
+.fig-big{grid-row:span 2;display:grid;align-content:space-between;gap:var(--s6);padding:clamp(24px,3.2vw,48px)}
+.num{display:block;font-weight:800;letter-spacing:-.04em;line-height:.95;color:var(--ink);font-variant-numeric:tabular-nums}
+.fig-big .num{font-size:clamp(4rem,2rem + 7vw,8.5rem)}
+.fig-big .num small{font-size:.32em;letter-spacing:-.01em;font-weight:700;margin-left:.2em}
+.fig-txt{display:grid;gap:var(--s3)}
+.fig-big .cap{font-size:var(--t-lead);line-height:1.45;color:var(--ink-2);max-width:32ch}
+.fig-sm{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:var(--s4) var(--s5)}
+.fig-sm .ico{width:28px;height:28px;color:var(--exo);grid-row:span 2;align-self:start;margin-top:8px}
+.fig-sm .num{font-size:clamp(2.5rem,1.8rem + 2.2vw,3.5rem)}
+.fig-sm .cap{color:var(--ink-2);font-size:1rem;line-height:1.45}
+@media (max-width:860px){.figures{grid-template-columns:1fr}.fig-big{grid-row:auto}}
+
+/* ---------- block 3: where it helps, three tiles ---------- */
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);margin:0;padding:0;list-style:none;align-items:start}
+.tile{display:grid;align-content:start;gap:var(--s4);padding:var(--s4) var(--s4) var(--s5);transition:transform var(--t-base) var(--ease),box-shadow var(--t-base) var(--ease)}
+.tile:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+.tile-body{display:grid;gap:var(--s3);padding-inline:var(--s2)}
+.tile-body>p{color:var(--ink-2);font-size:1rem;line-height:1.5}
+@media (max-width:1023px){.tiles{grid-template-columns:1fr 1fr}.tiles>li:last-child{grid-column:1/-1}}
+@media (max-width:640px){.tiles{grid-template-columns:1fr}}
+
+/* ---------- honest band: does / does not ---------- */
+.honest{display:grid;gap:var(--s6);padding:clamp(24px,4vw,56px)}
+.honest-cols{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,6fr);gap:var(--s6) clamp(32px,5vw,80px)}
+.col-h{display:flex;align-items:center;gap:var(--s3);padding-bottom:var(--s3);margin-bottom:var(--s4);border-bottom:1.5px solid var(--ink)}
+.col-h .ico{width:24px;height:24px}
+.honest-cols>div:first-child .ico{color:var(--exo)}
+.hl{display:grid;gap:var(--s3);margin:0;padding:0;list-style:none}
+.hl li{display:flex;align-items:flex-start;gap:var(--s3);font-weight:600;line-height:1.4;color:var(--ink)}
+.hl .ico{margin-top:1px}
+.honest-cols>div:last-child .hl{grid-template-columns:1fr 1fr;column-gap:var(--s6)}
+/* one column (type pages): only the "Does not" limits; their icons keep the text colour */
+.honest-one .honest-cols{grid-template-columns:1fr}
+.honest-one .honest-cols>div:first-child .ico{color:currentColor}
+@media (max-width:1023px){.honest-cols{grid-template-columns:1fr}}
+@media (max-width:640px){.honest-cols>div:last-child .hl{grid-template-columns:1fr}}
+
+/* ---------- block 4: without and with, two frames side by side ---------- */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);margin:0}
+.pair .ph{aspect-ratio:16/10}
+.pair-tag{position:absolute;left:12px;top:12px;padding:4px 12px;border-radius:var(--r-pill);background:var(--ink);color:var(--bg);font-size:.875rem;font-weight:700}
+.pair-cap{grid-column:1/-1;font-size:var(--t-small);color:var(--muted)}
+@media (max-width:640px){.pair{grid-template-columns:1fr}}
+
+/* ---------- block 5: four steps on a line ---------- */
+.steps{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap);margin:0 0 var(--s7);padding:0;list-style:none;counter-reset:step}
+/* the line: one segment from each number to the next */
+.step:not(:last-child)::after{content:"";position:absolute;top:24px;left:48px;right:calc(-1*var(--gap));height:1.5px;background:var(--ink);transform-origin:left center}
+.step{position:relative;display:grid;align-content:start;gap:var(--s3);counter-increment:step}
+.step::before{content:counter(step);display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--bg);border:1.5px solid var(--ink);
+  font-weight:800;font-size:1.125rem;color:var(--ink);margin-bottom:var(--s2)}
+.step:last-child::before{background:var(--ink);color:var(--bg)}
+.step p{color:var(--ink-2);font-size:1rem;line-height:1.5}
+.step .step-num{font-weight:800;font-size:clamp(2rem,1.6rem + 1.4vw,2.75rem);line-height:1;letter-spacing:-.03em;color:var(--ink)}
+.how-foot{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--gap);align-items:start}
+.how-act{display:grid;gap:var(--s4);justify-items:start;align-content:start}
+@media (max-width:860px){
+  .steps{grid-template-columns:1fr;gap:var(--s5)}
+  .step:not(:last-child)::after{left:23px;right:auto;top:48px;bottom:calc(-1*var(--s5));width:1.5px;height:auto;transform-origin:center top}
+  .step{grid-template-columns:48px 1fr;column-gap:var(--s4)}
+  .step::before{grid-row:span 4;margin-bottom:0}
+  .how-foot{grid-template-columns:1fr}
+}
+
+/* ---------- block 6: calculator (formula: KXROI.cost from the site's calculator.js) ---------- */
+.calc{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--gap);align-items:start}
+.calc-form{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4) var(--s5);align-content:start;margin:0}
+.field{display:grid;gap:var(--s2);align-content:end;font-size:var(--t-small);font-weight:600;line-height:1.35;color:var(--ink)}
+.field input,.field select{width:100%;min-height:48px;padding:10px 14px;border:1px solid var(--line);border-radius:var(--r-s);background:var(--bg);color:var(--ink);
+  font:600 1.0625rem/1.2 var(--font)}
+.field input:hover,.field select:hover{border-color:var(--ink-2)}
+.linkbtn{grid-column:1/-1;justify-self:start;padding:0;border:0;background:none;color:var(--link);font:700 1rem/1.4 var(--font);text-align:left;
+  text-decoration:underline;text-underline-offset:.2em;cursor:pointer;min-height:44px}
+/* the result card is inverted: ink background in the light theme, light in the dark theme */
+.calc-out{display:grid;align-content:space-between;gap:var(--s5);background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.calc-out .k{font-size:var(--t-small);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.calc-sum{display:block;font-weight:800;font-size:clamp(3rem,2rem + 4vw,5.25rem);line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.calc-out p{color:inherit}
+.calc-out .formula{font-size:var(--t-small);font-variant-numeric:tabular-nums}
+.calc-out .ex{font-size:var(--t-small);font-weight:700}
+.more-inv,.more-inv summary{color:inherit;border-color:currentColor}
+.more-inv summary::before{border-color:currentColor}
+/* on the inverted card the focus ring takes the page colour */
+.calc-out{--focus:var(--bg)}
+@media (max-width:860px){.calc{grid-template-columns:minmax(0,1fr)}.calc>*{min-width:0}}
+@media (max-width:520px){.calc-form{grid-template-columns:1fr}}
+
+/* ---------- block 7: exoskeleton types, the whole card is the link ---------- */
+.types{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);margin:0;padding:0;list-style:none}
+.types>li{display:grid}
+.type{display:grid;align-content:start;gap:var(--s2);padding:var(--s4) var(--s4) var(--s5);color:var(--ink);text-decoration:none;
+  transition:transform var(--t-base) var(--ease),box-shadow var(--t-base) var(--ease),border-color var(--t-base) var(--ease)}
+.type:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);border-color:var(--ink-2)}
+.type:focus-visible{border-radius:var(--r-l)}
+.type .scene{margin-bottom:var(--s3);aspect-ratio:16/9}
+.code{padding-inline:var(--s2);font-weight:800;font-size:1.75rem;letter-spacing:-.01em;line-height:1;color:var(--ink)}
+.type-name{padding-inline:var(--s2);font-weight:700;font-size:var(--t-h3);line-height:1.25;letter-spacing:-.015em}
+@media (max-width:1023px){.types{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.types{grid-template-columns:1fr}}
+
+/* ---------- block 8: before the test, four cards ---------- */
+/* no "More" inside these cards, so the row keeps one height */
+.decide{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);margin:0;padding:0;list-style:none}
+.decide>li{display:grid;align-content:start;gap:var(--s3)}
+.decide>li p{color:var(--ink-2);font-size:1rem;line-height:1.5}
+.decide .wide{grid-column:1/-1}
+/* risk management as a four-point line */
+.rm{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:var(--s2) 0 0;padding:0;list-style:none;font-weight:700;font-size:1rem;color:var(--ink)}
+.rm li{position:relative;padding-top:28px}
+.rm li::before{content:"";position:absolute;left:0;top:4px;width:14px;height:14px;border-radius:50%;border:1.5px solid var(--ink);background:var(--panel);z-index:1}
+.rm li:not(:last-child)::after{content:"";position:absolute;left:14px;right:0;top:11px;height:1.5px;background:var(--ink)}
+.rm li:last-child::before{background:var(--ink)}
+@media (max-width:1023px){.decide{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.decide{grid-template-columns:1fr}}
+@media (max-width:420px){.rm{grid-template-columns:1fr 1fr;row-gap:var(--s4)}.rm li:nth-child(2)::after{display:none}}
+
+/* ---------- block 9: where our facts come from ---------- */
+.classes{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--s4);margin:0 0 var(--gap);padding:0;list-style:none}
+.classes>li{display:grid;align-content:start;gap:var(--s3);padding:var(--s5)}
+.classes h3{font-size:1.0625rem}
+.makers-card{display:grid;gap:var(--s5)}
+.why{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s4);margin:0;padding:0;list-style:none;font-weight:700;font-size:1rem;color:var(--ink)}
+.why li{display:grid;gap:var(--s2);align-content:start}
+@media (max-width:1180px){.classes{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:860px){.classes{grid-template-columns:1fr 1fr}}
+/* one column when the window is narrower than 20 em: never at the default 16 px (320 px), from 480 px at a 24 px browser font (F6) */
+@media (max-width:20em){.classes{grid-template-columns:1fr}}
+@media (max-width:520px){.why{grid-template-columns:1fr}.why li{grid-template-columns:40px 1fr;align-items:center;gap:var(--s3)}}
+
+/* ---------- block 10: common questions, a short answer chip on each ---------- */
+/* one column of full-width rows; the details share name="faq", so only one row is open at a time */
+.faq{padding-block:var(--s2)}
+.qa+.qa{border-top:1px solid var(--line)}
+.qa summary{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:var(--s3) var(--s5);
+  min-height:72px;padding:var(--s4) 44px var(--s4) 0;cursor:pointer;list-style:none;color:var(--ink)}
+.qa summary::before{right:0}
+.qa summary::after{right:11.25px}
+.qa summary h3{font-size:var(--t-h3)}
+.qa-body{display:grid;gap:var(--s3);max-width:68ch;padding:0 44px var(--s5) 0;color:var(--ink-2)}
+.chip{display:inline-block;padding:4px 12px;border-radius:var(--r-pill);border:1.5px solid var(--ink);font-size:.875rem;font-weight:700;color:var(--ink);white-space:nowrap}
+/* "Coming soon": a type shown but not available yet (flag in scripts/v2/soon.py); dashed so it also reads on paper */
+.soon{display:inline-block;justify-self:start;margin-inline-start:.5em;padding:1px 8px;border:1.5px dashed currentColor;border-radius:var(--r-pill);
+  font-size:.75rem;font-weight:700;line-height:1.4;letter-spacing:.01em;white-space:nowrap;vertical-align:.15em;color:inherit}
+.th-id .soon,.dev-id .soon{margin-inline-start:0}
+.dev-id:has(.soon){flex-wrap:wrap}  /* in a narrow card the label goes to the next line instead of squeezing the code */
+.tbl .soon{display:block;width:fit-content;margin:4px 0 0}  /* own line in a table cell, so the columns keep their widths */
+.faq .next{font-weight:600;color:var(--ink)}
+.faq-all{margin-top:var(--gap)}
+@media (max-width:640px){.qa summary{grid-template-columns:1fr;justify-items:start}}
+
+/* ---------- block 11: final band, dark in both themes, no photo ---------- */
+.final{display:grid;gap:var(--s5);justify-items:start;padding:clamp(32px,6vw,96px);border-radius:var(--r-l);border:1px solid #2A3A46;
+  background:radial-gradient(90% 120% at 100% 0%,#17303D,#0B141B 65%);color:#FFFFFF;--focus:#6CCFF3}
+.final h2{color:#FFFFFF;max-width:20ch}
+.final p{color:#D5DEE5;font-size:var(--t-lead);line-height:1.45;max-width:46ch}
+.final .small{font-size:var(--t-small)}
+
+/* ---------- footer ---------- */
+/* bottom padding: room for the floating buttons */
+.ftr{border-top:1px solid var(--line);background:var(--panel);padding-block:var(--s8) 96px}
+.fcols{display:grid;grid-template-columns:minmax(0,4fr) repeat(3,minmax(0,3fr));gap:var(--s6) var(--gap)}
+.ftr h2{font-size:1rem;letter-spacing:0;line-height:1.3;margin-bottom:var(--s3)}
+.ftr ul{display:grid;gap:var(--s2);margin:0;padding:0;list-style:none}
+.ftr ul a{color:var(--ink-2);text-decoration:none;font-size:var(--t-small)}
+.ftr ul a:hover{color:var(--ink);text-decoration:underline}
+.ftr .about{display:grid;gap:var(--s3);align-content:start;color:var(--muted);font-size:var(--t-small)}
+.fbar{max-width:none;margin-top:var(--s7);padding-top:var(--s5);border-top:1px solid var(--line);font-size:.875rem;color:var(--muted)}
+.fbar a{color:var(--muted)}
+@media (max-width:860px){.fcols{grid-template-columns:1fr 1fr}}
+@media (max-width:420px){.fcols{grid-template-columns:1fr}}
+
+.lineup{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s4);margin:0;padding:0;list-style:none}
+/* floor: a measured line under the feet, like a technical drawing */
+.lineup>li{position:relative}
+.lineup>li::after{content:"";position:absolute;left:calc(-1*var(--s4)/2);right:calc(-1*var(--s4)/2);bottom:56px;height:9px;border-top:1.5px solid var(--ink);
+  background:repeating-linear-gradient(90deg,var(--line) 0 1.5px,transparent 1.5px 24px);transform-origin:left center;pointer-events:none}
+.fig-link{display:grid;justify-items:center;gap:var(--s4);text-decoration:none;color:var(--ink);border-radius:var(--r-m);padding-top:var(--s2);
+  transition:opacity var(--t-base) var(--ease)}
+.fig-link:focus-visible{outline-offset:6px}
+.fig-cap{height:40px;display:grid;place-items:center;font-weight:700;font-size:1.0625rem;letter-spacing:-.01em;text-align:center;line-height:1.2}
+.fig{transition:opacity var(--t-base) var(--ease)}
+.lineup:hover .fig-link:not(:hover) .fig,.lineup:focus-within .fig-link:not(:focus-visible):not(:hover) .fig{opacity:.45}
+
+/* the KORDEX figure: outlined pictogram, exoskeleton in cyan, the load zone glows */
+.fig{width:100%;height:auto;overflow:visible}
+.fig .o{fill:none;stroke:var(--ink);stroke-linecap:round;stroke-linejoin:round}
+.fig .i{fill:none;stroke:var(--bg);stroke-linecap:round;stroke-linejoin:round}
+.fig .head{fill:var(--bg);stroke:var(--ink);stroke-width:2.5}
+.fig .prop{fill:var(--bg);stroke:var(--ink);stroke-width:2.5;stroke-linejoin:round}
+.fig .exo{fill:none;stroke:var(--exo);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.fig .joint{fill:var(--bg);stroke:var(--exo);stroke-width:2.5}
+.fig .zs{stop-color:rgb(var(--glow));stop-opacity:1}
+.fig .zs0{stop-color:rgb(var(--glow));stop-opacity:0}
+.fig .zone{opacity:var(--glow-a);transform-box:fill-box;transform-origin:center;
+  transition:opacity var(--t-base) var(--ease),transform var(--t-base) var(--ease)}
+.fig-link:hover .zone,.fig-link:focus-visible .zone,.fig-link.is-center .zone{opacity:calc(var(--glow-a) + .3);animation:pulse 2.4s var(--ease) infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+
+@media (max-width:1023px){
+  /* phones and tablets: the figures scroll sideways inside the lineup, never the page */
+  .lineup{display:flex;gap:var(--s4);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
+    margin-inline:calc(-1*var(--page));padding-inline:var(--page);scroll-padding-inline:var(--page)}
+  .lineup::-webkit-scrollbar{display:none}
+  .lineup>li{flex:0 0 min(46%,230px);scroll-snap-align:center}
+  .lineup:hover .fig-link:not(:hover) .fig{opacity:1}
+}
+
+/* ---------- motion (only with JavaScript, never with reduced motion) ---------- */
+@media (prefers-reduced-motion:no-preference){
+  html.js .hero [data-in]{opacity:0;transform:translateY(20px)}
+  html.js .hero .lineup>li::after{transform:scaleX(0)}
+  html.js .hero.is-in [data-in]{opacity:1;transform:none;transition:opacity var(--t-slow) var(--ease),transform var(--t-slow) var(--ease);transition-delay:var(--d,0ms)}
+  html.js .hero.is-in .lineup>li::after{transform:scaleX(1);transition:transform 700ms var(--ease);transition-delay:var(--d,0ms)}
+  html.js .hero.is-in .zone{animation:flash 900ms var(--ease) both;animation-delay:var(--zd,700ms)}
+  @keyframes flash{0%{opacity:var(--glow-a)}40%{opacity:calc(var(--glow-a) + .35);transform:scale(1.15)}100%{opacity:var(--glow-a);transform:scale(1)}}
+  html.js .hero.is-in .fig-link:hover .zone,html.js .hero.is-in .fig-link:focus-visible .zone,html.js .hero.is-in .fig-link.is-center .zone{animation:pulse 2.4s var(--ease) infinite}
+  /* the photo settles from a slight zoom */
+  html.js .hero .hero-media img{transform:scale(1.05)}
+  html.js .hero.is-in .hero-media img{transform:none;transition:transform 1600ms var(--ease)}
+  /* blocks below: the head and the cards appear once, cards one after another (--d) */
+  html.js [data-reveal] .sec-head,html.js [data-reveal] [data-in]{opacity:0;transform:translateY(20px)}
+  html.js [data-reveal].is-in .sec-head,html.js [data-reveal].is-in [data-in]{opacity:1;transform:none;
+    transition:opacity var(--t-slow) var(--ease),transform var(--t-slow) var(--ease);transition-delay:var(--d,0ms)}
+  html.js [data-reveal] .step::after{transform:scaleX(0)}
+  html.js [data-reveal].is-in .step::after{transform:none;transition:transform 500ms var(--ease);transition-delay:calc(var(--d,0ms) + 250ms)}
+  @media (max-width:860px){html.js [data-reveal] .step::after{transform:scaleY(0)}}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+
+/* ---------- shared parts of the inner pages (shown together on design/system-v2/kit/) ---------- */
+/* a word in a heading is never singled out: <em> from the approved texts stays in the markup but reads as plain text
+   (the hero h1 on the home page keeps its own coloured word, see PLAN.md) */
+:is(h1,h2,h3) em{font-style:normal;color:inherit}
+
+/* breadcrumbs: a list in a nav; the "/" is drawn by CSS and is not read out */
+.crumbs ol{display:flex;flex-wrap:wrap;align-items:center;margin:0 0 var(--s5);padding:0;list-style:none;font-size:var(--t-small);line-height:1.4;color:var(--muted)}
+.crumbs li{min-width:0;overflow-wrap:anywhere}
+.crumbs li+li::before{content:"/";content:"/" / "";margin-inline:var(--s2);color:var(--muted)}
+.crumbs a{display:inline-block;padding-block:var(--s1);color:var(--ink-2);text-decoration-color:var(--line-field)}
+.crumbs a:hover{color:var(--ink);text-decoration-color:currentColor}
+.crumbs [aria-current]{color:var(--ink);font-weight:600}
+/* on a dark band: light colours, the same in both themes */
+.crumbs.inv ol,.crumbs.inv li+li::before{color:#D5DEE5}
+.crumbs.inv a,.crumbs.inv [aria-current]{color:#FFFFFF;text-decoration-color:rgba(255,255,255,.55)}
+
+/* forms: one outlined card per group of questions; the label always visible above the field, the hint under it */
+.form{display:grid;gap:var(--gap);max-width:50rem;margin:0}
+.fset{min-width:0;margin:0;padding:var(--pad);border:1px solid var(--line);border-radius:var(--r-l);background:var(--panel)}
+.fset>legend{float:left;width:100%;display:flex;align-items:center;gap:var(--s3);margin:0;padding:0;
+  font-size:var(--t-h3);font-weight:800;line-height:1.25;letter-spacing:-.015em;color:var(--ink)}
+.fset>legend+*{clear:both}
+/* the legend floats, so the first field's top margin is lost against it: the gap sits under the legend instead, the same for every group */
+.fset>legend{margin-bottom:var(--s5)}
+.fset>legend+.q,.fset>legend+.frow>.q{margin-top:0}
+/* the groups of a questionnaire are a real sequence, so they keep their numbers */
+.fset .k{display:grid;place-items:center;width:32px;height:32px;flex:none;border-radius:var(--r-s);background:var(--ink);color:var(--bg);font-size:1rem}
+.q{display:grid;gap:var(--s2);min-width:0;margin-top:var(--s5)}
+.q>label,.ql{font-size:1rem;font-weight:700;line-height:1.35;color:var(--ink)}
+.req{font-size:var(--t-small);font-weight:500;color:var(--muted)}
+.hint{display:block;font-size:var(--t-small);line-height:1.45;color:var(--muted)}
+.form :is(input[type=text],input[type=email],input[type=tel],input[type=date],input:not([type]),select,textarea){width:100%;min-height:48px;margin:0;padding:10px 14px;
+  border:1px solid var(--line-field);border-radius:var(--r-s);background:var(--panel);color:var(--ink);font:500 1.0625rem/1.3 var(--font)}
+.form textarea{min-height:120px;resize:vertical;line-height:1.5}
+.form :is(input,select,textarea):hover{border-color:var(--ink)}
+.form :is(input,select,textarea):focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.frow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 var(--s5)}
+/* choices as chips: the native input lies over the chip (keyboard, validation); the chosen chip turns dark, so it shows without colour */
+.opts{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.opt{position:relative;display:inline-flex}
+.opt input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.opt span{display:inline-flex;align-items:center;min-height:44px;padding:8px 16px;border:1px solid var(--line-field);border-radius:var(--r-s);background:var(--panel);
+  color:var(--ink);font-size:var(--t-small);font-weight:600;line-height:1.35}
+.opt:hover span{border-color:var(--ink)}
+.opt input:checked+span{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.opt input:focus-visible+span{outline:2px solid var(--focus);outline-offset:2px}
+.check{display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--s3);align-items:start;font-size:var(--t-small);line-height:1.5;color:var(--ink-2)}
+.check input{width:22px;height:22px;margin:1px 0 0;accent-color:var(--ink)}
+/* hidden trap field for bots */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.submit{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s4) var(--s5)}
+.submit .hint{max-width:46ch}
+@media (max-width:640px){.frow{grid-template-columns:1fr}.submit .btn{width:100%;justify-content:space-between}}
+
+/* errors: the browser checks required fields and e-mail without JavaScript; after a try the field gets a thick
+   outline and the line under it shows, with a "!" icon, so the error does not rely on colour.
+   .is-err shows the same state from the server or on the kit page (then the field carries aria-invalid and points to the line) */
+.err{display:none;align-items:flex-start;gap:var(--s2);font-size:var(--t-small);font-weight:600;line-height:1.45;color:var(--err)}
+.err .ico{width:18px;height:18px;margin-top:2px}
+.q:has(:user-invalid) .err,.q.is-err .err{display:flex}
+.form :is(input,select,textarea):user-invalid,.q.is-err :is(input,select,textarea){border-color:var(--err);box-shadow:inset 0 0 0 1px var(--err)}
+.q:has(.opt input:user-invalid) .opt span,.q.is-err .opt span{border-color:var(--err)}
+
+/* tables: outlined, header row on the second panel colour, headings in sentence case;
+   long words (German and Dutch law titles) and web addresses break, so a table is never wider than its card */
+.tbl{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden;background:var(--panel);
+  font-size:var(--t-small);line-height:1.5}
+.tbl th,.tbl td{text-align:left;vertical-align:top;padding:12px 16px;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+.tbl tbody tr:last-child>*{border-bottom:0}
+/* column headings stay whole: their longest word sets the narrowest a column can get */
+.tbl thead th{background:var(--panel-2);color:var(--ink);font-weight:700;overflow-wrap:normal}
+.tbl b{color:var(--ink)}
+/* a comparison table scrolls inside its card, never the page; the region takes keyboard focus to scroll */
+/* contain:inline-size keeps the wide table out of the width of the grid around it (otherwise the page scrolls sideways) */
+.tbl-scroll{overflow-x:auto;contain:inline-size;border:1px solid var(--line);border-radius:var(--r-m);background:var(--panel)}
+.tbl-scroll:focus-visible{outline-offset:2px;border-radius:var(--r-m)}
+.tbl-wide{min-width:46rem;border:0;border-radius:0}
+.tbl-wide td{overflow-wrap:normal}
+.tbl .code-link{font-weight:800;color:var(--link)}
+/* phones: each row of a text table becomes a block, every value keeps its column name (data-th) */
+@media (max-width:700px){
+  .tbl:not(.tbl-wide):not(.tbl-kv) thead{display:none}
+  .tbl:not(.tbl-wide):not(.tbl-kv),.tbl:not(.tbl-wide):not(.tbl-kv) tbody,.tbl:not(.tbl-wide):not(.tbl-kv) tr,.tbl:not(.tbl-wide):not(.tbl-kv) td{display:block}
+  .tbl:not(.tbl-wide):not(.tbl-kv) tr{padding:var(--s3) var(--s4);border-bottom:1px solid var(--line)}
+  .tbl:not(.tbl-wide):not(.tbl-kv) tbody tr:last-child{border-bottom:0}
+  .tbl:not(.tbl-wide):not(.tbl-kv) td{padding:var(--s1) 0;border:0}
+  .tbl:not(.tbl-wide):not(.tbl-kv) td[data-th]::before{content:attr(data-th);display:block;font-size:.8125rem;font-weight:700;color:var(--muted)}
+}
+
+/* status label: colour, a word and a mark of its own shape (filled dot), so it reads without colour and in print */
+.status,.pz-status{--st:var(--st-open);display:inline-flex;align-items:center;gap:var(--s2);min-height:28px;padding:3px 12px 3px 10px;border-radius:var(--r-pill);
+  background:var(--st);color:var(--st-ink);font-size:.875rem;font-weight:700;line-height:1.2}
+.status::before,.pz-status::before{content:"";width:10px;height:10px;flex:none;border-radius:50%;background:currentColor}
+.legend{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5);margin:0;padding:0;list-style:none;font-size:var(--t-small);color:var(--ink-2)}
+.legend i{display:inline-block;width:16px;height:16px;margin-right:var(--s2);vertical-align:-3px;border-radius:4px;background:var(--st)}
+.legend .z-open,.pz.z-open{--st:var(--st-open)}
+/* map zones: keyboard focus is dashed, the chosen zone has a thick solid outline, so the two never look the same */
+.pz{fill:var(--st);stroke:var(--panel);stroke-width:2;cursor:pointer}
+.pz:hover{stroke:var(--ink);stroke-width:2}
+.pz:focus{outline:none}
+.pz:focus-visible{stroke:var(--ink);stroke-width:3;stroke-dasharray:6 4}
+.pz.is-sel{stroke:var(--ink);stroke-width:5;stroke-dasharray:none}
+
+/* sent / not sent: one card with an icon, a heading, a line and two actions */
+.result{display:grid;gap:var(--s5);justify-items:start;padding:clamp(28px,6vw,80px);border:1px solid var(--line);border-radius:var(--r-l);background:var(--panel)}
+.result .crumbs ol{margin:0}
+.result .badge{width:56px;height:56px}
+.result .badge .ico{width:26px;height:26px}
+.result-err .badge{border-color:var(--err);color:var(--err)}
+.result-h{font-size:var(--t-h2);line-height:1.08;letter-spacing:-.03em;font-weight:800;max-width:20ch}
+.result .lead{font-size:var(--t-lead);line-height:1.45;color:var(--ink-2);max-width:46ch}
+.result-act{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s4) var(--s6)}
+
+/* ---------- type head: a dark card with the exoskeleton on the background (same in both themes) ----------
+   Wide screens: the frame fills the card, the copy sits left on a dense gradient. Phones: the frame on top, the copy
+   below on the dark card, nothing laid over the picture. A KORDEX figure sits under every frame and shows when there is
+   no frame, when it fails to load, or when the address ends with #no-photo (type-video.js). */
+.type-head{position:relative;isolation:isolate;overflow:hidden;display:grid;align-items:center;min-height:clamp(440px,42vw,580px);
+  border:1px solid #2A3A46;border-radius:var(--r-l);background:radial-gradient(110% 90% at 80% 30%,#17303D,#0B141B 68%);color:#FFFFFF;
+  --on:#FFFFFF;--on-2:#D5DEE5;--focus:#6CCFF3;--shade-c:11,20,27}
+.th-copy{display:grid;gap:var(--s4);justify-items:start;max-width:min(36rem,54%);padding:clamp(28px,5vw,64px)}
+.th-copy .crumbs ol{margin:0}
+.th-load{font-size:var(--t-small);font-weight:600;color:var(--on-2)}
+.th-id{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s3)}
+.th-code{font-size:1.75rem;font-weight:800;line-height:1;letter-spacing:-.01em}
+.th-kind{padding:4px 12px;border:1px solid rgba(255,255,255,.6);border-radius:var(--r-pill);font-size:.875rem;font-weight:700;line-height:1.3}
+.th-h{color:var(--on);font-size:clamp(2.25rem,1.3rem + 2.6vw,3.75rem);line-height:1.02;letter-spacing:-.035em;font-weight:800;max-width:14ch}
+.th-copy .lead{font-size:var(--t-lead);line-height:1.45;color:var(--on-2);max-width:34ch}
+.th-act{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s4) var(--s6);margin-top:var(--s2)}
+.th-act .link{color:var(--on);text-decoration-color:rgba(255,255,255,.55)}
+.th-act .link:hover{text-decoration-color:currentColor}
+/* the frame: photo, product or video; its position per type in --th-pos */
+.th-media{position:absolute;inset:0;z-index:-1;margin:0}
+.th-media img,.th-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--th-pos,70% 50%)}
+.th-media::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to right,rgba(var(--shade-c),.94),rgba(var(--shade-c),.9) 42%,rgba(var(--shade-c),.35) 66%,rgba(var(--shade-c),0) 82%)}
+/* product shots on black: the product stands right, the black blends into the card */
+.th-product img{object-fit:contain;object-position:var(--th-pos,88% 50%);background:#000}
+/* the BP video hides brand marks under a blur (preview only); the poster is the still frame without JavaScript */
+.th-video video{filter:blur(6px) saturate(.9);transform:scale(1.08)}
+.th-badge{position:absolute;z-index:1;left:auto;right:var(--s4);bottom:var(--s4);margin:0;padding:6px 12px;border-radius:var(--r-pill);
+  background:rgba(var(--shade-c),.82);color:#FFFFFF;font-size:.8125rem;font-weight:700;line-height:1.2}
+/* pause / play: a real button, so Tab, Enter and Space work; shown only with JavaScript */
+.th-btn{position:absolute;z-index:1;top:var(--s4);right:var(--s4);display:inline-flex;align-items:center;gap:var(--s2);min-height:44px;padding:0 16px 0 12px;
+  border:1px solid rgba(255,255,255,.6);border-radius:var(--r-pill);background:rgba(var(--shade-c),.82);color:#FFFFFF;font:700 .9375rem/1 var(--font);cursor:pointer}
+.th-btn:hover{border-color:#FFFFFF}
+.th-btn .ico{width:18px;height:18px}
+.th-btn:not([data-state=on]) .i-pause,.th-btn[data-state=on] .i-play{display:none}
+/* the KORDEX figure: light lines on the dark card, the load zone glows */
+.th-fig{position:absolute;z-index:-2;top:0;bottom:0;right:0;width:46%;display:flex;align-items:flex-end;justify-content:center;padding:var(--s7) var(--s6) 12%;
+  --ink:#C9D4DC;--bg:#0B141B;--exo:#4CC3F0;--glow:76,195,240;--glow-a:.55}
+.th-fig .floor{display:block;height:100%;max-height:400px;padding-bottom:var(--s2);border-bottom:1.5px solid var(--ink)}
+.th-fig .fig{width:auto;height:100%}
+.type-head.no-media .th-media{display:none}
+@media (max-width:760px){
+  .type-head{align-items:start;min-height:0}
+  .th-media,.th-fig{position:relative;inset:auto;z-index:0;grid-area:1/1;width:auto;aspect-ratio:16/11}
+  .th-media{z-index:1}
+  .th-media::after{background:linear-gradient(to top,rgba(var(--shade-c),.7),rgba(var(--shade-c),0) 35%)}
+  .th-product img{object-position:var(--th-pos-m,50% 50%)}
+  .th-media img,.th-media video{object-position:var(--th-pos-m,var(--th-pos,60% 50%))}
+  .th-fig{padding:var(--s5) var(--s5) var(--s4)}
+  .th-copy{grid-area:2/1;max-width:none;padding:var(--s5) var(--pad) var(--s6)}
+}
+
+/* ---------- type page (BP first): parts below the type head ---------- */
+/* design draft note: Select equipment pages keep it until KORDEX removes it (texts as in bento) */
+.draft-bar{background:#FFF4DF;color:#4A2F00;border-bottom:1px solid #E7C98F;font-size:.875rem;line-height:1.45}
+.draft-bar .wrap{padding-block:10px}
+html[data-theme=dark] .draft-bar{background:#2B2109;color:#FFDDA6;border-color:#5A4415}
+.type-page{padding-top:var(--s5)}
+.note{font-size:var(--t-small);line-height:1.5;color:var(--muted);max-width:72ch}
+.note a,.links a{color:var(--link)}
+.links{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5);margin:var(--s5) 0 0;padding:0;list-style:none;font-weight:600;font-size:1rem}
+/* a frame in a card: manufacturer photo (preview only) or a KORDEX figure; --pos keeps marks outside the crop */
+.shot{position:relative;margin:0;aspect-ratio:4/3;border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden;background:var(--bg)}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:var(--pos,50% 50%)}
+.shot.on-black{background:#000}
+.shot.on-black img{object-fit:contain}
+.shot-cap{font-size:var(--t-small);line-height:1.5;color:var(--ink-2)}
+.shot-cap b{color:var(--ink)}
+/* operations: six tiles, the industry above the task; "How it is used" opens in one strip under the row */
+.tiles.apps>li:last-child{grid-column:auto}
+.apps .shot,.apps .scene{aspect-ratio:4/3}
+.ind{font-size:.875rem;font-weight:700;color:var(--muted)}
+/* two cards side by side (when it fits / what to check, does / does not) */
+.pair-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap);align-items:start}
+.pair-cards>.card{display:grid;gap:var(--s4);align-content:start}
+.hl .ico-warn{color:#8A5300}
+html[data-theme=dark] .hl .ico-warn{color:#E3A54A}
+.hl .ico-ok{color:var(--exo)}
+.media-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);margin-block:var(--gap);align-items:start}
+.media-row>figure{display:grid;gap:var(--s3);margin:0}
+/* one KORDEX figure beside the captions as a list (type pages without manufacturer frames) */
+.fig-list{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:var(--s6);align-items:center;margin-block:var(--gap);padding:clamp(20px,3vw,32px)}
+.fig-list .scene{aspect-ratio:4/3}
+.fig-list dl{display:grid;gap:var(--s2);margin:0;max-width:60ch}
+.fig-list dt{font-weight:700;color:var(--ink)}
+.fig-list dt:not(:first-child){margin-top:var(--s3)}
+.fig-list dd{margin:0;color:var(--ink-2)}
+/* models: a logo chip (white in both themes, logos keep their own colours), name, three facts, best for, links */
+.mdls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);margin:0;padding:0;list-style:none;align-items:start}
+.mdl{display:grid;gap:var(--s4);align-content:start}
+.mdl .shot{aspect-ratio:1/1;background:#0B141B}
+.mdl .shot img{object-fit:contain}
+/* renders on their own dark ground fill the frame (their rounded corners fall outside it) */
+.mdl .shot.fill img{object-fit:cover}
+.mdl .shot.on-black{background:#000}
+.logo-chip{display:inline-flex;align-items:center;justify-self:start;height:36px;padding:6px 10px;border:1px solid var(--line);border-radius:var(--r-s);background:#FFFFFF}
+.logo-chip img{height:22px;width:auto}
+/* a light logo (made for dark grounds) gets a dark chip; logos are never recoloured */
+.logo-chip.on-dark{background:#12222E;border-color:#12222E}
+.mdl .points{margin-top:0;font-size:1rem}
+.best{font-weight:700;color:var(--ink);font-size:1rem;line-height:1.45}
+.mdl .links{margin-top:0;display:grid;gap:var(--s2)}
+.yt-link{display:grid;grid-template-columns:96px 1fr;gap:var(--s3);align-items:center;color:var(--ink);font-weight:600;font-size:var(--t-small);text-decoration:none}
+.yt-link img{width:96px;height:54px;object-fit:cover;border-radius:var(--r-s);border:1px solid var(--line)}
+.yt-link span{text-decoration:underline;text-decoration-color:var(--line-field);text-underline-offset:.2em}
+.yt-link:hover span{text-decoration-color:currentColor}
+/* price, three ways: the first reading in the large card */
+.prices{display:grid;grid-template-columns:minmax(0,6fr) repeat(2,minmax(0,3fr));gap:var(--gap);align-items:start}
+.prices>.card{display:grid;gap:var(--s3);align-content:start}
+.prices .num{font-size:clamp(2rem,1.4rem + 2vw,3rem)}
+.prices>.card:first-child .num{font-size:clamp(2.75rem,1.6rem + 3.4vw,4.5rem)}
+.prices p{font-size:1rem;color:var(--ink-2);line-height:1.5}
+/* goals: the whole card is the link to the questionnaire */
+.goals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);margin:0;padding:0;list-style:none}
+.goals>li{display:grid}
+.goal{display:grid;align-content:start;gap:var(--s3);color:var(--ink);text-decoration:none;
+  transition:transform var(--t-base) var(--ease),box-shadow var(--t-base) var(--ease),border-color var(--t-base) var(--ease)}
+.goal:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);border-color:var(--ink-2)}
+.goal:focus-visible{border-radius:var(--r-l)}
+.goal p{color:var(--ink-2);font-size:1rem;line-height:1.5}
+.goal .go{color:var(--link);font-weight:700;font-size:1rem;text-decoration:underline;text-underline-offset:.2em}
+/* key-value table (specifications): stays a table on phones, the row heading on the left */
+.tbl tbody th{font-weight:700;color:var(--ink);background:var(--panel);overflow-wrap:normal}
+.tbl-kv tbody th{width:34%}
+.final .links a{color:#FFFFFF}
+.types-2{grid-template-columns:repeat(2,minmax(0,1fr));max-width:56rem}
+@media (max-width:1023px){.mdls,.goals,.media-row{grid-template-columns:1fr 1fr}.prices{grid-template-columns:1fr 1fr}.prices>.card:first-child{grid-column:1/-1}}
+@media (max-width:640px){.pair-cards,.mdls,.goals,.media-row,.prices,.fig-list{grid-template-columns:1fr}.types-2{grid-template-columns:1fr}.fig-list .scene{max-width:320px}}
+
+/* ---------- Select equipment: load picker, load groups, type cards, type code key ---------- */
+.se-hero{padding-block:clamp(32px,5vw,72px) clamp(40px,5vw,80px)}
+.se-hero h1{max-width:16ch}
+.se-hero .lead{margin-top:var(--s5);font-size:var(--t-lead);line-height:1.45;color:var(--ink-2);max-width:56ch}
+/* decorative KORDEX poses in the head of a text page (scripts/v2/hero_fig.py): from 1280 px only (below, the three poses
+   would reach the lead), at the right edge, out of the text flow, so the text keeps its place; never taller than the head;
+   hidden on smaller screens and on paper */
+.se-fig{display:none}
+@media (min-width:1280px){
+  .se-hero .wrap:has(>.se-fig){position:relative}
+  .se-fig{position:absolute;right:var(--page);top:0;bottom:0;display:flex;align-items:flex-end;gap:var(--s5)}
+  .se-fig .floor{display:block;height:min(100%,240px);padding-bottom:var(--s2);border-bottom:1.5px solid var(--ink)}
+  .se-fig .fig{width:auto;height:100%}
+}
+@media print{.se-fig{display:none!important}}
+/* the picker: three KORDEX figures as links to the load groups (the home lineup on a light ground) */
+.se-pick{max-width:600px;margin-top:var(--s7)}
+.se-pick>li::after{bottom:76px}
+.se-pick .fig-cap{height:auto;display:grid;gap:2px;font-size:1rem;line-height:1.3}
+.se-pick .fig-cap small{font-weight:500;font-size:.875rem;color:var(--muted)}
+/* load group: a large card, the figure with its glowing zone beside the text */
+.load{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:var(--s6) clamp(24px,4vw,56px);align-items:center;padding:clamp(24px,3.5vw,48px)}
+.load .scene{aspect-ratio:4/5}
+.load-body{display:grid;gap:var(--s4)}
+.load-body>p{color:var(--ink-2)}
+.load-body>p b{color:var(--ink)}
+.tags{display:flex;flex-wrap:wrap;gap:var(--s2);margin:0;padding:0;list-style:none}
+.tags li{padding:4px 12px;border:1px solid var(--line-field);border-radius:var(--r-pill);font-size:.875rem;font-weight:600;line-height:1.4;color:var(--ink)}
+/* type cards under a group: code, kind, name, three facts, suits / keep in mind, one link */
+.devs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);margin:var(--gap) 0 0;padding:0;list-style:none;align-items:start}
+.dev{display:grid;gap:var(--s3);align-content:start}
+.dev-id{display:flex;align-items:center;gap:var(--s3)}
+.dev-id .code{padding-inline:0}
+.kind{padding:3px 10px;border:1px solid var(--line-field);border-radius:var(--r-pill);font-size:.8125rem;font-weight:700;line-height:1.3;color:var(--ink-2)}
+.dev>p{font-size:1rem;line-height:1.5;color:var(--ink-2)}
+.dev>p b{color:var(--ink)}
+.specs{display:grid;grid-template-columns:auto 1fr;gap:4px var(--s4);margin:0;padding:var(--s3) 0;border-block:1px solid var(--line);font-size:var(--t-small);line-height:1.45}
+.specs dt{color:var(--muted)}
+.specs dd{margin:0;font-weight:600;color:var(--ink)}
+.devs+.note{margin-top:var(--s4)}
+/* type code: letters in circles */
+.key{display:grid;gap:var(--s3);margin:0;padding:0;list-style:none}
+.key li{display:grid;grid-template-columns:40px 1fr;align-items:center;gap:var(--s3);font-weight:600;color:var(--ink)}
+@media (max-width:1023px){.devs{grid-template-columns:1fr 1fr}}
+@media (max-width:860px){.load{grid-template-columns:1fr}.load .scene{max-width:260px;width:100%}}
+@media (max-width:640px){.devs{grid-template-columns:1fr}}
+
+/* ---------- type finder (find/): one question per screen with JavaScript (find-type.js); without it the six types as a list ---------- */
+html.js .no-js,html:not(.js) .needs-js{display:none}
+.fd{display:grid;gap:var(--gap)}
+.fd>.note{max-width:56ch}
+.fd-form{display:grid;gap:var(--s6);max-width:50rem;padding:clamp(24px,3.5vw,48px)}
+.fhead{display:grid;gap:var(--s2)}
+.fprog{font-size:var(--t-small);font-weight:700;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.fmeter{display:block;height:8px;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--panel-2);overflow:hidden}
+.fmeter i{display:block;width:0;height:100%;background:var(--acc);transition:width var(--t-base) var(--ease)}
+.fstep{min-width:0;margin:0;padding:0;border:0}
+html.js .fstep:not(.on){display:none}
+.fstep>legend{float:left;width:100%;padding:0;font-size:var(--t-h3);font-weight:800;line-height:1.25;letter-spacing:-.015em;color:var(--ink)}
+.fstep>legend+*{clear:both}
+.fstep .hint{padding-top:var(--s2)}
+.fopts{display:grid;gap:var(--s2);padding-top:var(--s5)}
+/* a whole row is the choice: the native radio lies over it (keyboard, screen readers); the chosen row gets a thick outline and a filled dot */
+.fopt{position:relative;display:block}
+.fopt input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.fopt span{display:flex;align-items:center;gap:var(--s3);min-height:56px;padding:12px 16px;border:1px solid var(--line-field);border-radius:var(--r-s);background:var(--panel);
+  color:var(--ink);font-weight:600;line-height:1.35}
+.fopt span::before{content:"";width:20px;height:20px;flex:none;border:1.5px solid var(--line-field);border-radius:50%;background:var(--panel)}
+.fopt:hover span{border-color:var(--ink)}
+.fopt input:checked+span{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.fopt input:checked+span::before{border-color:var(--ink);background:radial-gradient(circle,var(--ink) 0 4px,var(--panel) 4.5px)}
+.fopt input:focus-visible+span{outline:2px solid var(--focus);outline-offset:2px}
+.fnav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s4)}
+.fd .btn:disabled{opacity:.45;cursor:not-allowed}
+.fback{min-height:44px;padding:0;border:0;background:none;font:inherit;font-weight:600;cursor:pointer}
+.fback:disabled{visibility:hidden}
+/* result: the type in a large card with its figure, the answers and the next step in small cards beside it */
+.fres-grid{display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:var(--gap);align-items:start}
+.fres-main,.fres-side{display:grid;gap:var(--gap);align-content:start}
+.fres{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:var(--s6) clamp(24px,3vw,40px);align-items:center;padding:clamp(24px,3.5vw,48px)}
+.fres .scene{aspect-ratio:4/5}
+.fres-body{display:grid;gap:var(--s4);justify-items:start}
+.fres-h{font-size:var(--t-small);font-weight:700;color:var(--ink-2)}
+.fres .lead{font-size:var(--t-lead);line-height:1.45;color:var(--ink-2)}
+.fres .fit{font-size:1rem;color:var(--ink-2)}
+.fres .fit b{color:var(--ink)}
+.fres-act{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s4) var(--s5);margin-top:var(--s2)}
+.fres-x{grid-template-columns:1fr}
+.fwhy{display:grid;gap:var(--s3)}
+.fans{display:grid;gap:var(--s2);margin:0;padding-left:1.25em;font-size:var(--t-small);color:var(--ink-2)}
+.falt{font-size:var(--t-small);color:var(--ink-2)}
+.falt a{font-weight:700}
+/* without JavaScript: all six types (not the "not sure" card), without the answers and the "send these answers" link */
+html:not(.js) .fres-grid[hidden],html:not(.js) .fres[hidden]:not(.fres-x){display:grid!important}
+html:not(.js) .fres-grid{grid-template-columns:1fr}
+html:not(.js) .fres-main{grid-template-columns:repeat(2,minmax(0,1fr))}
+html:not(.js) .fres{grid-template-columns:1fr;align-items:start}
+html:not(.js) .fres .scene{max-width:220px;width:100%}
+html:not(.js) :is(.fres-side,.fres-h,.fsend){display:none}
+@media (max-width:1023px){.fres-grid{grid-template-columns:1fr}}
+@media (max-width:860px){.fres{grid-template-columns:1fr;align-items:start}.fres .scene{max-width:220px;width:100%}html:not(.js) .fres-main{grid-template-columns:1fr}}
+@media print{
+  .fmeter i{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#000}
+  .fopt input:checked+span{border:2px solid #000;font-weight:800}
+  .fd-form .fnav,.fres-side [data-act=restart]{display:none}
+}
+
+/* ---------- operation check (check/): the question with a live panel beside it, then five result cards (operation-check.js);
+   the question card, options and progress bar are the finder's (.fd-form, .fopt, .fhead) ---------- */
+.oc{display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:var(--gap);align-items:start}
+.oc .fd-form{max-width:none}
+/* the three parts of the questionnaire: the current one is bold and underlined, a finished one has a tick (no colour needed) */
+.oc-secs{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5);font-size:var(--t-small);font-weight:600;color:var(--muted)}
+.oc-secs span{padding-bottom:var(--s1);border-bottom:2px solid transparent}
+.oc-secs .on{color:var(--ink);font-weight:800;border-bottom-color:var(--ink)}
+.oc-secs .done{color:var(--ink-2)}
+.oc-secs .done::before{content:"";display:inline-block;width:5px;height:10px;margin:0 8px 2px 2px;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg)}
+/* live panel: exposure factors in words, never a score */
+.oc-live{display:grid;gap:var(--s3)}
+.oc-live h2{font-size:var(--t-h3);line-height:1.25;letter-spacing:-.015em}
+.oc-live h3{margin-top:var(--s2);font-size:1rem;line-height:1.35}
+.oc-areas{display:grid;margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.oc-areas li{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s3);padding:var(--s2) 0;border-bottom:1px solid var(--line);font-size:var(--t-small);color:var(--ink-2)}
+.oc-areas b{font-weight:600;color:var(--muted);text-align:right}
+.oc-areas li[data-lvl="1"] b,.oc-areas li[data-lvl="2"] b{color:var(--ink)}
+.oc-areas li[data-lvl="2"] b{font-weight:800}
+.oc-note{font-size:.875rem;color:var(--muted)}
+.oc-lm,.oc-lt{font-size:var(--t-small);color:var(--ink-2)}
+@media (min-width:1024px){.oc-live{position:sticky;top:96px}}
+/* results: profile small and assessment wide, then types wide and business case small, the send form across */
+.oc-res{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);align-items:start}
+.oc-r{display:grid;gap:var(--s4);align-content:start}
+.oc-r:nth-child(2),.oc-r:nth-child(3){grid-column:span 2}
+.oc-end,.oc-res>.note{grid-column:1/-1}
+.oc-r h2{font-size:clamp(1.5rem,1.25rem + .9vw,2rem);line-height:1.15;letter-spacing:-.025em}
+.oc-r h2:focus-visible{outline-offset:6px}
+.oc-r>p{color:var(--ink-2)}
+.oc-prof,.oc-meth,.oc-checks{display:grid;gap:var(--s2);margin:0;padding-left:1.25em;font-size:var(--t-small);color:var(--ink-2)}
+.oc-meth a{font-weight:700}
+.oc-flags{display:grid;gap:var(--s2);margin:0;padding:0;list-style:none}
+.oc-flags:empty{display:none}
+.oc-flags li{padding:var(--s3) var(--s4);border:1px solid var(--line-field);border-left-width:4px;border-radius:var(--r-s);background:var(--panel-2);font-size:var(--t-small);color:var(--ink)}
+.oc-types{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s3)}
+.oc-types:empty{display:none}
+.oc-type{display:grid;gap:var(--s1);padding:var(--s4) var(--s5);border:1px solid var(--line-field);border-radius:var(--r-m);background:var(--panel);color:var(--ink);text-decoration:none}
+.oc-type:hover{border-color:var(--ink)}
+.oc-type.is-first{border:2px solid var(--ink)}
+.oc-type .tag{font-size:.8125rem;font-weight:700;color:var(--muted)}
+.oc-type b{font-size:1.125rem;line-height:1.3}
+.oc-type .code{padding:0;font-size:1rem;color:var(--ink-2)}
+.oc-none{display:grid;gap:var(--s2)}
+.oc-r h3{font-size:1.125rem;line-height:1.35}
+.oc-send-form{max-width:none}
+.oc-send-form .q{margin-top:0}
+.oc-res .acts-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s4) var(--s5)}
+@media (max-width:1023px){.oc,.oc-res{grid-template-columns:1fr}.oc-r:nth-child(2),.oc-r:nth-child(3){grid-column:auto}}
+@media (max-width:640px){.oc-types{grid-template-columns:1fr}}
+/* without JavaScript: the note and, from the results, only the line about the methods */
+html:not(.js) .oc-res[hidden]{display:block!important}
+html:not(.js) .oc-res>:not(.oc-src){display:none}
+@media print{
+  .oc-live{position:static}
+  .oc-flags li{background:#FFFFFF;border-color:#000}
+  .oc-res [data-act=restart]{display:none}
+}
+
+/* ---------- calculator (calculator/): the company's figures in a large card, the result beside it, the business case below;
+   calculator.js draws the result and builds the printed business case (.print-doc). The formula (KXROI) is the bento one ---------- */
+.calc-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--gap);align-items:start}
+.roi-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s5) var(--s5);max-width:none;padding:clamp(24px,3.5vw,48px)}
+.roi-form .roi-wide,.roi-form .roi-wage{grid-column:1/-1}
+.roi-form label,.prop-form>label,.prop-self>label:not(.check){display:grid;gap:var(--s2);align-content:end;font-size:1rem;font-weight:700;line-height:1.35;color:var(--ink)}
+.calc-page :is(input[type=number],input[type=email],input:not([type]),select),.rec-roi :is(input[type=number],select){width:100%;min-height:48px;margin:0;padding:10px 14px;border:1px solid var(--line-field);
+  border-radius:var(--r-s);background:var(--panel);color:var(--ink);font:500 1.0625rem/1.3 var(--font)}
+.calc-page :is(input,select):hover,.rec-roi :is(input,select):hover{border-color:var(--ink)}
+.calc-page :is(input,select):focus-visible,.rec-roi :is(input,select):focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.calc-back{font-size:var(--t-small)}
+.calc-back a{color:var(--ink-2)}
+.roi-wage{border-top:1px solid var(--line);padding-top:var(--s3)}
+.roi-wage summary{cursor:pointer;min-height:44px;display:inline-flex;align-items:center;font-weight:700;color:var(--link);text-decoration:underline;text-underline-offset:.2em}
+.roi-wage summary:focus-visible{outline:2px solid var(--focus);outline-offset:4px;border-radius:var(--r-s)}
+.roi-wage-in{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s4);margin-top:var(--s3)}
+.roi-wage-in .roi-hint{grid-column:1/-1}
+.roi-hint{font-size:var(--t-small);line-height:1.45;color:var(--muted)}
+/* the result: the cost of the problem as a big figure, then the payback lines */
+.calc-res{display:grid;gap:var(--gap);align-content:start}
+@media (min-width:1024px){.calc-res{position:sticky;top:96px}}
+/* .calc-out is also the dark result card of home block 6: every rule here stays inside .calc-page and resets its colours */
+.calc-page .calc-out{display:grid;align-content:start;gap:var(--s4);padding:var(--pad);border:1px solid var(--line);border-radius:var(--r-l);background:var(--panel);color:var(--ink);--focus:inherit}
+.calc-page .calc-out dl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s2) var(--s4);margin:0;align-items:baseline}
+.calc-page .calc-out dt{font-size:var(--t-small);color:var(--ink-2)}
+.calc-page .calc-out dd{margin:0;font-weight:700;text-align:right;font-variant-numeric:tabular-nums;color:var(--ink)}
+.calc-page .calc-out dl:first-child{grid-template-columns:1fr}
+.calc-page .calc-out dl:first-child dd{text-align:left}
+.calc-page .calc-out dd.roi-key{font-size:clamp(2rem,1.6rem + 1.6vw,3rem);font-weight:800;line-height:1.05;letter-spacing:-.03em}
+.calc-page .calc-out dl:not(:first-child) dd.roi-key{font-size:1.5rem}
+.calc-page .calc-out .roi-eq{padding-top:var(--s4);border-top:1px solid var(--line);font-size:1.125rem;line-height:1.25;letter-spacing:-.015em;font-weight:700}
+.calc-page .calc-out :is(.calc-none,.roi-hint){color:var(--ink-2)}
+.calc-res>.note{margin-top:calc(-1 * var(--s3))}
+.calc-cta{display:grid;gap:var(--s4);justify-items:start;padding:var(--pad);border:1px solid var(--line);border-radius:var(--r-l);background:var(--panel)}
+.calc-cta p{color:var(--ink-2)}
+/* business case */
+.calc-prop{display:grid;gap:var(--s4);margin-top:var(--gap);padding:clamp(24px,3.5vw,48px)}
+.calc-prop>h2{font-size:clamp(1.5rem,1.25rem + .9vw,2rem);line-height:1.15;letter-spacing:-.025em}
+.calc-prop>p{color:var(--ink-2)}
+.prop-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s5);max-width:none}
+.prop-btns,.prop-self{grid-column:1/-1}
+.prop-btns{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s4) var(--s5)}
+.prop-self{display:grid;gap:var(--s4)}
+.prop-self>label{max-width:32rem}
+@media (max-width:1023px){.calc-grid{grid-template-columns:1fr}}
+@media (max-width:640px){.roi-form,.prop-form,.roi-wage-in{grid-template-columns:1fr}}
+/* without JavaScript: the figures can be typed, nothing is calculated; printing, e-mail and "send to my e-mail" need the script */
+html:not(.js) :is(.prop-btns [data-act],.prop-self,.calc-ex){display:none}
+/* the printed business case (only with JavaScript; without it the page itself prints) */
+.print-doc{display:none}
+@media print{
+  html.js body:has(#calc-page)>:not(main),html.js main:has(#calc-page)>:not(:has(#calc-page)),html.js #calc-page>:not(.print-doc){display:none!important}
+  html.js main:has(#calc-page)>.sec{padding:0}
+  html.js .print-doc{display:block!important;font:10.5pt/1.45 var(--font);color:#000}
+  .print-doc .pd-brand{font-weight:800;font-size:12pt;letter-spacing:.02em}
+  .print-doc h1{font-size:17pt;line-height:1.2;margin:2mm 0 4mm;max-width:none;letter-spacing:-.01em}
+  .print-doc h2{font-size:11.5pt;line-height:1.3;margin:6mm 0 2mm;letter-spacing:0;break-after:avoid}
+  .print-doc p{max-width:none}
+  .print-doc .pd-meta{display:grid;grid-template-columns:auto 1fr;gap:1mm 6mm;margin:0}
+  .print-doc .pd-meta dt{font-weight:700}
+  .print-doc .pd-meta dd{margin:0}
+  .print-doc table{width:100%;border-collapse:collapse}
+  .print-doc td{padding:1.6mm 0;border-bottom:.3pt solid #999;vertical-align:top}
+  .print-doc .pd-num{text-align:right;white-space:nowrap;padding-left:6mm;font-weight:600}
+  .print-doc .pd-note{margin-top:2mm;font-size:9pt;color:#333}
+  .print-doc .pd-dec{list-style:none;margin:0;padding:0}
+  .print-doc .pd-dec li{margin:1mm 0}
+  .print-doc .pd-sign{display:grid;grid-template-columns:1fr 1fr;gap:12mm;margin-top:14mm;break-inside:avoid}
+  .print-doc .pd-line{display:block;border-bottom:.5pt solid #000;height:10mm}
+  .print-doc .pd-sign p{font-size:9pt}
+  .print-doc .pd-footer{display:flex;align-items:center;gap:4mm;margin-top:10mm;font-size:8.5pt;color:#333}
+  .print-doc .pd-logo{width:8mm;height:8mm}
+  html:not(.js) .calc-res{position:static}
+}
+
+/* ---------- equipment request (request/): the form groups of the kit on the left, the summary card on the right
+   (request.js fills it; without JavaScript every field shows and the summary keeps its dashes) ---------- */
+.order{display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:var(--gap);align-items:start}
+.order .form{max-width:none}
+.order .plain{font-size:var(--t-small);color:var(--ink-2)}
+.summary{display:grid;gap:var(--s4)}
+.summary h2{font-size:var(--t-h3);line-height:1.25;letter-spacing:-.015em}
+.summary h3{font-size:1rem;line-height:1.35}
+.summary .specs dd{overflow-wrap:anywhere}
+@media (min-width:1024px){.summary{position:sticky;top:96px}}
+/* .ticks is also on the check/ results list (styled there as .oc-checks): only the summary card gets the ticks */
+.summary .ticks,.pz-cols .ticks{display:grid;gap:var(--s2);margin:0;padding:0;list-style:none;font-size:var(--t-small);color:var(--ink-2)}
+.summary .ticks li,.pz-cols .ticks li{position:relative;padding-left:26px}
+.summary .ticks li::before,.pz-cols .ticks li::before{content:"";position:absolute;left:3px;top:.3em;width:6px;height:11px;border:solid var(--ink);border-width:0 2px 2px 0;transform:rotate(45deg)}
+@media (max-width:1023px){.order{grid-template-columns:1fr}}
+
+/* ---------- partners (partners/): the map card and the zone panel side by side (partners.js), the zone list below the map
+   from the same data (shows without JavaScript and on paper), three cards, the application form ---------- */
+.pz-grid{display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:var(--gap);align-items:start}
+.pz-maps{display:grid;gap:var(--s4)}
+.pz-maps svg{display:block;width:100%;height:auto;overflow:visible}
+.pz-eu-map svg{max-width:34rem;margin-inline:auto}
+.pz-eu-map,.pz-map{display:grid;gap:var(--s3)}
+.pz-eu-map[hidden],.pz-map[hidden]{display:none}
+.pz-hint,.pz-back{margin:0;font-size:var(--t-small);line-height:1.45;color:var(--muted)}
+.pz-back{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s3);color:var(--ink)}
+.pz-eu{min-height:44px;padding:8px 14px;border:1px solid var(--line-field);border-radius:var(--r-s);background:var(--panel);color:var(--ink);font:600 var(--t-small)/1.2 var(--font);cursor:pointer}
+.pz-eu:hover{border-color:var(--ink)}
+.pz-eu:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+/* EU map: countries with zones in the accent, the others grey; the outlines are buttons only when partners.js has run */
+.pz-eu-map path{stroke:var(--panel);stroke-width:.8}
+.pz-eu-map .c-off{fill:var(--line)}
+.pz-eu-map .c-on{fill:var(--st-open)}
+.pz-eu-map path:focus{outline:none}
+.pz-eu-map [role=button]{cursor:pointer}
+.pz-eu-map [role=button]:hover{fill:var(--ink-2)}
+.pz-eu-map [role=button]:focus-visible{stroke:var(--ink);stroke-width:2.5;stroke-dasharray:5 3}
+.pz:not([role=button]){cursor:default}
+.pz-panel{display:grid;gap:var(--s4);justify-items:start}
+.pz-panel h3{margin:0}
+.pz-panel dl{display:grid;grid-template-columns:1fr;gap:0;width:100%;margin:0;padding:var(--s3) 0;border-block:1px solid var(--line);font-size:var(--t-small);line-height:1.45}
+.pz-panel dt{color:var(--muted)}
+.pz-panel dd{margin:0 0 var(--s2);font-weight:600;color:var(--ink)}
+.pz-panel p{margin:0}
+.pz-empty{color:var(--muted)}
+@media (min-width:1024px){.pz-panel{position:sticky;top:96px}}
+/* without JavaScript the map cannot be clicked: the hint and the empty panel go, the zone list carries the facts */
+html:not(.js) .pz-hint,html:not(.js) .pz-panel{display:none}
+html:not(.js) .pz-grid{grid-template-columns:1fr}
+.pz-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:var(--gap);margin:var(--gap) 0 0;padding:0;list-style:none}
+.pz-zone{display:grid;gap:var(--s4);justify-items:start;align-content:start}
+.pz-zone h3{margin:0}
+.pz-zone .specs{width:100%}
+.pz-src{margin:var(--s5) 0 0}
+.pz-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);align-items:start}
+.pz-cols>.card{display:grid;gap:var(--s4);align-content:start}
+.pz-cols h3,.pz-cols p{margin:0}
+.pz-cols>.card>ul+h3{margin-top:var(--s3)}
+.pz-form{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s5);max-width:56rem;padding:var(--pad);border:1px solid var(--line);border-radius:var(--r-l);background:var(--panel)}
+.pz-form>label{display:grid;gap:var(--s2);min-width:0;font-size:1rem;font-weight:700;line-height:1.35;color:var(--ink)}
+.pz-choice{min-width:0;margin:0;padding:0;border:0}
+.pz-choice>legend{margin:0 0 var(--s2);padding:0;font-size:1rem;font-weight:700;line-height:1.35;color:var(--ink)}
+.pz-wide,.pz-form .btn,.pz-form .hint{grid-column:1/-1}
+.pz-form .btn{justify-self:start}
+.pz-form .hint{margin:0}
+.pz-form .hint a{color:var(--link)}
+@media (max-width:1023px){.pz-grid,.pz-cols{grid-template-columns:1fr}}
+@media (max-width:640px){.pz-zone .specs{grid-template-columns:1fr;gap:0}.pz-zone .specs dd{margin-bottom:var(--s2)}.pz-form{grid-template-columns:1fr}.pz-form .btn{justify-self:stretch;justify-content:space-between}}
+
+/* ---------- long text (how-we-recommend/, legal/, privacy/): outlined sections in one reading column ---------- */
+.doc-date{margin-top:var(--s3);font-size:var(--t-small);color:var(--muted)}
+.doc{display:grid;gap:var(--gap);max-width:52rem}
+.doc-sec{display:grid;gap:var(--s4);align-content:start;color:var(--ink-2)}
+.doc-sec h2{font-size:clamp(1.5rem,1.3rem + .8vw,2rem);line-height:1.15;letter-spacing:-.02em}
+.doc-sec b{color:var(--ink)}
+.doc-sec a{color:var(--link)}
+.doc-sec ul,.doc-sec ol{display:grid;gap:var(--s2);margin:0;max-width:68ch}
+.doc-sec ul{padding-left:1.25em}
+/* numbered steps: the number in a dark square, as in the questionnaire groups */
+.doc-num{list-style:none;padding:0;counter-reset:dn}
+.doc-num>li{counter-increment:dn;position:relative;min-height:32px;padding-left:48px}
+.doc-num>li::before{content:counter(dn);position:absolute;left:0;top:-1px;display:grid;place-items:center;width:32px;height:32px;border-radius:var(--r-s);
+  background:var(--ink);color:var(--bg);font-size:1rem;font-weight:800;line-height:1}
+.doc-num>li+li{margin-top:var(--s2)}
+/* formulas: the name above, the formula under it, a thin line between them */
+.doc-dl{display:grid;margin:0;max-width:68ch;border-top:1px solid var(--line)}
+.doc-dl dt{padding-top:var(--s3);font-weight:700;color:var(--ink)}
+.doc-dl dd{margin:0;padding:var(--s1) 0 var(--s3);border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+/* privacy/: table of contents from the section headings (no JS); on paper it is left out, as on the kit page */
+.doc-toc ul{gap:var(--s1);padding:0;list-style:none}
+.doc-toc a{display:inline-block;padding-block:4px;font-weight:600}
+@media print{.doc-toc{display:none}}
+/* sources/: .doc-wide lets the tables take the whole page width; paragraphs and lists keep the reading width (p max 68ch) */
+.doc-wide{max-width:none}
+.doc-sec h3{margin-top:var(--s3);font-size:1.25rem;line-height:1.3;letter-spacing:-.01em}
+.doc-sec h3+.tbl{margin-top:calc(-1*var(--s1))}
+.doc-sec p,.doc-sec li{overflow-wrap:anywhere}
+/* table cells in the long text keep at least 6.5em with padding: dates and short words stay whole, only long words (12 letters and more, law titles) break; a wider minimum makes print longer (7.5em: 32 sheets) */
+.doc-sec .tbl :is(th,td){min-width:6.5em}
+/* five columns are too narrow below 1024 px: the Sources tables turn into blocks earlier than other tables (same look as on phones) */
+@media screen and (max-width:1023px){
+  .doc-wide .tbl thead{display:none}
+  .doc-wide .tbl,.doc-wide .tbl tbody,.doc-wide .tbl tr,.doc-wide .tbl td{display:block}
+  .doc-wide .tbl tr{padding:var(--s3) var(--s4);border-bottom:1px solid var(--line)}
+  .doc-wide .tbl tbody tr:last-child{border-bottom:0}
+  .doc-wide .tbl td{min-width:0;padding:var(--s1) 0;border:0}
+  .doc-wide .tbl td[data-th]::before{content:attr(data-th);display:block;font-size:.8125rem;font-weight:700;color:var(--muted)}
+}
+
+/* ---------- personal recommendation (r/): four states, each with its own h1, only one shown (without JavaScript the
+   "incomplete link" state). personal.js builds the operation card, the type cards (KORDEX pose beside the text, the first
+   one larger), the payback per type and the next steps; the classes below are the ones the bento script writes ---------- */
+.rec>.wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5)}
+.rec [data-state]{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--gap);align-content:start;justify-items:start}
+.rec [data-state]>*{max-width:100%}
+.rec [data-state][hidden]{display:none}
+/* the greeting is long ("…your recommendation."): a smaller h1 than other pages, so the long word fits 360 px */
+.rec h1{max-width:20ch;font-size:clamp(2.25rem,1.3rem + 4vw,4.5rem)}
+.rec .lead{margin:0}
+.rec-valid{margin-top:calc(-1*var(--s3));font-size:var(--t-small);color:var(--muted)}
+.rec .eyebrow{display:block;font-size:var(--t-small);font-weight:700;line-height:1.4;color:var(--ink-2)}
+.rec-op,.rec-cards,.rec-roi,.rec-acts{justify-self:stretch}
+.rec-op{display:grid;gap:var(--s3);padding:var(--pad);border:1px solid var(--line);border-radius:var(--r-l);background:var(--panel)}
+.rec-op h2{font-size:clamp(1.375rem,1.2rem + .7vw,1.75rem);line-height:1.2;letter-spacing:-.02em}
+.rec-op .ticks{display:grid;gap:var(--s2);margin:0;padding-left:1.25em;color:var(--ink-2)}
+.rec-facts{font-size:var(--t-small);color:var(--ink-2)}
+.rec-cards{display:grid;gap:var(--gap)}
+.rec-card{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,8fr);gap:var(--s3) clamp(24px,3vw,40px);align-content:start;
+  padding:clamp(20px,3vw,40px);border:1px solid var(--line);border-radius:var(--r-l);background:var(--panel)}
+.rec-card.is-main{grid-template-columns:minmax(0,4fr) minmax(0,7fr);border:2px solid var(--ink)}
+.rec-card>*{grid-column:2}
+.rec-card>.rec-media{grid-column:1;grid-row:1/span 4;align-self:start;aspect-ratio:4/5}
+.rec-k{font-size:var(--t-small);font-weight:700;color:var(--ink-2)}
+.rec-why{font-size:var(--t-small);color:var(--ink-2)}
+.rec-body{display:grid;gap:var(--s3);justify-items:start}
+.rec-code{font-size:1.75rem;font-weight:800;line-height:1;letter-spacing:-.01em;color:var(--ink)}
+.rec-body h3{font-size:clamp(1.25rem,1.1rem + .6vw,1.625rem);line-height:1.2}
+.rec-card.is-main .rec-body h3{font-size:clamp(1.5rem,1.2rem + 1vw,2.125rem)}
+.rec-body p{max-width:60ch;color:var(--ink-2)}
+.rec-body b{color:var(--ink)}
+.rec-body a.more{border:0;padding:0;font-weight:600;color:var(--link);text-decoration:underline;text-underline-offset:.3em}
+.rec-cond,.rec-one,.rec-price-note,.rec-share-row,.rec-fb{max-width:72ch;font-size:var(--t-small);color:var(--ink-2)}
+.rec-cond b{color:var(--ink)}
+/* payback per type: the company's figures in the form, one card per recommended type */
+.rec-roi{display:grid;gap:var(--s4);padding:clamp(24px,3.5vw,48px)}
+.rec-roi h2{font-size:clamp(1.5rem,1.25rem + .9vw,2rem);line-height:1.15;letter-spacing:-.025em}
+.rec-roi>p{max-width:68ch;color:var(--ink-2)}
+.rec-roi .roi-form{padding:0}
+.roi-ex{font-size:var(--t-small);color:var(--muted)}
+.roi-cost{font-size:clamp(1.5rem,1.25rem + 1vw,2.25rem);font-weight:800;line-height:1.15;letter-spacing:-.02em;color:var(--ink)}
+.roi-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:var(--gap)}
+.roi-col{display:grid;gap:var(--s3);align-content:start;padding:var(--pad);border:1px solid var(--line);border-radius:var(--r-m);background:var(--bg)}
+.roi-col h3{font-size:1.125rem;line-height:1.3}
+.roi-col>p,.roi-mnote{font-size:var(--t-small);color:var(--ink-2)}
+.roi-model{display:grid;gap:var(--s3)}
+.roi-model h4{margin:0;font-size:1rem}
+.roi-model dl{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--s2) var(--s4);margin:0;align-items:baseline}
+.roi-model dt{font-size:var(--t-small);color:var(--ink-2)}
+.roi-model dd{margin:0;font-weight:700;text-align:right;font-variant-numeric:tabular-nums;color:var(--ink)}
+.roi-model dd.roi-key{font-size:1.5rem;font-weight:800}
+.roi-offer{font-weight:600;color:var(--link)}
+/* next steps: three large choices, the first one dark */
+.rec-acts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
+.rec-btn{display:grid;gap:var(--s1);align-content:start;min-height:44px;padding:var(--s5);border:1px solid var(--line-field);border-radius:var(--r-m);
+  background:var(--panel);color:var(--ink);font:inherit;text-align:left;text-decoration:none;cursor:pointer}
+.rec-btn b{font-size:1.125rem;line-height:1.3}
+.rec-btn small{font-size:var(--t-small);line-height:1.4;color:var(--ink-2)}
+.rec-btn:hover{border-color:var(--ink)}
+.rec-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.rec-btn.is-main{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.rec-btn.is-main small{color:var(--bg)}
+.rec-share-mail,.rec-fb a{color:var(--link)}
+@media (max-width:860px){.rec-acts{grid-template-columns:1fr}}
+@media (max-width:640px){
+  .rec-card,.rec-card.is-main{grid-template-columns:1fr}
+  .rec-card>*{grid-column:1}
+  .rec-card>.rec-media{order:-1;grid-row:auto;aspect-ratio:3/2}
+}
+@media print{
+  .rec-card,.roi-col,.rec-btn{break-inside:avoid}
+  .rec-btn,.rec-btn.is-main{background:#FFFFFF!important;color:#000!important;border:1px solid #000}
+  .rec-btn small,.rec-btn.is-main small{color:#000}
+  .rec-card.is-main{border:2px solid #000}
+}
+
+/* ---------- all questions (faq/): topic links, one outlined card of questions per topic; several answers can be open at once ---------- */
+.faq-nav{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s5)}
+.faq-nav a{display:inline-flex;align-items:center;min-height:44px;padding:8px 16px;border:1px solid var(--line-field);border-radius:var(--r-pill);
+  color:var(--ink);font-size:var(--t-small);font-weight:600;line-height:1.3;text-decoration:none}
+.faq-nav a:hover{border-color:var(--ink)}
+.faq-nav a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.faq-groups{display:grid;gap:var(--s7)}
+.faq-group{display:grid;gap:var(--s5)}
+.faq-group h2{font-size:clamp(1.5rem,1.3rem + .8vw,2rem);line-height:1.15;letter-spacing:-.02em}
+.faq-end{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s4) var(--s5);max-width:none;margin-top:var(--s7);font-weight:700;color:var(--ink)}
+
+/* ---------- show-us-the-work/: six stages on the step line of home block 5 (one row from 1180 px, a column below),
+   the boundary line as a note, then one card to describe the task ---------- */
+.work-note{padding-left:var(--s4);border-left:3px solid var(--ink);color:var(--ink-2)}
+.steps-6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.steps-6 h3{font-size:1.125rem;line-height:1.3}
+.outcomes{display:flex;flex-wrap:wrap;gap:var(--s2)}
+@media (max-width:1179px){
+  .steps-6{grid-template-columns:1fr;gap:var(--s5)}
+  .steps-6 .step:not(:last-child)::after{left:23px;right:auto;top:48px;bottom:calc(-1*var(--s5));width:1.5px;height:auto;transform-origin:center top}
+  .steps-6 .step{grid-template-columns:48px 1fr;column-gap:var(--s4);align-items:center}
+  .steps-6 .step::before{grid-row:span 4;margin-bottom:0}
+}
+.work-contact{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--gap);align-items:start}
+.work-ask{display:grid;gap:var(--s4);justify-items:start}
+.work-ask h2{font-size:clamp(1.5rem,1.3rem + .8vw,2rem);line-height:1.15;letter-spacing:-.02em}
+.work-ask>p{color:var(--ink-2)}
+.mail-line a{color:var(--link)}
+.work-privacy{padding:var(--s5);border:1px solid var(--line);border-radius:var(--r-m);background:var(--panel-2);font-size:var(--t-small);line-height:1.55;color:var(--ink-2)}
+.work-privacy strong{color:var(--ink)}
+@media (max-width:860px){.work-contact{grid-template-columns:1fr}.work-ask .btn{width:100%;justify-content:space-between}}
+
+/* ---------- draft texts (for KORDEX review) ---------- */
+html.show-drafts [data-draft]{outline:1.5px dashed #B26B00;outline-offset:4px;border-radius:2px}
+html.show-drafts [data-draft]::after{content:" draft";font-size:.6875rem;font-weight:700;color:#8A5300;vertical-align:super;letter-spacing:0}
+html.show-drafts h1[data-draft]::after{font-size:.875rem}
+/* single words KORDEX should check inside a draft (data-check) */
+html.show-drafts [data-check]{text-decoration:underline wavy #B26B00;text-underline-offset:.25em}
+html.show-drafts [data-check]::after{content:" check";font-size:.6875rem;font-weight:700;color:#8A5300;vertical-align:super}
+/* on the dark hero the marks need light colours */
+html.show-drafts .hero [data-draft]{outline-color:#FFB547}
+html.show-drafts .hero [data-draft]::after,html.show-drafts .hero [data-check]::after{color:#FFC46B}
+html.show-drafts .hero [data-check]{text-decoration-color:#FFB547}
+.draft-toggle{position:fixed;left:var(--s4);bottom:var(--s4);z-index:30;display:inline-flex;align-items:center;gap:var(--s2);
+  padding:8px 14px;border-radius:var(--r-pill);border:1px solid var(--line);background:var(--panel);color:var(--ink-2);font:600 .875rem/1 var(--font);cursor:pointer}
+.draft-toggle[aria-pressed=true]{color:var(--ink);border-color:#B26B00}
+
+/* ---------- floating contact button (a plain mailto link, works without JavaScript) ---------- */
+.fab{position:fixed;right:var(--s4);bottom:var(--s4);z-index:30;display:inline-flex;align-items:center;gap:var(--s2);min-height:48px;padding:0 20px 0 16px;
+  border-radius:var(--r-pill);background:var(--acc);color:var(--acc-ink);font-weight:700;font-size:1rem;line-height:1.2;text-decoration:none;
+  box-shadow:0 12px 28px -10px rgba(0,0,0,.5)}
+.fab:hover{text-decoration:underline;text-underline-offset:.2em}
+/* white gap inside the focus ring keeps it visible on the photo and on the light page */
+.fab:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:var(--r-pill);box-shadow:0 0 0 3px #FFFFFF}
+
+/* ---------- large screens (final check, F10): from 1441 px the whole layout grows in small steps, 100 % → 125 % at 3240 px
+   of the font size chosen in the browser. Plain percentages, not calc(): Firefox resolves calc(100% + …) on the root
+   against 16 px and would drop a larger browser font. Spacing, column width and corner radii follow in rem (equal to the
+   px values at 16 px, so nothing changes up to 1440 px); thin lines, icons, the header height and media queries stay
+   in px. Screen only: print keeps its own sizes. ---------- */
+@media screen and (min-width:1441px){html{font-size:100%}}
+@media screen and (min-width:1600px){html{font-size:102%}}
+@media screen and (min-width:1760px){html{font-size:104%}}
+@media screen and (min-width:1920px){html{font-size:107%}}
+@media screen and (min-width:2240px){html{font-size:111%}}
+@media screen and (min-width:2560px){html{font-size:116%}}
+@media screen and (min-width:2880px){html{font-size:120%}}
+@media screen and (min-width:3240px){html{font-size:125%}}
+@media screen and (min-width:1441px){
+  :root{--s1:.25rem;--s2:.5rem;--s3:.75rem;--s4:1rem;--s5:1.5rem;--s6:2rem;--s7:3rem;--s8:4rem;--s9:6rem;--s10:8rem;
+    --gap:1.5rem;--pad:2rem;--page:3rem;--max:80rem;--r-s:.5rem;--r-m:1rem;--r-l:1.5rem}
+}
+
+@media print{
+  .hdr,.draft-toggle,.menu,.fab,.hero-media{display:none}
+  body{background:#fff}
+  .lineup{display:grid!important;overflow:visible}
+  .hero{min-height:0;background:none;color:#000;--on:#000;--on-2:#333;--on-acc:#000}
+  .hero-in,.hero-in::before{background:none}
+  .btn-light{border:1px solid #000}
+  [data-reveal] .sec-head,[data-reveal] [data-in]{opacity:1!important;transform:none!important}
+  .step::after{transform:none!important}
+  .more{display:none}
+  .tile,.type,.card{break-inside:avoid}
+  .final{background:none;color:#000;border-color:#000}
+  .final h2,.final p{color:#000}
+  .calc-out{background:none;color:#000;border-color:#000}
+  /* short footer on paper (final check, N4, option A): only the e-mail and "© 2026 KORDEX d.o.o. · Ljubljana, Slovenia";
+     the dots between the bottom-row links are bare text, so the row gets font-size 0 and only .fbar-addr is sized back */
+  .ftr{background:none;padding-block:var(--s4) 0;break-inside:avoid}
+  .ftr .about,.ftr nav[aria-labelledby=f-types],.ftr nav[aria-labelledby=f-start],.ftr #f-contact,.ftr li:not(:has(a[href^="mailto:"])),.fbar a{display:none}
+  .fcols{display:block}
+  .fbar{margin-top:var(--s2);padding-top:0;border-top:0;font-size:0}
+  .fbar-addr{font-size:.875rem}
+  /* black-and-white paper in both themes: white ground, black text, every card, field and table keeps a thin black outline */
+  :root,html[data-theme=dark]{--bg:#FFFFFF;--panel:#FFFFFF;--panel-2:#FFFFFF;--ink:#000000;--ink-2:#000000;--muted:#000000;--line:#000000;
+    --line-field:#000000;--link:#000000;--err:#000000;color-scheme:light}
+  /* buttons print as outlined text (backgrounds are often not printed) */
+  .btn,.btn-dark,.btn-light{background:#FFFFFF!important;color:#000!important;border:1px solid #000}
+  .btn .arr{background:#FFFFFF!important;color:#000!important;border:1px solid #000}
+  .skip,.hp{display:none}
+  /* small cards stay whole; large cards, form groups and table rows may continue on the next sheet (no half-empty sheets) */
+  .status,.result,.legend li,.ph{break-inside:avoid}
+  h2,h3,.fset>legend{break-after:avoid}
+  /* large cards may continue on the next sheet, so no sheet is left half empty (final check, N5): the question and the
+     live panel of check/, the payback card of r/ */
+  .oc-form,.oc-live,.rec-roi{break-inside:auto}
+  .fset .k{background:#FFFFFF;color:#000;border:1px solid #000}
+  .opt input:checked+span{background:#FFFFFF;color:#000;border:2px solid #000;font-weight:800}
+  .err .ico{color:#000}
+  /* tables: back to a real table on paper, the header row on every sheet, web addresses printed */
+  .tbl thead,.tbl:not(.tbl-wide):not(.tbl-kv) thead{display:table-header-group}
+  .tbl:not(.tbl-wide):not(.tbl-kv){display:table}.tbl:not(.tbl-wide):not(.tbl-kv) tbody{display:table-row-group}.tbl:not(.tbl-wide):not(.tbl-kv) tr{display:table-row;padding:0}
+  .tbl:not(.tbl-wide):not(.tbl-kv) td{display:table-cell;padding:6px 8px;border-bottom:1px solid #000}
+  .tbl:not(.tbl-wide):not(.tbl-kv) td[data-th]::before{content:none}
+  .tbl th,.tbl td{padding:6px 8px}
+  /* links whose text already is the address (.is-url, set by the builders) do not print it twice (N6) */
+  .tbl a[href^="http"]:not(.is-url)::after{content:" (" attr(href) ")";font-size:.8em;overflow-wrap:anywhere}
+  .tbl-scroll{overflow:visible}.tbl-wide{min-width:0}.tbl-wide td{overflow-wrap:anywhere}
+  /* status: white label with a black outline, the mark keeps its shape; zones white with a thick line, as in bento */
+  .status,.pz-status{background:#FFFFFF!important;color:#000;border:1px solid #000}
+  .legend i{-webkit-print-color-adjust:exact;print-color-adjust:exact;border:1px solid #000}
+  .legend .z-open{background:#FFFFFF;border-width:2px}
+  .pz{stroke:#000}
+  .pz.z-open{fill:#FFFFFF;stroke-width:3}
+  .crumbs.inv ol,.crumbs.inv a,.crumbs.inv [aria-current]{color:#000}
+  /* type head: white card with a black outline, text only (frames, video and figure are not printed) */
+  .type-head{display:block;min-height:0;background:#FFFFFF;color:#000;border:1px solid #000;--on:#000;--on-2:#000;break-inside:avoid}
+  .th-media,.th-fig,.th-btn,.th-badge{display:none}
+  .th-copy{max-width:none;padding:8mm}
+  .th-kind{border-color:#000}
+  .th-act .link{color:#000}
+  /* type page: draft note outlined, photos on white, small cards whole */
+  .draft-bar{background:#FFFFFF;color:#000;border:1px solid #000}
+  .shot,.shot.on-black,.mdl .shot{background:#FFFFFF}
+  .logo-chip{border-color:#000}
+  .logo-chip.on-dark{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .mdl,.goal,.prices>.card,.media-row>figure,.fig-list{break-inside:avoid}
+  .final .links a{color:#000}
+  .hl .ico-warn,.hl .ico-ok{color:#000}
+  /* Select equipment: group cards may continue on the next sheet, type cards stay whole */
+  .dev,.key li{break-inside:avoid}
+  .card.load{break-inside:auto}
+  /* the large figures are decoration (aria-hidden): text only on paper */
+  .load{display:block}.load .scene{display:none}
+  .tags li,.kind{border-color:#000}
+  /* partners: the map on the first sheet (EU map, or the zone map when it is open), no panel or buttons; countries with zones in grey */
+  .pz-panel,.pz-hint,.pz-back{display:none}
+  .pz-grid{grid-template-columns:1fr}
+  .pz-maps,.pz-zone{break-inside:avoid}
+  .pz-eu-map svg{max-width:70mm}
+  /* denser on paper (all text stays): smaller gaps and paddings, lower fields */
+  .pz-sec,.pz-about,#apply{padding-block:6mm!important}
+  .pz-sec .sec-head,#apply .sec-head{margin-bottom:4mm}
+  .pz-sec h2,#apply h2{font-size:20pt}
+  .pz-sec .sec-head .lead{font-size:12pt}
+  .pz-maps,.pz-zone,.pz-cols>.card,.pz-form{padding:5mm}
+  .pz-list,.pz-cols{gap:4mm}
+  .pz-cols>.card,.pz-zone{gap:3mm}
+  .pz-cols .ticks{gap:1mm}
+  .pz-form{gap:4mm}
+  .pz-form :is(input,select){min-height:0;padding:4px 8px}
+  .pz-form textarea{min-height:24mm}
+  .pz-form .opt span{min-height:0;padding:3px 10px}
+  .pz-map svg{max-width:150mm;margin-inline:auto}
+  .pz-eu-map path{stroke:#000;stroke-width:.5}
+  .pz-eu-map .c-off{fill:#FFFFFF}
+  .pz-eu-map .c-on{fill:#666666}
+  .pz-form{display:grid}
+  /* long text and all questions: sections may continue on the next sheet; on paper every answer is open and the +/- sign goes */
+  .doc-sec,.faq-group .card{break-inside:auto}
+  .doc-num>li::before{background:#FFFFFF;color:#000;border:1px solid #000}
+  .doc-sec a[href^="http"]:not(.is-url)::after{content:" (" attr(href) ")";font-size:.8em;overflow-wrap:anywhere}
+  .faq-group .qa::details-content{content-visibility:visible;display:contents}
+  .faq-group .qa>summary{min-height:0;padding-right:0}
+  .faq-group .qa>summary::before,.faq-group .qa>summary::after{display:none}
+  .faq-group .qa{break-inside:avoid}
+}
+/* end design/css/kordex.css */

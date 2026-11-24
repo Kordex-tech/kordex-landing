@@ -11,6 +11,7 @@ This repository is a framework-free static site with two HTML entry points and a
 ├── STRUCTURE.md
 ├── index.html
 ├── demo.html
+├── landing-sl/             # standalone Slovenian StepUp NEO landing and local media
 ├── package.json
 ├── server.js
 ├── assets/
@@ -32,6 +33,7 @@ This repository is a framework-free static site with two HTML entry points and a
 
 - `index.html` owns landing page content and form markup.
 - `demo.html` owns the telemetry demo markup.
+- `landing-sl/` owns the Slovenian StepUp NEO page, its styles, scripts, fonts and media.
 - `assets/css/landing.css` owns landing page presentation.
 - `assets/css/demo.css` owns demo page presentation.
 - `assets/js/contact-form.js` owns browser-side lead submission.

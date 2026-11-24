@@ -8,6 +8,7 @@ This repo currently contains a framework-free website:
 
 - Landing page: `index.html`, `assets/css/landing.css`, `assets/js/contact-form.js`, `assets/js/i18n.js`
 - Interactive demo: `demo.html`, `assets/css/demo.css`, `assets/js/demo.js`
+- Slovenian StepUp NEO page: `landing-sl/index.html` with self-hosted assets and no tracking
 - Images: `assets/images/`
 - Local Node server: `server.js`
 - Netlify function: `netlify/functions/contact.js`
@@ -24,6 +25,12 @@ Open:
 
 - `http://localhost:3000/`
 - `http://localhost:3000/demo.html`
+- `http://localhost:3000/landing-sl/`
+
+The Slovenian page submits to the same contact endpoints. It marks the older
+budget and pilot survey fields as `not_asked`; the handlers retain its optional
+`phone`, `product`, and `consent` fields. No lead is emailed unless
+`CONTACT_WEBHOOK_URL` is configured. The page remains `noindex` while under review.
 
 ## Business Logic
 
