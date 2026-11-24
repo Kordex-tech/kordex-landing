@@ -51,16 +51,4 @@
     });
   }
 
-  var youtube = document.getElementById('youtube-preview');
-  if (youtube) {
-    youtube.addEventListener('click', function () {
-      var frame = document.createElement('iframe');
-      frame.src = 'https://www.youtube-nocookie.com/embed/lu6-jYF7PYw?autoplay=1';
-      frame.title = 'FRT Robotics: StepUp NEO';
-      frame.allow = 'autoplay; encrypted-media; picture-in-picture';
-      frame.allowFullscreen = true;
-      frame.referrerPolicy = 'strict-origin-when-cross-origin';
-      youtube.replaceWith(frame);
-    });
-  }
 })();

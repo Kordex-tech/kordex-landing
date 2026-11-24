@@ -21,10 +21,9 @@ Each image is converted locally to WebP at 480, 960 and 1600 px widths. Source c
 | `b1b868_6a47cc88834643b1b72c9eb69ce7fc8a~mv2.jpg` | `warehouse-carry` | Loading |
 | `b1b868_812a69a9df144650a956fe7c74c7ae32~mv2.jpg` | `warehouse-walk` | Warehouse |
 | `b1b868_b7c6cb651b7f408992eb33b958697bc8~mv2.jpg` | `pallet-carry` | Pallets |
-| `b1b868_bb5d5a52e91b447daa64e583ccb2128d~mv2.png` | `how-to-steps` | Click-to-load FRT video poster |
 | `b1b868_dc1ca87cada64d18bd9217d781618ada~mv2.png` | `production` | Production |
 
-The logo comes from `landing_media/KORDEX_logo_horizontal_A_ime.png`. `how-to-wear.mp4` is a 720p H.264, silent, 5.9 MiB conversion of `landing_media/video/StepUp_NEO_How_to_Wear_FRT_EN.mp4`; `how-to-poster.webp` is a frame from this video. The FRT YouTube iframe is created only after a click.
+The logo comes from `landing_media/KORDEX_logo_horizontal_A_ime.png`. `how-to-wear.mp4` is a 720p H.264, silent, 5.9 MiB conversion of `landing_media/video/StepUp_NEO_How_to_Wear_FRT_EN.mp4`; `how-to-poster.webp` is a frame from this video. The older FRT YouTube video was removed after review because it only partially matches the wearing instructions.
 
 ## Copy for language review
 
@@ -32,7 +31,7 @@ All new Slovenian phrasing is marked `data-draft="sl"`; the complete [phrase lis
 
 ## Checks
 
-- Chromium at 360 and 1440 px: no horizontal scroll, no broken images, no external requests before video click, no JavaScript exceptions.
+- Chromium at 360 and 1440 px: no horizontal scroll, no broken images, no external requests, no JavaScript exceptions. Wearing steps and prices span the intended content width.
 - Lighthouse mobile on this repository's local Node server: Performance **96**, Accessibility **100**, initial transfer **299 KiB** without video.
 - Form uses this repository's `/api/contact` endpoint with `/.netlify/functions/contact` as fallback. The older budget and pilot questions are sent as `not_asked`; optional phone, product and consent fields are retained by both handlers.
 - Local test: one fake lead was accepted into a temporary `leads.jsonl` outside the repository; the Netlify function returned 200 with a mocked webhook and retained the same optional fields. The browser showed `Poslano`.

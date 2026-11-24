@@ -1,6 +1,6 @@
 # Slovenske fraze za jezikovni pregled
 
-Elementi z `data-draft="sl"` v `site/landing-sl/index.html`:
+Elementi z `data-draft="sl"` v `landing-sl/index.html`:
 
 - StepUp NEO je pasivni eksoskelet za podporo hrbtu pri dvigovanju in delu v predklonu. Ocenimo ga na vaših opravilih v skladišču, proizvodnji ali logistiki.
 - Pokličite nas · [GLAS: ime, telefon]
@@ -22,7 +22,6 @@ Elementi z `data-draft="sl"` v `site/landing-sl/index.html`:
 - Nadenite si ga kot nahrbtnik. Zapnite pas in ga prilagodite telesu.
 - Nastavite ročici. Navzven za pomoč pri dvigovanju, navznoter za hojo brez pomoči.
 - Delajte s pravilno držo. Eksoskelet dopolnjuje varno tehniko dvigovanja.
-- Več o napravi v videu proizvajalca. YouTube se poveže šele po kliku.
 - Podatki so iz meritve EMG. Vaše delo preverimo posebej.
 - utrujenosti ledvenih mišic pri dvigovanju 20 kg v meritvi proizvajalca
 - obremenitve mišic v meritvi proizvajalca
