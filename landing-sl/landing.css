@@ -31,6 +31,7 @@ body{overflow-x:clip}
 @media(min-width:1024px){.landing .applications .section-head{max-width:none}.landing #applications-title{max-width:none;white-space:nowrap;font-size:clamp(2rem,3.2vw,3rem)}}
 @media(min-width:1024px){.landing .process .section-head,.landing .testimonials .section-head{max-width:none}.landing #process-title,.landing #voices-title{max-width:none;white-space:nowrap;font-size:clamp(2rem,3.2vw,3rem)}}
 .landing .hero{position:relative;isolation:isolate;display:flex;align-items:center;min-height:calc(100svh - 76px);overflow:hidden;padding-block:clamp(72px,10vw,140px);background:#0b141b}
+.landing .hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(4,10,16,.78),rgba(4,10,16,.38))}
 .landing .hero .wrap{position:relative;z-index:2;width:100%}
 .landing main > section{background:color-mix(in srgb,var(--bg) 84%,transparent)}
 .landing .proof-line,.landing .problem,.landing .wear,.landing .applications,.landing .prices,.landing .faq{background:color-mix(in srgb,var(--panel) 82%,transparent)}
@@ -59,14 +60,6 @@ body{overflow-x:clip}
 .stat small{font-size:.34em;letter-spacing:0}
 .problem-copy{font-size:1.2rem;line-height:1.55}
 .problem-copy .small{margin-top:14px}
-.landing .problem{display:flex;align-items:center;min-height:650px;background:#050505 url("media/frt-exoskeleton.webp") 24% center/auto 100% no-repeat;color:#fff}
-.landing .problem .wrap{width:100%}
-.landing .problem h2,.landing .problem .small,.landing .product h2,.landing .product h3{color:#fff}
-.landing .problem a{color:#a9e1ff}
-.landing .product{min-height:740px;background:#16202a url("media/frt-worksite.jpg") center 42%/cover no-repeat;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.6)}
-.landing .product .section-head p{color:#fff}
-.landing .product .fact,.landing .product .note,.landing .product .not-list li{background:rgba(4,12,19,.82);border-color:rgba(255,255,255,.3);color:#fff;backdrop-filter:blur(4px)}
-.landing .product .fact strong{color:#9bdfff}
 .facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:30px}
 .fact{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-l);padding:28px}
 .fact strong{display:block;color:var(--acc);font-size:2.35rem;line-height:1.1;margin-bottom:12px}
@@ -147,5 +140,5 @@ body{overflow-x:clip}
 @media(max-width:900px){.hero-grid,.problem-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-links{grid-column:1/-1}.process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.application-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.quote-grid{grid-template-columns:1fr}}
 @media(max-width:700px){.wear-steps{grid-template-columns:1fr}.wear-steps li{padding:18px 18px 18px 70px}.wear-steps li::before{left:18px;top:18px;width:36px;height:36px}}
 @media(max-width:640px){.landing-header .wrap{min-height:66px}.brand img{width:130px}.header-phone{display:none}.header-actions .btn{padding:9px 13px;min-height:40px;font-size:.82rem}.landing .wrap{padding-inline:20px}.landing .hero{padding-top:30px}.hero h1{font-size:clamp(2.4rem,10vw,3.4rem)}.hero-actions{display:grid}.application img{height:auto}.facts,.not-list,.emg-grid,.application-grid,.process-grid,.price-grid,.form-grid,.footer-grid{grid-template-columns:1fr}.footer-links{grid-column:auto}.field.wide{grid-column:auto}.price-card dl div{align-items:flex-start}.stat{font-size:clamp(3.8rem,17vw,6rem)}.landing section{padding-block:56px}.landing .section-head{margin-bottom:26px}.proof-line .wrap{display:grid;gap:8px}}
-@media(max-width:640px){.landing .hero{min-height:calc(100svh - 66px);padding-block:72px 100px}.landing .problem{min-height:0;padding-top:360px;background-size:auto 320px;background-position:center 20px}.landing .product{background-position:62% center}}
+@media(max-width:640px){.landing .hero{min-height:calc(100svh - 66px);padding-block:72px 100px}.landing .hero::before{background:rgba(4,10,16,.66)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
