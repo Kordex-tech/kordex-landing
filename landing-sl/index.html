@@ -14,9 +14,12 @@
   <link rel="stylesheet" href="landing.css">
   <script>try{if(!localStorage.getItem('kordex-theme')&&matchMedia('(prefers-color-scheme: dark)').matches)document.documentElement.dataset.theme='dark'}catch(e){}</script>
   <script src="theme.js" defer></script>
+  <script src="video-background.js" defer></script>
   <script src="landing.js" defer></script>
 </head>
 <body class="landing">
+  <!-- source: FRT Robotics StepUp NEO product page, background video b1b868_15a69528a6204b8f85e393a1b0570f17. -->
+  <video class="page-video" data-src="media/frt-stepup-neo-bg.mp4" poster="media/frt-stepup-neo-bg.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
   <a class="skip" href="#vsebina">Preskoči na vsebino</a>
   <header class="landing-header">
     <div class="wrap">
@@ -31,8 +34,6 @@
   </header>
   <main id="vsebina">
     <section class="hero" id="vrh" aria-labelledby="hero-title">
-      <!-- source: FRT Robotics StepUp NEO product page, background video b1b868_15a69528a6204b8f85e393a1b0570f17. -->
-      <video class="hero-video" muted loop playsinline preload="none" poster="media/frt-stepup-neo-bg.jpg" aria-hidden="true"></video>
       <div class="wrap hero-grid">
         <div>
           <p class="kicker">KORDEX · StepUp NEO</p>

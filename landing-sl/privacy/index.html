@@ -1,7 +1,12 @@
 <!doctype html><html lang="sl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Politika zasebnosti — KORDEX</title>
 <meta name="robots" content="noindex">
+<script src="../video-background.js" defer></script>
 <style>:root{--bg:#07090c;--bg-2:#0d1116;--line:#19212a;--text:#e9eef3;--soft:#c2ccd5;--muted:#8d9aa6;--cyan:#29c4f6;--max:820px}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+.page-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 80%;filter:saturate(.55) blur(2px);pointer-events:none;z-index:0}
+body::before{content:"";position:fixed;inset:0;background:rgba(7,9,12,.84);pointer-events:none;z-index:1}
+header,main,footer{position:relative;z-index:2}
+@media(prefers-reduced-motion:reduce){.page-video,body::before{display:none}}
 a{color:var(--cyan)}.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
 header{border-bottom:1px solid var(--line)}.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;letter-spacing:.14em;color:var(--text)}.brand img{width:40px;height:40px}
@@ -9,6 +14,7 @@ header{border-bottom:1px solid var(--line)}.bar{display:flex;align-items:center;
 main{padding:40px 0 60px}h1{font-size:2rem;margin:0 0 6px}h2{font-size:1.15rem;margin:30px 0 8px;color:var(--text)}p,li{color:var(--soft)}.meta{color:var(--muted);font-size:.9rem}
 table{width:100%;border-collapse:collapse;margin:8px 0;font-size:.92rem}th,td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:top;color:var(--soft)}th{background:var(--bg-2);color:var(--text)}
 footer{border-top:1px solid var(--line);padding:20px 0;color:var(--muted);font-size:.85rem}</style></head><body>
+<video class="page-video" data-src="../media/frt-stepup-neo-bg.mp4" poster="../media/frt-stepup-neo-bg.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
 <header><div class="wrap bar"><a class="brand" href="../">KORDEX</a>
 <span class="lang"><a href="en/" hreflang="en" lang="en">EN</a><a aria-current="true" href="./" hreflang="sl" lang="sl">SL</a></span></div></header>
 <main class="wrap"><h1>Politika zasebnosti</h1><p class="meta">Kako KORDEX obdeluje podatke iz kontaktnega obrazca na tej strani in povezane korespondence. Zadnja sprememba 25. 11. 2026.</p>
