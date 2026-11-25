@@ -31,7 +31,6 @@ body{overflow-x:clip}
 @media(min-width:1024px){.landing .applications .section-head{max-width:none}.landing #applications-title{max-width:none;white-space:nowrap;font-size:clamp(2rem,3.2vw,3rem)}}
 @media(min-width:1024px){.landing .process .section-head,.landing .testimonials .section-head{max-width:none}.landing #process-title,.landing #voices-title{max-width:none;white-space:nowrap;font-size:clamp(2rem,3.2vw,3rem)}}
 .landing .hero{position:relative;isolation:isolate;display:flex;align-items:center;min-height:calc(100svh - 76px);overflow:hidden;padding-block:clamp(72px,10vw,140px);background:#0b141b}
-.landing .hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(4,10,16,.78),rgba(4,10,16,.38))}
 .landing .hero .wrap{position:relative;z-index:2;width:100%}
 .landing main > section{background:color-mix(in srgb,var(--bg) 84%,transparent)}
 .landing .proof-line,.landing .problem,.landing .wear,.landing .applications,.landing .prices,.landing .faq{background:color-mix(in srgb,var(--panel) 82%,transparent)}
@@ -42,8 +41,8 @@ body{overflow-x:clip}
 .landing .hero-grid{display:block}
 .landing .hero-grid > div{max-width:780px}
 .hero h1{max-width:12ch}
-.landing .hero h1,.landing .hero .lead,.landing .hero .small{color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.45)}
-.landing .hero .kicker{color:#9bdfff}
+.landing .hero h1,.landing .hero .lead,.landing .hero .small{color:#fff;text-shadow:0 2px 6px #000,0 0 18px rgba(0,0,0,.8)}
+.landing .hero .kicker{color:#9bdfff;text-shadow:0 2px 6px #000,0 0 18px rgba(0,0,0,.8)}
 .landing .hero .btn.alt{color:#fff;background:rgba(4,10,16,.38);border-color:#fff}
 .hero .lead{margin-top:24px;max-width:53ch}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
@@ -140,5 +139,5 @@ body{overflow-x:clip}
 @media(max-width:900px){.hero-grid,.problem-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-links{grid-column:1/-1}.process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.application-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.quote-grid{grid-template-columns:1fr}}
 @media(max-width:700px){.wear-steps{grid-template-columns:1fr}.wear-steps li{padding:18px 18px 18px 70px}.wear-steps li::before{left:18px;top:18px;width:36px;height:36px}}
 @media(max-width:640px){.landing-header .wrap{min-height:66px}.brand img{width:130px}.header-phone{display:none}.header-actions .btn{padding:9px 13px;min-height:40px;font-size:.82rem}.landing .wrap{padding-inline:20px}.landing .hero{padding-top:30px}.hero h1{font-size:clamp(2.4rem,10vw,3.4rem)}.hero-actions{display:grid}.application img{height:auto}.facts,.not-list,.emg-grid,.application-grid,.process-grid,.price-grid,.form-grid,.footer-grid{grid-template-columns:1fr}.footer-links{grid-column:auto}.field.wide{grid-column:auto}.price-card dl div{align-items:flex-start}.stat{font-size:clamp(3.8rem,17vw,6rem)}.landing section{padding-block:56px}.landing .section-head{margin-bottom:26px}.proof-line .wrap{display:grid;gap:8px}}
-@media(max-width:640px){.landing .hero{min-height:calc(100svh - 66px);padding-block:72px 100px}.landing .hero::before{background:rgba(4,10,16,.66)}}
+@media(max-width:640px){.landing .hero{min-height:calc(100svh - 66px);padding-block:72px 100px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
