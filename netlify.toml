@@ -2,3 +2,9 @@
   command = "node scripts/build-stepup.mjs"
   publish = "."
   functions = "netlify/functions"
+
+[[redirects]]
+  from = "/*"
+  to = "https://preview.kordex.org/:splat"
+  status = 302
+  force = true

@@ -30,18 +30,22 @@ Open:
 
 The Slovenian page submits to the same contact endpoints. It marks the older
 budget and pilot survey fields as `not_asked`; the handlers retain its optional
-`phone`, `product`, and `consent` fields. No lead is emailed unless
-`CONTACT_WEBHOOK_URL` is configured. The page remains `noindex` while under review.
+`phone`, `product`, and `consent` fields. The local Node server and Netlify
+function do not email leads unless `CONTACT_WEBHOOK_URL` is configured. The page
+remains `noindex` while under review.
+On `preview.kordex.org`, Caddy sends `/api/contact` to the existing
+`kordex-intake` service; its mail timer delivers the enquiry and creates the CRM task.
 
 Edit StepUp NEO prices only in `landing-sl/prices.json`. Run
 `npm run build:stepup` to refresh the static HTML, calculator price JSON, JSON-LD and `llms.txt`, then
 commit those generated files. `npm run check:stepup` verifies that they match.
-Netlify runs the build for every preview deploy. The preview uses `robots.txt`
+Netlify runs the build for every preview deploy and redirects visitors to the
+Basic Auth protected `preview.kordex.org` snapshot. The preview uses `robots.txt`
 (`Disallow: /`) and every StepUp page has `noindex` in its HTML.
 `robots.production.txt` is a separate future template and is not in use.
 Canonical URLs point to the planned `/sl/` production paths. The Open Graph
-image and URL currently point to the Netlify preview so link previews work
-during review; switch them only when publishing is authorized.
+image and URL currently point to the protected preview. Public social crawlers
+cannot fetch those assets until publication is authorized.
 
 ## Business Logic
 

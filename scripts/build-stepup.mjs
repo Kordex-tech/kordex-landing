@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const prices = JSON.parse(readFileSync(resolve(root, 'landing-sl/prices.json'), 'utf8'));
 const checkOnly = process.argv.includes('--check');
-const preview = 'https://deploy-preview-1--soft-alfajores-3ae788.netlify.app';
+const preview = 'https://preview.kordex.org';
 const canonical = 'https://kordex.org/sl/';
 const format = value => String(value).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 const euro = value => `${format(value)} €`;
