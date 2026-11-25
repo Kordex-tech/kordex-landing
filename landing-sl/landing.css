@@ -27,7 +27,10 @@ body{overflow-x:clip}
 @media(min-width:700px){.landing .prices .section-head{max-width:none}.landing #price-title{max-width:none}}
 @media(min-width:1024px){.landing .applications .section-head{max-width:none}.landing #applications-title{max-width:none;white-space:nowrap;font-size:clamp(2rem,3.2vw,3rem)}}
 @media(min-width:1024px){.landing .process .section-head,.landing .testimonials .section-head{max-width:none}.landing #process-title,.landing #voices-title{max-width:none;white-space:nowrap;font-size:clamp(2rem,3.2vw,3rem)}}
-.landing .hero{padding-top:42px;background:linear-gradient(155deg,var(--panel),var(--bg))}
+.landing .hero{position:relative;isolation:isolate;overflow:hidden;padding-top:42px;background:linear-gradient(155deg,var(--panel),var(--bg))}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 80%;filter:saturate(.55) blur(2px);pointer-events:none;z-index:-2}
+.landing .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,color-mix(in srgb,var(--panel) 84%,transparent),color-mix(in srgb,var(--panel) 66%,transparent));pointer-events:none;z-index:-1}
+@media(max-width:900px),(prefers-reduced-motion:reduce){.hero-video{display:none}.landing .hero::before{display:none}}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:center;gap:clamp(28px,5vw,72px)}
 .hero h1{max-width:12ch}
 .landing .hero h1{color:var(--ink)}
@@ -92,7 +95,9 @@ body{overflow-x:clip}
 .quote p{margin:12px 0 20px}
 .quote footer{font-size:.84rem;color:var(--muted)}
 .faq{background:var(--panel)}
-.faq-list{max-width:850px}
+.faq .section-head{margin-inline:auto;text-align:center}
+.faq .section-head h2{max-width:none}
+.faq-list{max-width:850px;margin-inline:auto}
 .faq details{border-bottom:1px solid var(--line);padding:0}
 .faq summary{cursor:pointer;list-style:none;padding:21px 32px 21px 0;font-weight:700;position:relative}
 .faq summary::-webkit-details-marker{display:none}

@@ -5,6 +5,26 @@
   var status = document.getElementById('form-status');
   var endpoints = ['/api/contact', '/.netlify/functions/contact'];
 
+  var heroVideo = document.querySelector('.hero-video');
+  if (heroVideo && window.matchMedia) {
+    var backgroundMotion = window.matchMedia('(min-width: 901px) and (prefers-reduced-motion: no-preference)');
+    function syncHeroVideo() {
+      if (!backgroundMotion.matches) {
+        heroVideo.pause();
+        if (heroVideo.hasAttribute('src')) {
+          heroVideo.removeAttribute('src');
+          heroVideo.load();
+        }
+        return;
+      }
+      if (!heroVideo.hasAttribute('src')) heroVideo.src = 'media/how-to-wear.mp4';
+      var playback = heroVideo.play();
+      if (playback && playback.catch) playback.catch(function () {});
+    }
+    syncHeroVideo();
+    if (backgroundMotion.addEventListener) backgroundMotion.addEventListener('change', syncHeroVideo);
+  }
+
   async function submitLead(payload) {
     var lastError = new Error('No contact endpoint available');
     for (var endpoint of endpoints) {
