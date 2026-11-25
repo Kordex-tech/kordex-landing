@@ -220,7 +220,8 @@
   <link rel="stylesheet" href="system-v2.css">
   <link rel="stylesheet" href="landing.css">
   <script>
-    if (!location.hash) {
+    var navigation = performance.getEntriesByType('navigation')[0];
+    if (!location.hash && (!navigation || navigation.type !== 'back_forward')) {
       if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
       addEventListener('pageshow', function (event) {
         if (event.persisted || location.hash) return;
@@ -304,7 +305,7 @@
       </div>
     </section>
 
-    <section class="law" aria-labelledby="law-title">
+    <section class="law" id="zakon" aria-labelledby="law-title">
       <div class="wrap">
         <div class="section-head"><p class="kicker">Zakon</p><h2 id="law-title">Od 1. 8. 2024 zakonodaja zahteva dvižno opremo — eksoskelet je v njej izrecno naveden.</h2></div>
         <div class="law-grid">
