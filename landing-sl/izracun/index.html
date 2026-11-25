@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="../landing.css">
   <script>try{if(!localStorage.getItem('kordex-theme')&&matchMedia('(prefers-color-scheme: dark)').matches)document.documentElement.dataset.theme='dark'}catch(e){}</script>
   <script src="../theme.js" defer></script>
+  <script src="../return-link.js" defer></script>
   <!-- Generated from landing-sl/prices.json by scripts/build-stepup.mjs. Prices exclude DDV. -->
   <script type="application/json" id="kordex-prices">
     {"currency":"EUR","vatIncluded":false,"buy":[{"from":1,"price":2199},{"from":20,"price":2149},{"from":50,"price":2099}],"rentWeek":98,"rentMinWeeks":6}
@@ -23,6 +24,7 @@
     .landing main > section.calc-hero{padding-block:48px 8px}
     .calc-hero h1{font-size:clamp(2rem,1.5rem + 2.4vw,3.25rem);line-height:1.08;margin:8px 0 16px;max-width:20ch}
     .calc-hero .lead{max-width:62ch}
+    .calc-back{display:inline-flex;align-items:center;min-height:44px;margin-bottom:12px;color:var(--acc);font-weight:800}
     .calc-grid{display:grid;gap:24px;grid-template-columns:minmax(0,1fr)}
     @media (min-width:960px){.calc-grid{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:start}}
     .calc-card{border:1px solid var(--line);border-radius:var(--r-l);padding:28px;background:var(--panel);min-width:0}
@@ -68,6 +70,7 @@
   <main id="vsebina">
     <section class="calc-hero" aria-labelledby="calc-title">
       <div class="wrap">
+        <a class="calc-back" data-return href="../#problem-title">← Nazaj</a>
         <p class="kicker">Izračun · StepUp NEO</p>
         <h1 id="calc-title" data-draft="sl">Koliko vas stane odsotnost zaradi bolečin v hrbtu?</h1>
         <p class="lead" data-draft="sl">Vpišite svoje podatke. Izračun poteka v vašem brskalniku, ničesar ne pošiljamo in ne shranjujemo.</p>
@@ -159,10 +162,10 @@
             <li>Nadomeščanje = dnevi odsotnosti × ure na dan × strošek ure nadomeščanja.</li>
             <li>Strošek na leto = primeri na leto × (nadomestilo + nadomeščanje).</li>
             <li data-price="calc-price-list">Nakup: 2 199 € na kos (1–19), 2 149 € (od 20), 2 099 € (od 50). Najem: 98 € na teden na eksoskelet, najmanj 6 tednov.</li>
-            <li>Viri: <a href="https://nijz.si/wp-content/uploads/2025/12/2.6_Bolniska_odsotnost_2024_Z-1.pdf">NIJZ 2024, Tabela 3, str. 7</a> (bolezni mišično-skeletnega sistema M00–M99: 116 412 primerov, 4 247 960 koledarskih dni, povprečje R = 36,49 dneva ≈ 26 delovnih dni); <a href="https://www.stat.si/StatWeb/Field/Index/15">SURS 2026</a> (povprečna bruto plača); <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Hourly_labour_costs">Eurostat 2025</a> (strošek ure dela); <a href="https://zavezanec.zzzs.si/pogosta-vprasanja-in-odgovori/nadomestilo-place-med-zacasno-zadrzanostjo-od-dela">ZZZS</a> (nadomestilo plače).</li>
+            <li>Viri: <a href="https://nijz.si/wp-content/uploads/2025/12/2.6_Bolniska_odsotnost_2024_Z-1.pdf" target="_blank" rel="noopener noreferrer" title="Odpre se v novem zavihku">NIJZ 2024, Tabela 3, str. 7</a> (bolezni mišično-skeletnega sistema M00–M99: 116 412 primerov, 4 247 960 koledarskih dni, povprečje R = 36,49 dneva ≈ 26 delovnih dni); <a href="https://www.stat.si/StatWeb/Field/Index/15" target="_blank" rel="noopener noreferrer" title="Odpre se v novem zavihku">SURS 2026</a> (povprečna bruto plača); <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Hourly_labour_costs" target="_blank" rel="noopener noreferrer" title="Odpre se v novem zavihku">Eurostat 2025</a> (strošek ure dela); <a href="https://zavezanec.zzzs.si/pogosta-vprasanja-in-odgovori/nadomestilo-place-med-zacasno-zadrzanostjo-od-dela" target="_blank" rel="noopener noreferrer" title="Odpre se v novem zavihku">ZZZS</a> (nadomestilo plače).</li>
           </ul>
         </details>
-        <p style="margin-top:24px"><a href="../">← Nazaj na StepUp NEO</a></p>
+        <p style="margin-top:24px"><a data-return href="../#problem-title">← Nazaj</a></p>
       </div>
     </section>
   </main>

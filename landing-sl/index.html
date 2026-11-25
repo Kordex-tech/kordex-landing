@@ -221,6 +221,7 @@
   <link rel="stylesheet" href="landing.css">
   <script>
     var navigation = performance.getEntriesByType('navigation')[0];
+    if (location.hash || (navigation && navigation.type === 'back_forward')) document.documentElement.style.scrollBehavior = 'auto';
     if (!location.hash && (!navigation || navigation.type !== 'back_forward')) {
       if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
       addEventListener('pageshow', function (event) {
@@ -291,7 +292,7 @@
           <p data-draft="sl">Povprečni letni strošek začasne odsotnosti z dela zaradi šestih izbranih mišično-skeletnih diagnoz v Sloveniji (2020–2024).</p>
           <!-- source: ZZZS employer FAQ, https://zavezanec.zzzs.si/pogosta-vprasanja-in-odgovori/nadomestilo-place-med-zacasno-zadrzanostjo-od-dela ; exceptions are described by ZZZS. -->
           <p style="margin-top:14px" data-draft="sl">Prvih 30 delovnih dni nadomestila pri običajni bolniški odsotnosti praviloma bremeni delodajalca.</p>
-          <p class="small"><a href="https://nijz.si/wp-content/uploads/2026/02/Ekonomske-posledice-bolezni-misicno-skeletnega-sistema-in-vezivnega-tkiva-v-Sloveniji-v-obdobju-2020-2024.pdf">NIJZ &amp; EF UL, 2026, str. 17 in 21</a> · <a href="https://zavezanec.zzzs.si/pogosta-vprasanja-in-odgovori/nadomestilo-place-med-zacasno-zadrzanostjo-od-dela">ZZZS</a></p>
+          <p class="small"><a href="https://nijz.si/wp-content/uploads/2026/02/Ekonomske-posledice-bolezni-misicno-skeletnega-sistema-in-vezivnega-tkiva-v-Sloveniji-v-obdobju-2020-2024.pdf" target="_blank" rel="noopener noreferrer" title="Odpre se v novem zavihku">NIJZ &amp; EF UL, 2026, str. 17 in 21</a> · <a href="https://zavezanec.zzzs.si/pogosta-vprasanja-in-odgovori/nadomestilo-place-med-zacasno-zadrzanostjo-od-dela" target="_blank" rel="noopener noreferrer" title="Odpre se v novem zavihku">ZZZS</a></p>
         </div>
         </div>
         <div class="cost-comparison" aria-label="Primerjava stroškov">
@@ -299,7 +300,7 @@
           <article><h3>En primer bolečin v hrbtu</h3><strong>≈ 9 300 €</strong><p>≈ 3 100 € nadomestila plače, ki ga plača delodajalec + ≈ 6 200 € nadomeščanja (nadure, agencija).</p></article>
           <article><h3>Štirje eksoskeleti</h3><strong data-price="four-total">8 796 €</strong><p>4 × <span data-price="tier-1">2 199 €</span>.</p></article>
         </div>
-        <p class="small">Primer. Izračun KORDEX na podlagi <a href="https://www.stat.si/StatWeb/Field/Index/15">SURS (povprečna bruto plača 2026)</a> in <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Hourly_labour_costs">Eurostat (strošek ure dela 2025)</a>. Cene brez DDV.</p>
+        <p class="small">Primer. Izračun KORDEX na podlagi <a href="https://www.stat.si/StatWeb/Field/Index/15" target="_blank" rel="noopener noreferrer" title="Odpre se v novem zavihku">SURS (povprečna bruto plača 2026)</a> in <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Hourly_labour_costs" target="_blank" rel="noopener noreferrer" title="Odpre se v novem zavihku">Eurostat (strošek ure dela 2025)</a>. Cene brez DDV.</p>
         <p class="small"><a href="izracun/" data-draft="sl">Izračunajte za svoje podjetje →</a></p>
         </div>
       </div>
@@ -316,7 +317,7 @@
             <li>Eksoskelet lahko zapišete v oceno tveganja kot tehnični ukrep.</li>
           </ul>
         </div>
-        <p class="small law-source">Vir: <a href="https://pisrs.si/pregledPredpisa?id=PRAV15049">Pravilnik o zagotavljanju varnosti in zdravja delavcev pri ročnem premeščanju bremen, Ur. l. RS 84/2023, 4. člen</a>; <a href="https://pisrs.si/pregledPredpisa?id=ZAKO5537">ZVZD-1, 17. člen</a>.</p>
+        <p class="small law-source">Vir: <a href="https://pisrs.si/pregledPredpisa?id=PRAV15049" target="_blank" rel="noopener noreferrer" title="Odpre se v novem zavihku">Pravilnik o zagotavljanju varnosti in zdravja delavcev pri ročnem premeščanju bremen, Ur. l. RS 84/2023, 4. člen</a>; <a href="https://pisrs.si/pregledPredpisa?id=ZAKO5537" target="_blank" rel="noopener noreferrer" title="Odpre se v novem zavihku">ZVZD-1, 17. člen</a>.</p>
         <a class="more-link" href="../sl/zakon/" aria-label="Več o pravilniku in oceni tveganja" data-draft="sl">Več →</a>
       </div>
     </section>
