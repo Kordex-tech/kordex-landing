@@ -22,6 +22,7 @@ body{overflow-x:clip}
 .landing .lead{font-size:var(--t-lead);line-height:1.5;color:var(--ink-2)}
 .landing .muted{color:var(--muted)}
 .landing .small{font-size:.875rem;color:var(--muted)}
+.more-link{display:inline-flex;align-items:center;margin-top:24px;color:var(--acc);font-weight:800;text-decoration:underline;text-underline-offset:.25em}
 .landing .section-head{max-width:790px;margin-bottom:36px}
 .landing .section-head p{margin-top:16px;color:var(--ink-2)}
 .landing .section-head h2{max-width:18ch}

@@ -9,11 +9,12 @@ This repo currently contains a framework-free website:
 - Landing page: `index.html`, `assets/css/landing.css`, `assets/js/contact-form.js`, `assets/js/i18n.js`
 - Interactive demo: `demo.html`, `assets/css/demo.css`, `assets/js/demo.js`
 - Slovenian StepUp NEO page: `landing-sl/index.html` with self-hosted assets and no tracking
+- StepUp NEO detail pages: `sl/stepup-neo/`, `sl/zakon/`, `sl/vprasanja/`, `sl/viri/`
 - Images: `assets/images/`
 - Local Node server: `server.js`
 - Netlify function: `netlify/functions/contact.js`
 
-There is no app framework, database, test runner, package lockfile, or source/build directory split.
+There is no app framework, database, test runner, package lockfile, or source/build directory split. A small Node build step keeps StepUp NEO prices in sync.
 
 ## Run
 
@@ -31,6 +32,16 @@ The Slovenian page submits to the same contact endpoints. It marks the older
 budget and pilot survey fields as `not_asked`; the handlers retain its optional
 `phone`, `product`, and `consent` fields. No lead is emailed unless
 `CONTACT_WEBHOOK_URL` is configured. The page remains `noindex` while under review.
+
+Edit StepUp NEO prices only in `landing-sl/prices.json`. Run
+`npm run build:stepup` to refresh the static HTML, JSON-LD and `llms.txt`, then
+commit those generated files. `npm run check:stepup` verifies that they match.
+Netlify runs the build for every preview deploy. The preview uses `robots.txt`
+(`Disallow: /`) and every StepUp page has `noindex` in its HTML.
+`robots.production.txt` is a separate future template and is not in use.
+Canonical URLs point to the planned `/sl/` production paths. The Open Graph
+image and URL currently point to the Netlify preview so link previews work
+during review; switch them only when publishing is authorized.
 
 ## Business Logic
 

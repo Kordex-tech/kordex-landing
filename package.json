@@ -4,7 +4,9 @@
   "description": "KORDEX — Industrial Safety Intelligence",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node scripts/build-stepup.mjs && node server.js",
+    "build:stepup": "node scripts/build-stepup.mjs",
+    "check:stepup": "node scripts/build-stepup.mjs --check"
   },
   "engines": {
     "node": ">=18"

@@ -1,0 +1,4 @@
+[build]
+  command = "node scripts/build-stepup.mjs"
+  publish = "."
+  functions = "netlify/functions"

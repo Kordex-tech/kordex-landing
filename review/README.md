@@ -37,3 +37,13 @@ All new Slovenian phrasing is marked `data-draft="sl"`; the complete [phrase lis
 - Outbound lead delivery depends on `CONTACT_WEBHOOK_URL`. It is not configured by this PR; the local Node server stores leads in `leads.jsonl` when running.
 - The form uses the task's `[GLAS: ime, telefon]` placeholder until a contact person and number are supplied.
 - `robots=noindex`; no production deployment.
+
+## Point 10: search and link previews
+
+- [Updated 360 px screenshot](stepup-v2-360.jpg) and [1440 px screenshot](stepup-v2-1440.jpg). The browser check covers the landing and all four detail pages at both widths, with no horizontal overflow, broken images or JavaScript errors.
+- The landing includes one JSON-LD `@graph` with `Organization`, `Product`, and `FAQPage`. The eight structured FAQ answers are generated from the visible FAQ text. There are no review, rating or telephone fields. Local JSON parsing and content matching passed.
+- Open Graph title, description and a 1200 × 630 image are set for LinkedIn and WhatsApp. The image is at `sl/media/stepup-neo-og.jpg`.
+- Detail pages: `/sl/stepup-neo/`, `/sl/zakon/`, `/sl/vprasanja/`, `/sl/viri/`. They are linked from the landing with “Več →”, with no menu entries. Expandable text uses native `details` in HTML.
+- `sitemap.xml` uses future canonical `/sl/` URLs. Preview `robots.txt` disallows crawling and all five pages retain `noindex`. `robots.production.txt` is ready for the later publication step, but is not active.
+- `landing-sl/prices.json` is the sole price source. `npm run build:stepup` updates visible price markers, Product offers, FAQ answers and `llms.txt`; `npm run check:stepup` verifies that output is current. The Netlify build runs the generator automatically.
+- All new Slovenian copy for language review is marked `data-draft="sl"` in the HTML files.
