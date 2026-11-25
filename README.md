@@ -12,7 +12,7 @@ This repo currently contains a framework-free website:
 - StepUp NEO detail pages: `sl/stepup-neo/`, `sl/zakon/`, `sl/vprasanja/`, `sl/viri/`
 - Images: `assets/images/`
 - Local Node server: `server.js`
-- Netlify function: `netlify/functions/contact.js`
+- Protected preview intake: `/api/contact` is handled by `kordex-intake` behind Caddy
 
 There is no app framework, database, test runner, package lockfile, or source/build directory split. A small Node build step keeps StepUp NEO prices in sync.
 
@@ -28,13 +28,13 @@ Open:
 - `http://localhost:3000/demo.html`
 - `http://localhost:3000/landing-sl/`
 
-The Slovenian page submits to the same contact endpoints. It marks the older
-budget and pilot survey fields as `not_asked`; the handlers retain its optional
-`phone`, `product`, and `consent` fields. The local Node server and Netlify
-function do not email leads unless `CONTACT_WEBHOOK_URL` is configured. The page
-remains `noindex` while under review.
-On `preview.kordex.org`, Caddy sends `/api/contact` to the existing
-`kordex-intake` service; its mail timer delivers the enquiry and creates the CRM task.
+The Slovenian page submits to `/api/contact`. It marks the older budget and
+pilot survey fields as `not_asked` and sends `phone`, `product`, and `consent`.
+The local Node server stores leads and forwards them only when
+`CONTACT_WEBHOOK_URL` is configured. On `preview.kordex.org`, Caddy sends the
+same path to the existing `kordex-intake` service; its mail timer delivers the
+enquiry and creates the CRM task. The Netlify function has been removed. The
+page remains `noindex` while under review.
 
 Edit StepUp NEO prices only in `landing-sl/prices.json`. Run
 `npm run build:stepup` to refresh the static HTML, calculator price JSON, JSON-LD and `llms.txt`, then
@@ -71,10 +71,10 @@ The local Node server also appends accepted leads to `leads.jsonl`.
 
 ## Current Gaps
 
-- Contact business rules are duplicated between local and Netlify handlers.
+- Contact validation is duplicated between the local Node server and the protected preview intake handler.
 - There are no automated tests.
 - There is no shared module boundary for lead validation/scoring.
-- There is no deployment config beyond the Netlify function and `.replit`.
+- The retired Netlify project still needs account-level deletion after its public routes are redirected.
 - `kordex-landing.tar.gz` is tracked even though it appears to be a deployment/archive artifact.
 
 ## Suggested Next Structure

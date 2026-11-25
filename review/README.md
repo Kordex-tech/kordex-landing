@@ -1,6 +1,6 @@
 # StepUp NEO Slovenian landing — PR review
 
-Target: `landing/sl-v1` → `main` in `Kordex-tech/kordex-landing`. The change adds `landing-sl/`, preserves the existing root landing and demo, and makes small compatible changes to the local and Netlify contact handlers. `system-v2.css`, `theme.js`, and local Manrope files are copied from the supplied system-v2 preview archive built from `e45c6ad3`.
+Target: `landing/sl-v1` → `main` in `Kordex-tech/kordex-landing`. The change adds `landing-sl/` and preserves the existing root landing and demo. The public Netlify preview now redirects to the Basic Auth protected `preview.kordex.org` snapshot; its contact function is removed. `system-v2.css`, `theme.js`, and local Manrope files are copied from the supplied system-v2 preview archive built from `e45c6ad3`.
 
 ## Screenshots
 
@@ -31,8 +31,8 @@ All new Slovenian phrasing is marked `data-draft="sl"`; the complete [phrase lis
 
 - Chromium at 360, 768, 1024 and 1440 px: no horizontal scroll, no broken images, no JavaScript exceptions. The How to Wear video spans the content width; process and testimonial headings stay on one line on wide screens; the contact details sit in the footer.
 - Lighthouse mobile on this repository's local Node server: Performance **96**, Accessibility **100**, initial transfer **299 KiB** without video.
-- Form uses this repository's `/api/contact` endpoint with `/.netlify/functions/contact` as fallback. The older budget and pilot questions are sent as `not_asked`; optional phone, product and consent fields are retained by both handlers.
-- Local test: one fake lead was accepted into a temporary `leads.jsonl` outside the repository; the Netlify function returned 200 with a mocked webhook and retained the same optional fields. The browser showed `Poslano`.
+- Form uses `/api/contact`. On the protected preview, Caddy routes it to `kordex-intake`, which places accepted leads in the existing mail and CRM queue. The older budget and pilot questions are sent as `not_asked`.
+- A synthetic lead was accepted by an isolated intake test server and converted to a StepUp NEO internal email with a reply address. The live intake service was restarted and rejects an empty contact request with JSON 400. No test email was sent to the mailbox.
 - Existing `/` and `/demo.html` still render; the existing homepage's Slovenian language switch works.
 - Outbound lead delivery depends on `CONTACT_WEBHOOK_URL`. It is not configured by this PR; the local Node server stores leads in `leads.jsonl` when running.
 - The form uses the task's `[GLAS: ime, telefon]` placeholder until a contact person and number are supplied.

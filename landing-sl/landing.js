@@ -3,28 +3,16 @@
 
   var form = document.getElementById('lead-form');
   var status = document.getElementById('form-status');
-  var endpoints = ['/api/contact', '/.netlify/functions/contact'];
-
   async function submitLead(payload) {
-    var lastError = new Error('No contact endpoint available');
-    for (var endpoint of endpoints) {
-      try {
-        var response = await fetch(endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-          credentials: 'same-origin'
-        });
-        if (response.status === 404) continue;
-        var result = await response.json();
-        if (!response.ok || !result.ok) throw new Error(result.error || 'Contact request failed');
-        return result;
-      } catch (error) {
-        lastError = error;
-        if (endpoint === endpoints[endpoints.length - 1]) throw lastError;
-      }
-    }
-    throw lastError;
+    var response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      credentials: 'same-origin'
+    });
+    var result = await response.json();
+    if (!response.ok || !result.ok) throw new Error(result.error || 'Contact request failed');
+    return result;
   }
 
   if (form && status) {
