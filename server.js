@@ -4,6 +4,7 @@ const path = require("path");
 const crypto = require("crypto");
 
 const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || "0.0.0.0";
 const CONTACT_WEBHOOK_URL = process.env.CONTACT_WEBHOOK_URL || "";
 const CONTACT_WEBHOOK_TOKEN = process.env.CONTACT_WEBHOOK_TOKEN || "";
 
@@ -12,8 +13,13 @@ const MIME = {
   ".css": "text/css",
   ".js": "application/javascript",
   ".json": "application/json",
+  ".txt": "text/plain; charset=utf-8",
+  ".xml": "application/xml; charset=utf-8",
   ".png": "image/png",
   ".jpg": "image/jpeg",
+  ".webp": "image/webp",
+  ".woff2": "font/woff2",
+  ".mp4": "video/mp4",
   ".svg": "image/svg+xml",
   ".ico": "image/x-icon",
 };
@@ -61,6 +67,9 @@ function buildLeadPayload(body, req) {
   const company = cleanString(body.company, 180);
   const role = cleanString(body.role, 180);
   const pain = cleanString(body.pain, 4000);
+  const phone = cleanString(body.phone, 50);
+  const product = cleanString(body.product, 100);
+  const consent = cleanString(body.consent, 10);
   const budgetOwnerValue = cleanString(body.budget_owner_present, 32);
   const pilotReadiness = cleanString(body.pilot_readiness, 32);
 
@@ -88,6 +97,9 @@ function buildLeadPayload(body, req) {
     company,
     role,
     pain,
+    phone,
+    product,
+    consent,
     budget_owner_present: parseBudgetOwner(budgetOwnerValue),
     budget_owner_raw: budgetOwnerValue,
     pilot_readiness: pilotReadiness,
@@ -162,7 +174,14 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  let filePath = req.url === "/" ? "/index.html" : req.url;
+  const requestUrl = new URL(req.url, "http://localhost");
+  if (requestUrl.pathname === "/landing-sl") {
+    res.writeHead(308, { Location: `/landing-sl/${requestUrl.search}` });
+    res.end();
+    return;
+  }
+  let filePath = requestUrl.pathname === "/" ? "/index.html" : requestUrl.pathname;
+  if (filePath.endsWith("/")) filePath += "index.html";
   filePath = path.join(__dirname, filePath);
 
   const ext = path.extname(filePath);
@@ -184,6 +203,6 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, "0.0.0.0", () => {
+server.listen(PORT, HOST, () => {
   console.log(`KORDEX landing running on port ${PORT}`);
 });

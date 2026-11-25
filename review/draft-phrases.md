@@ -1,0 +1,52 @@
+# Slovenske fraze za jezikovni pregled
+
+Elementi z `data-draft="sl"` v `landing-sl/index.html`:
+
+- StepUp NEO je pasivni eksoskelet za podporo hrbtu pri dvigovanju in delu v predklonu. Ocenimo ga na vaših opravilih v skladišču, proizvodnji ali logistiki.
+- Pokličite nas · [GLAS: ime, telefon]
+- Brezplačna predstavitev in hitra ocena obremenitve na vaši operaciji.
+- StepUp NEO pri dejanskem skladiščnem delu · foto FRT Robotics
+- Obremenitev ima merljiv strošek.
+- Povprečni letni strošek začasne odsotnosti z dela zaradi šestih izbranih mišično-skeletnih diagnoz v Sloveniji (2020–2024).
+- Prvih 30 delovnih dni nadomestila pri običajni bolniški odsotnosti praviloma bremeni delodajalca.
+- Podpora hrbtu, ki gre z delavcem.
+- Pasivni mehanizem pomaga pri iztegovanju po predklonu. Primernost preverimo na konkretni nalogi in pri konkretnem delavcu.
+- Vzmetni mehanizem deluje brez motorja in elektronike.
+- Lahka oprema, ki jo delavec nosi med delom.
+- Nastavitev podporne sile glede na nalogo.
+- Česa naprava ne naredi
+- Ne dvigne bremena namesto delavca.
+- Ne spremeni dovoljenih obremenitev in pravil varnega dela.
+- Ni medicinski pripomoček in ne zdravi.
+- Tri poteze pred delom.
+- Nadenite si ga kot nahrbtnik. Zapnite pas in ga prilagodite telesu.
+- Nastavite ročici. Navzven za pomoč pri dvigovanju, navznoter za hojo brez pomoči.
+- Delajte s pravilno držo. Eksoskelet dopolnjuje varno tehniko dvigovanja.
+- Podatki so iz meritve EMG. Vaše delo preverimo posebej.
+- utrujenosti ledvenih mišic pri dvigovanju 20 kg v meritvi proizvajalca
+- obremenitve mišic v meritvi proizvajalca
+- Kjer se delo ponavlja in bremena premikajo.
+- Fotografije prikazujejo delo, ki ga predstavlja proizvajalec. Ali je naprava primerna za vašo operacijo, ugotovimo na mestu.
+- Od ogleda do kontrolne meritve.
+- Na vaši operaciji pokažemo StepUp NEO in hitro ocenimo obremenitev.
+- Približno 690 € brez DDV. Ob nakupu ali testu v treh mesecih znesek v celoti upoštevamo.
+- Prilagoditev naprave delavcem, usposabljanje in dogovor o uporabi.
+- Po šestih tednih ponovno izmerimo obremenitev na vašem delovnem mestu.
+- Začnite s prikazom. Nato izberite nakup ali najem.
+- Kaj pravijo uporabniki proizvajalca.
+- Pri ponavljajočem se sklanjanju in dvigovanju sem takoj občutil manj utrujenosti.Uporabnik proizvajalca · prevod iz angleščine
+- Uporaba je intuitivna; tudi začetniki se je hitro naučijo uporabljati.Uporabnik proizvajalca · prevod iz angleščine
+- Kljub napravi se lahko prosto premikam in delam na delovnem mestu.Uporabnik proizvajalca · prevod iz angleščine
+- Jasno pred prvo uporabo.
+- Ali 14 kgf pomeni, da naprava dvigne 14 kg namesto mene?Ne. Breme dvigne delavec. 14 kgf je podporna sila za ledveni del hrbta, ne zmanjšanje teže bremena.
+- Ali jo moram polniti?Ne. StepUp NEO je pasiven, brez baterije in motorja.
+- Koliko tehta?3,6 kg.
+- Kako hitro si jo lahko nadenem?Po prvi prilagoditvi si jo delavec sam nadene v manj kot 30 sekundah.
+- Katere velikosti so na voljo?S, M in L, približno za telesne višine 155–165, 165–175 in 175–185 cm. Pri prikazu preverimo prileganje.
+- Za koga uporaba ni primerna?Ni primerna pri motnjah ravnotežja, težavah pri hoji, resnih boleznih hrbta ali sklepov in v nosečnosti. Ob zdravstvenih vprašanjih se posvetujte z zdravnikom medicine dela.
+- Kakšna je garancija?KORDEX d.o.o. zagotavlja enoletno garancijo od nakupa.
+- Ali ni to predrago?Začnite z brezplačno predstavitvijo na vašem delu. Nakup se začne pri 1 799 € na kos, najem pri 98 € na teden na eksoskelet za najmanj šest tednov. Cene so brez DDV.
+- Pokažite nam delo.
+- Povejte nam, katero opravilo želite oceniti. Odgovorimo in se dogovorimo za prikaz.
+- Strinjam se, da me KORDEX kontaktira glede predstavitve. Prebral/-a sem obvestilo o zasebnosti.
+- Osebni stik za predstavitve bo dopolnjen po imenovanju sodelavca.

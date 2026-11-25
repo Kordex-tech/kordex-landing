@@ -1,0 +1,12 @@
+{
+  "currency": "EUR",
+  "vatIncluded": false,
+  "purchase": [
+    { "min": 1, "max": 19, "eur": 2199 },
+    { "min": 20, "max": 49, "eur": 2149 },
+    { "min": 50, "eur": 2099 }
+  ],
+  "rentalWeeklyEur": 98,
+  "rentalMinimumWeeks": 6,
+  "assessmentEur": 690
+}

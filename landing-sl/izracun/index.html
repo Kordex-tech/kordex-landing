@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0077A8">
+  <meta name="description" content="Izračun KORDEX: koliko podjetje stane odsotnost zaradi bolečin v hrbtu in koliko stanejo eksoskeleti StepUp NEO. Cene brez DDV.">
+  <link rel="canonical" href="https://kordex.org/sl/izracun/">
+  <title>Izračun: odsotnost zaradi hrbta in StepUp NEO | KORDEX</title>
+  <link rel="preload" href="../f/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../f/manrope-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../system-v2.css">
+  <link rel="stylesheet" href="../landing.css">
+  <script>try{if(!localStorage.getItem('kordex-theme')&&matchMedia('(prefers-color-scheme: dark)').matches)document.documentElement.dataset.theme='dark'}catch(e){}</script>
+  <script src="../theme.js" defer></script>
+  <script src="../return-link.js" defer></script>
+  <!-- Generated from landing-sl/prices.json by scripts/build-stepup.mjs. Prices exclude DDV. -->
+  <script type="application/json" id="kordex-prices">
+    {"currency":"EUR","vatIncluded":false,"buy":[{"from":1,"price":2199},{"from":20,"price":2149},{"from":50,"price":2099}],"rentWeek":98,"rentMinWeeks":6}
+  </script>
+  <style>
+    .landing main > section.calc-sec{padding-block:24px}
+    .landing main > section.calc-hero{padding-block:48px 8px}
+    .calc-hero h1{font-size:clamp(2rem,1.5rem + 2.4vw,3.25rem);line-height:1.08;margin:8px 0 16px;max-width:20ch}
+    .calc-hero .lead{max-width:62ch}
+    .calc-back{display:inline-flex;align-items:center;min-height:44px;margin-bottom:12px;color:var(--acc);font-weight:800}
+    .calc-grid{display:grid;gap:24px;grid-template-columns:minmax(0,1fr)}
+    @media (min-width:960px){.calc-grid{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:start}}
+    .calc-card{border:1px solid var(--line);border-radius:var(--r-l);padding:28px;background:var(--panel);min-width:0}
+    .calc-card h2{font-size:1.375rem;margin:0 0 20px}
+    .calc-fields{display:grid;gap:18px;align-items:start;grid-template-columns:minmax(0,1fr)}
+    @media (min-width:560px){.calc-fields{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    .calc-fields .hint{font-weight:400;font-size:var(--t-small);color:var(--muted);line-height:1.4}
+    .calc-more{margin-top:22px;border-top:1px solid var(--line);padding-top:16px}
+    .calc-more summary{cursor:pointer;font-weight:800;color:var(--link);min-height:44px;display:flex;align-items:center}
+    .calc-more .calc-fields{margin-top:12px}
+    .res-total{font-size:clamp(2.25rem,1.8rem + 2vw,3.25rem);font-weight:800;line-height:1;margin:6px 0 4px;color:var(--ink)}
+    .res-block{padding:18px 0;border-top:1px solid var(--line)}
+    .res-block:first-of-type{border-top:0;padding-top:0}
+    .res-block h3{font-size:1rem;margin:0;color:var(--ink-2);font-weight:700}
+    .res-split{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;margin-top:8px;color:var(--ink-2);font-size:var(--t-small)}
+    .res-split b{color:var(--ink);text-align:right}
+    .res-split #r-buy-l{white-space:nowrap}
+    .res-key{margin-top:4px;padding:16px 18px;border-radius:var(--r-m);background:var(--panel-2);font-weight:700}
+    .res-key strong{color:var(--acc)}
+    .res-warn{margin-top:12px;padding:14px 18px;border-radius:var(--r-m);border:1px solid var(--line-field);font-size:var(--t-small)}
+    .res-warn[hidden]{display:none}
+    .calc-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+    .calc-note{margin-top:28px;max-width:72ch}
+    .calc-sources{margin-top:12px}
+    .calc-sources summary{cursor:pointer;font-weight:800;color:var(--link);min-height:44px;display:flex;align-items:center}
+    .calc-sources ul{margin:8px 0 0;padding-left:1.1em;color:var(--ink-2);font-size:var(--t-small);display:grid;gap:6px}
+    .field input:invalid{border-color:var(--err)}
+  </style>
+</head>
+<body class="landing">
+  <!-- source: same background as the landing — FRT Robotics StepUp NEO product page, background video b1b868_15a69528a6204b8f85e393a1b0570f17. Founder TG 3377: no new video. -->
+  <video class="page-video" data-src="../media/frt-stepup-neo-bg.mp4" poster="../media/frt-stepup-neo-bg.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
+  <header class="landing-header">
+    <div class="wrap">
+      <a class="brand" href="../" aria-label="KORDEX — StepUp NEO"><img src="../media/kordex-logo.webp" width="168" height="58" alt="KORDEX"></a>
+      <div class="header-actions">
+        <button class="theme" type="button" aria-label="Temna tema" hidden>◐</button>
+        <a class="btn" href="../#kontakt">Pokažite nam delo</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="vsebina">
+    <section class="calc-hero" aria-labelledby="calc-title">
+      <div class="wrap">
+        <a class="calc-back" data-return href="../#problem-title">← Nazaj</a>
+        <p class="kicker">Izračun · StepUp NEO</p>
+        <h1 id="calc-title" data-draft="sl">Koliko vas stane odsotnost zaradi bolečin v hrbtu?</h1>
+        <p class="lead" data-draft="sl">Vpišite svoje podatke. Izračun poteka v vašem brskalniku, ničesar ne pošiljamo in ne shranjujemo.</p>
+      </div>
+    </section>
+
+    <section class="calc-sec" aria-label="Izračun">
+      <div class="wrap calc-grid">
+        <form class="calc-card" id="calc" novalidate>
+          <h2 data-draft="sl">Vaši podatki</h2>
+          <div class="calc-fields">
+            <label class="field">Primeri odsotnosti zaradi hrbta na leto
+              <input type="number" name="cases" value="1" min="0" max="500" step="1" inputmode="numeric">
+              <span class="hint" data-draft="sl">Na delovnih mestih, kjer bi delavci nosili eksoskelet.</span></label>
+            <label class="field">Delovni dnevi odsotnosti na primer
+              <input type="number" name="days" value="26" min="1" max="250" step="1" inputmode="numeric">
+              <!-- source: NIJZ, Zdravstveni statistični letopis Slovenije 2024, 2.6. Tabela 3, str. 7, M00–M99: 116 412 primerov, 4 247 960 dni, R = 36,49; https://nijz.si/wp-content/uploads/2025/12/2.6_Bolniska_odsotnost_2024_Z-1.pdf -->
+              <span class="hint" data-draft="sl">Povprečje NIJZ 2024 za bolezni mišično-skeletnega sistema: 36,5 koledarskega dne ≈ 26 delovnih dni.</span></label>
+            <label class="field">Bruto mesečna plača delavca, €
+              <input type="number" name="wage" value="2681" min="0" max="20000" step="1" inputmode="numeric">
+              <!-- source: SURS, average gross monthly wage 2026, https://www.stat.si/StatWeb/Field/Index/15 -->
+              <span class="hint" data-draft="sl">Povprečje SURS 2026. V proizvodnji in logistiki je plača pogosto nižja.</span></label>
+            <label class="field">Število eksoskeletov
+              <input type="number" name="units" value="4" min="1" max="1000" step="1" inputmode="numeric">
+              <span class="hint" data-draft="sl">Za test priporočamo vsaj 4.</span></label>
+          </div>
+
+          <details class="calc-more">
+            <summary data-draft="sl">Podrobneje: predpostavke izračuna</summary>
+            <div class="calc-fields">
+              <label class="field">Nadomestilo plače, %
+                <input type="number" name="comp" value="80" min="0" max="100" step="1" inputmode="numeric">
+                <span class="hint" data-draft="sl">Običajna bolezen: 80 % osnove.</span></label>
+              <label class="field">Prispevki delodajalca, %
+                <input type="number" name="contrib" value="16.1" min="0" max="50" step="0.1" inputmode="decimal">
+                <span class="hint" data-draft="sl">16,1 % na bruto plačo.</span></label>
+              <label class="field">Strošek ure nadomeščanja, €
+                <input type="number" name="hour" value="29.7" min="0" max="200" step="0.1" inputmode="decimal">
+                <!-- source: Eurostat, hourly labour costs 2025, Slovenia, https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Hourly_labour_costs -->
+                <span class="hint" data-draft="sl">Nadure ali agencija. Eurostat 2025: povprečni strošek ure dela v Sloveniji.</span></label>
+              <label class="field">Delovne ure na dan
+                <input type="number" name="hours" value="8" min="1" max="12" step="0.5" inputmode="decimal"></label>
+              <label class="field">Delovni dnevi v mesecu
+                <input type="number" name="mdays" value="21" min="15" max="26" step="1" inputmode="numeric"></label>
+              <label class="field">Dnevi, ki jih plača delodajalec, največ
+                <input type="number" name="cap" value="30" min="0" max="250" step="1" inputmode="numeric">
+                <!-- source: ZZZS, https://zavezanec.zzzs.si/pogosta-vprasanja-in-odgovori/nadomestilo-place-med-zacasno-zadrzanostjo-od-dela ; first 30 working days per case paid by employer (since 2024). -->
+                <span class="hint" data-draft="sl">Prvih 30 delovnih dni na primer plača delodajalec, nato ZZZS.</span></label>
+              <label class="field">Leta uporabe eksoskeleta
+                <input type="number" name="years" value="2" min="1" max="5" step="1" inputmode="numeric"></label>
+              <label class="field">Delovni dnevi na leto
+                <input type="number" name="ydays" value="220" min="100" max="300" step="1" inputmode="numeric"></label>
+            </div>
+          </details>
+        </form>
+
+        <!-- Static result = default inputs, so search engines and AI read the example without running JS. JS overwrites it. -->
+        <div class="calc-card" aria-live="polite" id="result">
+          <h2 data-draft="sl">Rezultat</h2>
+          <div class="res-block">
+            <h3 data-draft="sl">Strošek odsotnosti na leto</h3>
+            <p class="res-total" id="r-loss">≈ 9 300 €</p>
+            <div class="res-split"><span data-draft="sl">Nadomestilo plače, ki ga plača delodajalec</span><b id="r-pay">≈ 3 100 €</b></div>
+            <div class="res-split"><span data-draft="sl">Nadomeščanje (nadure, agencija)</span><b id="r-rep">≈ 6 200 €</b></div>
+          </div>
+          <div class="res-block">
+            <h3 data-draft="sl">Nakup eksoskeletov StepUp NEO</h3>
+            <p class="res-total" id="r-buy" data-price="four-total">8 796 €</p>
+            <div class="res-split"><span id="r-buy-l" data-price="calc-unit-four">4 × 2 199 €</span><b id="r-day" data-price="calc-day-four">≈ 5,00 € na delovni dan na delavca</b></div>
+            <div class="res-split"><span data-draft="sl">Ali najem za 6 tednov</span><b id="r-rent" data-price="calc-four-rent">2 352 €</b></div>
+          </div>
+          <p class="res-key" id="r-key" data-draft="sl">Nakup stane toliko kot <strong id="r-cases" data-price="calc-cases-four">0,9</strong> primera odsotnosti.</p>
+          <p class="res-warn" id="r-warn" hidden data-draft="sl">Pri teh podatkih je nakup dražji od letnega stroška odsotnosti. Morda je bolje začeti z najemom ali pa eksoskelet za to delo ni potreben. Pokažite nam delo in povemo vam iskreno.</p>
+          <div class="calc-actions">
+            <a class="btn" href="../#kontakt">Pokažite nam delo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="calc-sec" aria-label="Pojasnila">
+      <div class="wrap">
+        <p class="small calc-note" data-draft="sl">Izračun je ocena, ne obljuba. Ne trdimo, da eksoskelet prepreči odsotnost; učinek na vašem delovnem mestu izmerimo pri vas. Cene so brez DDV. Garancija 1 leto — daje KORDEX d.o.o.</p>
+        <details class="calc-sources">
+          <summary data-draft="sl">Kako računamo in viri</summary>
+          <ul data-draft="sl">
+            <li>Dnevna plača = bruto mesečna plača ÷ delovni dnevi v mesecu.</li>
+            <li>Nadomestilo plače = najmanj(dnevi odsotnosti; dnevi, ki jih plača delodajalec) × nadomestilo % × dnevna plača × (1 + prispevki %).</li>
+            <li>Nadomeščanje = dnevi odsotnosti × ure na dan × strošek ure nadomeščanja.</li>
+            <li>Strošek na leto = primeri na leto × (nadomestilo + nadomeščanje).</li>
+            <li data-price="calc-price-list">Nakup: 2 199 € na kos (1–19), 2 149 € (od 20), 2 099 € (od 50). Najem: 98 € na teden na eksoskelet, najmanj 6 tednov.</li>
+            <li>Viri: <a href="https://nijz.si/wp-content/uploads/2025/12/2.6_Bolniska_odsotnost_2024_Z-1.pdf" target="_blank" rel="noopener noreferrer" title="Odpre se v novem zavihku">NIJZ 2024, Tabela 3, str. 7</a> (bolezni mišično-skeletnega sistema M00–M99: 116 412 primerov, 4 247 960 koledarskih dni, povprečje R = 36,49 dneva ≈ 26 delovnih dni); <a href="https://www.stat.si/StatWeb/Field/Index/15" target="_blank" rel="noopener noreferrer" title="Odpre se v novem zavihku">SURS 2026</a> (povprečna bruto plača); <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Hourly_labour_costs" target="_blank" rel="noopener noreferrer" title="Odpre se v novem zavihku">Eurostat 2025</a> (strošek ure dela); <a href="https://zavezanec.zzzs.si/pogosta-vprasanja-in-odgovori/nadomestilo-place-med-zacasno-zadrzanostjo-od-dela" target="_blank" rel="noopener noreferrer" title="Odpre se v novem zavihku">ZZZS</a> (nadomestilo plače).</li>
+          </ul>
+        </details>
+        <p style="margin-top:24px"><a data-return href="../#problem-title">← Nazaj</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="landing-footer"><div class="wrap footer-grid"><div><strong>KORDEX d.o.o.</strong><br>Trg komandanta Staneta 8, 1000 Ljubljana<br>Matična št. 7614624000 · ID za DDV SI60274409<br>Proizvajalec StepUp NEO: FRT Robotics Co., Ltd., Koreja</div><div class="footer-contact"><h3>Kontakt</h3><p>[GLAS: ime, telefon]</p><p><a href="mailto:enquiries@kordex.org">enquiries@kordex.org</a></p></div><nav class="footer-links" aria-label="Povezave"><a href="./">Izračun</a> <a href="../privacy/">Zasebnost</a></nav></div></footer>
+
+  <script>
+  (function () {
+    var P = JSON.parse(document.getElementById('kordex-prices').textContent);
+    var form = document.getElementById('calc');
+    var $ = function (id) { return document.getElementById(id); };
+    var nf1 = new Intl.NumberFormat('sl-SI', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+    var nf2 = new Intl.NumberFormat('sl-SI', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    // non-breaking thin grouping like the landing ("9 300 €")
+    var eur = function (x) { return String(Math.round(x)).replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0') + '\u00a0€'; };
+    var approx = function (x) { return '≈ ' + eur(Math.round(x / 100) * 100); };
+    var num = function (n, d) { var v = parseFloat(String(form.elements[n].value).replace(',', '.')); return isFinite(v) && v >= 0 ? v : d; };
+    function unitPrice(n) { var p = P.buy[0].price; P.buy.forEach(function (t) { if (n >= t.from) p = t.price; }); return p; }
+    function calc() {
+      var cases = num('cases', 0), days = num('days', 0), wage = num('wage', 0), units = Math.max(1, Math.round(num('units', 1)));
+      var comp = num('comp', 80) / 100, contrib = num('contrib', 16.1) / 100, hour = num('hour', 0), hours = num('hours', 8);
+      var mdays = num('mdays', 21) || 21, cap = num('cap', 30), years = num('years', 2) || 2, ydays = num('ydays', 220) || 220;
+      var dayWage = wage / mdays;
+      var pay = Math.min(days, cap) * comp * dayWage * (1 + contrib);
+      var rep = days * hours * hour;
+      var perCase = pay + rep, loss = cases * perCase;
+      var up = unitPrice(units), buy = units * up, rent = units * P.rentWeek * P.rentMinWeeks;
+      $('r-loss').textContent = approx(loss);
+      $('r-pay').textContent = approx(cases * pay);
+      $('r-rep').textContent = approx(cases * rep);
+      $('r-buy').textContent = eur(buy);
+      $('r-buy-l').textContent = units + ' × ' + eur(up);
+      $('r-day').textContent = '≈ ' + nf2.format(up / (years * ydays)) + ' € na delovni dan na delavca';
+      $('r-rent').textContent = eur(rent);
+      $('r-cases').textContent = perCase > 0 ? nf1.format(buy / perCase) : '–';
+      $('r-warn').hidden = !(loss < buy);
+    }
+    // Background video: same behaviour as the landing; skipped on reduced motion and data saver.
+    var bg = document.querySelector('.page-video');
+    var rm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var sd = navigator.connection && navigator.connection.saveData;
+    if (bg && !rm && !sd) { bg.src = bg.dataset.src; var pl = bg.play(); if (pl && pl.catch) pl.catch(function () {}); }
+    form.addEventListener('input', calc);
+    form.addEventListener('submit', function (e) { e.preventDefault(); });
+    calc();
+  })();
+  </script>
+</body>
+</html>
