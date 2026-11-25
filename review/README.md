@@ -1,6 +1,6 @@
 # StepUp NEO Slovenian landing — PR review
 
-Target: `landing/sl-v1` → `main` in `Kordex-tech/kordex-landing`. The change adds `landing-sl/` and preserves the existing root landing and demo. The public Netlify preview now redirects to the Basic Auth protected `preview.kordex.org` snapshot; its contact function is removed. `system-v2.css`, `theme.js`, and local Manrope files are copied from the supplied system-v2 preview archive built from `e45c6ad3`.
+Target: `landing/sl-v1` → `main` in `Kordex-tech/kordex-landing`. The change adds `landing-sl/` and preserves the existing root landing and demo. The Netlify project was deleted on 25 November 2026; the landing is now on the Basic Auth protected `preview.kordex.org` snapshot. Its contact form uses the existing intake mail and CRM queue. `system-v2.css`, `theme.js`, and local Manrope files are copied from the supplied system-v2 preview archive built from `e45c6ad3`.
 
 ## Screenshots
 

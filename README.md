@@ -39,9 +39,11 @@ page remains `noindex` while under review.
 Edit StepUp NEO prices only in `landing-sl/prices.json`. Run
 `npm run build:stepup` to refresh the static HTML, calculator price JSON, JSON-LD and `llms.txt`, then
 commit those generated files. `npm run check:stepup` verifies that they match.
-Netlify runs the build for every preview deploy and redirects visitors to the
-Basic Auth protected `preview.kordex.org` snapshot. The preview uses `robots.txt`
-(`Disallow: /`) and every StepUp page has `noindex` in its HTML.
+The Netlify project `soft-alfajores-3ae788` was deleted on 25 November 2026.
+The retained `netlify.toml` redirect is a safeguard if the repository is ever
+connected to Netlify again. The `preview.kordex.org` snapshot requires Basic
+Auth; the repository's `robots.txt` contains `Disallow: /`, and every StepUp
+page has `noindex` in its HTML.
 `robots.production.txt` is a separate future template and is not in use.
 Canonical URLs point to the planned `/sl/` production paths. The Open Graph
 image and URL currently point to the protected preview. Public social crawlers
@@ -74,7 +76,6 @@ The local Node server also appends accepted leads to `leads.jsonl`.
 - Contact validation is duplicated between the local Node server and the protected preview intake handler.
 - There are no automated tests.
 - There is no shared module boundary for lead validation/scoring.
-- The retired Netlify project still needs account-level deletion after its public routes are redirected.
 - `kordex-landing.tar.gz` is tracked even though it appears to be a deployment/archive artifact.
 
 ## Suggested Next Structure
