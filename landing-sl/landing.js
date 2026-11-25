@@ -17,7 +17,7 @@
         }
         return;
       }
-      if (!heroVideo.hasAttribute('src')) heroVideo.src = 'media/how-to-wear.mp4';
+      if (!heroVideo.hasAttribute('src')) heroVideo.src = 'media/frt-stepup-neo-bg.mp4';
       var playback = heroVideo.play();
       if (playback && playback.catch) playback.catch(function () {});
     }
