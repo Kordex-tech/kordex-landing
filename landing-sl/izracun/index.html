@@ -84,8 +84,8 @@
               <span class="hint" data-draft="sl">Na delovnih mestih, kjer bi delavci nosili eksoskelet.</span></label>
             <label class="field">Delovni dnevi odsotnosti na primer
               <input type="number" name="days" value="26" min="1" max="250" step="1" inputmode="numeric">
-              <!-- source: KORDEX FAQ internal notes, 25.11.2026, cites NIJZ 2024 for 36.5 calendar days; the exact NIJZ primary-source URL remains unverified (see review/README.md). -->
-              <span class="hint" data-draft="sl">Povprečje NIJZ 2024: 36,5 koledarskega dne ≈ 26 delovnih dni.</span></label>
+              <!-- source: NIJZ, Zdravstveni statistični letopis Slovenije 2024, 2.6. Tabela 3, str. 7, M00–M99: 116 412 primerov, 4 247 960 dni, R = 36,49; https://nijz.si/wp-content/uploads/2025/12/2.6_Bolniska_odsotnost_2024_Z-1.pdf -->
+              <span class="hint" data-draft="sl">Povprečje NIJZ 2024 za bolezni mišično-skeletnega sistema: 36,5 koledarskega dne ≈ 26 delovnih dni.</span></label>
             <label class="field">Bruto mesečna plača delavca, €
               <input type="number" name="wage" value="2681" min="0" max="20000" step="1" inputmode="numeric">
               <!-- source: SURS, average gross monthly wage 2026, https://www.stat.si/StatWeb/Field/Index/15 -->
@@ -159,7 +159,7 @@
             <li>Nadomeščanje = dnevi odsotnosti × ure na dan × strošek ure nadomeščanja.</li>
             <li>Strošek na leto = primeri na leto × (nadomestilo + nadomeščanje).</li>
             <li data-price="calc-price-list">Nakup: 2 199 € na kos (1–19), 2 149 € (od 20), 2 099 € (od 50). Najem: 98 € na teden na eksoskelet, najmanj 6 tednov.</li>
-            <li>Viri: NIJZ 2024 (trajanje odsotnosti); <a href="https://www.stat.si/StatWeb/Field/Index/15">SURS 2026</a> (povprečna bruto plača); <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Hourly_labour_costs">Eurostat 2025</a> (strošek ure dela); <a href="https://zavezanec.zzzs.si/pogosta-vprasanja-in-odgovori/nadomestilo-place-med-zacasno-zadrzanostjo-od-dela">ZZZS</a> (nadomestilo plače).</li>
+            <li>Viri: <a href="https://nijz.si/wp-content/uploads/2025/12/2.6_Bolniska_odsotnost_2024_Z-1.pdf">NIJZ 2024, Tabela 3, str. 7</a> (bolezni mišično-skeletnega sistema M00–M99: 116 412 primerov, 4 247 960 koledarskih dni, povprečje R = 36,49 dneva ≈ 26 delovnih dni); <a href="https://www.stat.si/StatWeb/Field/Index/15">SURS 2026</a> (povprečna bruto plača); <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Hourly_labour_costs">Eurostat 2025</a> (strošek ure dela); <a href="https://zavezanec.zzzs.si/pogosta-vprasanja-in-odgovori/nadomestilo-place-med-zacasno-zadrzanostjo-od-dela">ZZZS</a> (nadomestilo plače).</li>
           </ul>
         </details>
         <p style="margin-top:24px"><a href="../">← Nazaj na StepUp NEO</a></p>
