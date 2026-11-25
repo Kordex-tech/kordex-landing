@@ -59,10 +59,10 @@ body.detail-page{min-width:0;background:var(--bg)}
 .detail-footer p{max-width:none}
 @media(max-width:700px){.detail-grid{grid-template-columns:1fr}.detail-hero{padding-top:48px}.detail-content{padding-block:40px}}
 @media(max-width:420px){.detail-header .wrap{gap:8px}.detail-header-actions{gap:8px}.detail-header img{width:104px}.detail-header .detail-back{padding:8px 10px;font-size:.8rem}}
-.law-page .landing-header .wrap,.law-page .landing-footer .wrap{max-width:1200px}
-.law-page .landing-header .theme{min-width:44px;min-height:44px;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--ink);font-size:1.35rem;line-height:1;cursor:pointer}
-.law-page .landing-header .btn{justify-content:center;text-align:center;min-height:48px;padding:12px 22px}
-.law-page.has-video .landing-footer{background:color-mix(in srgb,var(--panel) 78%,transparent)}
-.law-page .detail-main{padding-bottom:0}
-.law-page .detail-hero-back{margin-bottom:32px}
-@media(max-width:640px){.law-page .landing-header .wrap{min-height:66px;padding-inline:20px}.law-page .brand img{width:130px}.law-page .header-phone{display:none}.law-page .landing-header .btn{padding:9px 13px;min-height:40px;font-size:.82rem}}
+.detail-shell .landing-header .wrap,.detail-shell .landing-footer .wrap{max-width:1200px}
+.detail-shell .landing-header .theme{min-width:44px;min-height:44px;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--ink);font-size:1.35rem;line-height:1;cursor:pointer}
+.detail-shell .landing-header .btn{justify-content:center;text-align:center;min-height:48px;padding:12px 22px}
+.detail-shell.has-video .landing-footer{background:color-mix(in srgb,var(--panel) 78%,transparent)}
+.detail-shell .detail-main{padding-bottom:0}
+.detail-shell .detail-hero-back{margin-bottom:32px}
+@media(max-width:640px){.detail-shell .landing-header .wrap{min-height:66px;padding-inline:20px}.detail-shell .brand img{width:130px}.detail-shell .header-phone{display:none}.detail-shell .landing-header .btn{padding:9px 13px;min-height:40px;font-size:.82rem}}
