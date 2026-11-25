@@ -44,6 +44,13 @@ All new Slovenian phrasing is marked `data-draft="sl"`; the complete [phrase lis
 - The landing includes one JSON-LD `@graph` with `Organization`, `Product`, and `FAQPage`. The eight structured FAQ answers are generated from the visible FAQ text. There are no review, rating or telephone fields. Local JSON parsing and content matching passed.
 - Open Graph title, description and a 1200 × 630 image are set for LinkedIn and WhatsApp. The image is at `sl/media/stepup-neo-og.jpg`.
 - Detail pages: `/sl/stepup-neo/`, `/sl/zakon/`, `/sl/vprasanja/`, `/sl/viri/`. They are linked from the landing with “Več →”, with no menu entries. Expandable text uses native `details` in HTML.
-- `sitemap.xml` uses future canonical `/sl/` URLs. Preview `robots.txt` disallows crawling and all five pages retain `noindex`. `robots.production.txt` is ready for the later publication step, but is not active.
+- `sitemap.xml` uses future canonical `/sl/` URLs. Preview `robots.txt` disallows crawling and all pages retain `noindex`. `robots.production.txt` is ready for the later publication step, but is not active.
 - `landing-sl/prices.json` is the sole price source. `npm run build:stepup` updates visible price markers, Product offers, FAQ answers and `llms.txt`; `npm run check:stepup` verifies that output is current. The Netlify build runs the generator automatically.
 - All new Slovenian copy for language review is marked `data-draft="sl"` in the HTML files.
+
+## Point 11: calculator
+
+- [360 px screenshot](stepup-calc-360.jpg) and [1440 px screenshot](stepup-calc-1440.jpg). The page at `/landing-sl/izracun/` reuses the landing background video and poster. The only landing links are below the 9 300 € example and in the footer.
+- The supplied calculator's formulas, field defaults and copy are preserved. Its `kordex-prices` JSON and static price examples are generated from `landing-sl/prices.json`; prices displayed in Chromium are 2 149 € at 20 units and 2 099 € at 50 units. Both widths have no horizontal overflow or JavaScript errors.
+- The new landing phrase is “Izračunajte za svoje podjetje →”. Calculator phrases for language review are marked `data-draft="sl"` in `landing-sl/izracun/index.html`, including its title, introduction, input hints, results, explanations and caveat.
+- The exact NIJZ primary source for the stated 2024 average of 36.5 calendar days per absence was **not found**. NIJZ's [2024 first release](https://nijz.si/podatki/prva-objava-bolniska-odsotnost-v-letu-2024/) and [statistical yearbook](https://nijz.si/wp-content/uploads/2025/12/2.6_Bolniska_odsotnost_2024_Z-1.pdf) were checked. The supplied wording and default of 26 working days remain unchanged pending a verifiable source.

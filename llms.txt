@@ -18,6 +18,8 @@ StepUp NEO podpira hrbet pri dvigovanju in delu v predklonu. Tehta 3,6 kg, deluj
 - [Vprašanja](https://kordex.org/sl/vprasanja/): vprašanja in odgovori.
 - [Viri](https://kordex.org/sl/viri/): viri navedb in številk.
 
+- [Izračun](https://kordex.org/sl/izracun/): izračun stroška odsotnosti zaradi bolečin v hrbtu in cene StepUp NEO.
+
 ## Kontakt
 
 - E-pošta: enquiries@kordex.org

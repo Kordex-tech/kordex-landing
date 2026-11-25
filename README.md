@@ -34,7 +34,7 @@ budget and pilot survey fields as `not_asked`; the handlers retain its optional
 `CONTACT_WEBHOOK_URL` is configured. The page remains `noindex` while under review.
 
 Edit StepUp NEO prices only in `landing-sl/prices.json`. Run
-`npm run build:stepup` to refresh the static HTML, JSON-LD and `llms.txt`, then
+`npm run build:stepup` to refresh the static HTML, calculator price JSON, JSON-LD and `llms.txt`, then
 commit those generated files. `npm run check:stepup` verifies that they match.
 Netlify runs the build for every preview deploy. The preview uses `robots.txt`
 (`Disallow: /`) and every StepUp page has `noindex` in its HTML.

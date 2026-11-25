@@ -24,6 +24,7 @@ if (prices.currency !== 'EUR' || prices.vatIncluded !== false ||
 const [first, second, third] = prices.purchase;
 const fourTotal = first.eur * 4;
 const dailyCeiling = Math.floor(fourTotal / (4 * 2 * 230)) + 1;
+const exampleCaseCost = 26 * 0.8 * (2681 / 21) * 1.161 + 26 * 8 * 29.7;
 const values = {
   'tier-1': euro(first.eur),
   'tier-20': euro(second.eur),
@@ -32,16 +33,21 @@ const values = {
   'daily-ceiling': euro(dailyCeiling),
   'rental-week': euro(prices.rentalWeeklyEur),
   'rental-min': euro(prices.rentalWeeklyEur * prices.rentalMinimumWeeks),
-  assessment: euro(prices.assessmentEur)
+  assessment: euro(prices.assessmentEur),
+  'calc-unit-four': `4 × ${euro(first.eur)}`,
+  'calc-four-rent': euro(4 * prices.rentalWeeklyEur * prices.rentalMinimumWeeks),
+  'calc-day-four': `≈ ${String((first.eur / (2 * 220)).toFixed(2)).replace('.', ',')} € na delovni dan na delavca`,
+  'calc-cases-four': (fourTotal / exampleCaseCost).toFixed(1).replace('.', ','),
+  'calc-price-list': `Nakup: ${euro(first.eur)} na kos (1–19), ${euro(second.eur)} (od 20), ${euro(third.eur)} (od 50). Najem: ${euro(prices.rentalWeeklyEur)} na teden na eksoskelet, najmanj ${prices.rentalMinimumWeeks} tednov.`
 };
 
 function replacePriceMarkers(html, file) {
   let count = 0;
-  const result = html.replace(/<(dd|strong|span) data-price="([a-z0-9-]+)">[^<]*<\/\1>/g,
-    (match, tag, key) => {
+  const result = html.replace(/<(dd|strong|span|p|b|li)\b([^>]*\bdata-price="([a-z0-9-]+)"[^>]*)>[^<]*<\/\1>/g,
+    (match, tag, attributes, key) => {
       if (!(key in values)) throw new Error(`Unknown price marker ${key} in ${file}`);
       count++;
-      return `<${tag} data-price="${key}">${values[key]}</${tag}>`;
+      return `<${tag}${attributes}>${values[key]}</${tag}>`;
     });
   if (!count) throw new Error(`No price markers found in ${file}`);
   return result;
@@ -128,12 +134,26 @@ function update(file, output) {
   console.log(`Updated ${file}`);
 }
 
-for (const file of ['landing-sl/index.html', 'sl/vprasanja/index.html', 'sl/viri/index.html']) {
+function updateCalculatorPriceJson(html) {
+  const json = JSON.stringify({
+    currency: prices.currency,
+    vatIncluded: prices.vatIncluded,
+    buy: prices.purchase.map(tier => ({ from: tier.min, price: tier.eur })),
+    rentWeek: prices.rentalWeeklyEur,
+    rentMinWeeks: prices.rentalMinimumWeeks
+  });
+  const pattern = /(<script type="application\/json" id="kordex-prices">)[\s\S]*?(<\/script>)/;
+  if (!pattern.test(html)) throw new Error('Calculator price JSON missing');
+  return html.replace(pattern, `$1\n    ${json}\n  $2`);
+}
+
+for (const file of ['landing-sl/index.html', 'landing-sl/izracun/index.html', 'sl/vprasanja/index.html', 'sl/viri/index.html']) {
   const current = readFileSync(resolve(root, file), 'utf8');
   let next = replacePriceMarkers(current, file);
   if (file === 'landing-sl/index.html') next = updateJsonLd(next);
+  if (file === 'landing-sl/izracun/index.html') next = updateCalculatorPriceJson(next);
   update(file, next);
 }
 
 const llms = `# KORDEX — StepUp NEO\n\n> KORDEX d.o.o. v Sloveniji predstavlja, prodaja in oddaja v najem pasivni eksoskelet StepUp NEO proizvajalca FRT Robotics Co., Ltd.\n\nStepUp NEO podpira hrbet pri dvigovanju in delu v predklonu. Tehta 3,6 kg, deluje brez baterije in ima ravni pomoči 10, 12 ali 14 kgf. Ni medicinski pripomoček in ne zdravi. Primernost in učinek ocenimo na dejanskem delu pri stranki.\n\n## Cene brez DDV\n\n- Nakup 1–19 kosov: ${euro(first.eur)} na kos.\n- Nakup od 20 kosov: ${euro(second.eur)} na kos.\n- Nakup od 50 kosov: ${euro(third.eur)} na kos.\n- Najem: ${euro(prices.rentalWeeklyEur)} na teden na eksoskelet; najmanj ${prices.rentalMinimumWeeks} tednov (${euro(prices.rentalWeeklyEur * prices.rentalMinimumWeeks)}).\n\n## Strani\n\n- [StepUp NEO](${canonical}stepup-neo/): značilnosti, uporaba in omejitve.\n- [Zakon](${canonical}zakon/): ročno premeščanje bremen in ocena tveganja.\n- [Vprašanja](${canonical}vprasanja/): vprašanja in odgovori.\n- [Viri](${canonical}viri/): viri navedb in številk.\n\n## Kontakt\n\n- E-pošta: enquiries@kordex.org\n- [Brezplačna predstavitev](${canonical}): pokažite nam delo.\n`;
-update('llms.txt', llms);
+update('llms.txt', llms.replace('## Kontakt', `- [Izračun](${canonical}izracun/): izračun stroška odsotnosti zaradi bolečin v hrbtu in cene StepUp NEO.\n\n## Kontakt`));
